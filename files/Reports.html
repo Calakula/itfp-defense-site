@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reports.cs · ITFP Final — Courier Delivery Quotes</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var l=localStorage.getItem('lang');if(l)document.documentElement.lang=l;var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head><body><div class="layout"><aside><a class="brand" href="../index.html">ITFP Final · Defense<small>Courier Delivery Quotes and Dispatch</small></a><a href="../index.html"><span class="t" data-l="kk">Басты бет</span><span class="t" data-l="ru">Главная</span><span class="t" data-l="en">Home</span></a><a href="../tech.html"><span class="t" data-l="kk">Технологиялар мен командалар</span><span class="t" data-l="ru">Технологии и команды</span><span class="t" data-l="en">Technologies &amp; commands</span></a><a href="../defense.html"><span class="t" data-l="kk">Қорғаудағы сұрақтар</span><span class="t" data-l="ru">Вопросы на защите</span><span class="t" data-l="en">Defense Q&amp;A</span></a><a href="../tests.html"><span class="t" data-l="kk">Тесттер</span><span class="t" data-l="ru">Тесты</span><span class="t" data-l="en">Tests</span></a><h4><span class="t" data-l="kk">Жоба файлдары</span><span class="t" data-l="ru">Файлы проекта</span><span class="t" data-l="en">Project files</span></h4><label style="display:block;padding:2px 8px;font-size:13px"><input type="checkbox" id="mine"> <span class="t" data-l="kk">Тек менің файлдарым</span><span class="t" data-l="ru">Только мои файлы</span><span class="t" data-l="en">Only my files</span></label><h4><span class="t" data-l="kk">Негіз: Result / Option</span><span class="t" data-l="ru">Основа: Result / Option</span><span class="t" data-l="en">Foundation: Result / Option</span></h4><a href="Result.html" data-owner="A">Result.cs</a><a href="Option.html" data-owner="A">Option.cs</a><a href="Error.html" data-owner="A">Error.cs</a><a href="ResultExtensions.html" data-owner="A">ResultExtensions.cs</a><a href="Extensions.html" data-owner="A">Extensions.cs</a><h4><span class="t" data-l="kk">Модельдер және валидация</span><span class="t" data-l="ru">Модели и валидация</span><span class="t" data-l="en">Models &amp; validation</span></h4><a href="Models.html" data-owner="S">Models.cs</a><a href="DeliveryRequest.html" data-owner="A">DeliveryRequest.cs</a><a href="RequestValidation.html" data-owner="A">RequestValidation.cs</a><a href="RequestParser.html" data-owner="A">RequestParser.cs</a><a href="Courier.html" data-owner="A">Courier.cs</a><a href="DiscountTable.html" data-owner="A">DiscountTable.cs</a><h4><span class="t" data-l="kk">Күйлер және қауіпсіз реттілік</span><span class="t" data-l="ru">Состояния и безопасный порядок</span><span class="t" data-l="en">States &amp; safe sequence</span></h4><a href="OrderState.html" data-owner="N">OrderState.cs</a><a href="TransitionResult.html" data-owner="N">TransitionResult.cs</a><a href="OrderWorkflow.html" data-owner="N">OrderWorkflow.cs</a><a href="OrderBook.html" data-owner="R">OrderBook.cs<span class="me" title="Ravil"></span></a><a href="OrderProcessor.html" data-owner="R">OrderProcessor.cs<span class="me" title="Ravil"></span></a><a href="OrderService.html" data-owner="R">OrderService.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Пайплайн және саясаттар</span><span class="t" data-l="ru">Пайплайн и политики</span><span class="t" data-l="en">Pipeline &amp; policies</span></h4><a href="PipelineStages.Common.html" data-owner="S">PipelineStages.Common.cs</a><a href="PipelineStages.Stage1Select.html" data-owner="N">PipelineStages.Stage1Select.cs</a><a href="PipelineStages.Stage2Price.html" data-owner="N">PipelineStages.Stage2Price.cs</a><a href="PipelineStages.Stage3Summary.html" data-owner="R">PipelineStages.Stage3Summary.cs<span class="me" title="Ravil"></span></a><a href="DeliveryPipeline.html" data-owner="R">DeliveryPipeline.cs<span class="me" title="Ravil"></span></a><a href="PricingPolicies.html" data-owner="N">PricingPolicies.cs</a><a href="Scoring.html" data-owner="A">Scoring.cs</a><h4><span class="t" data-l="kk">Есептер және жалқау есептеу</span><span class="t" data-l="ru">Отчёты и ленивость</span><span class="t" data-l="en">Reports &amp; laziness</span></h4><a href="Reports.html" class="cur" data-owner="N">Reports.cs</a><a href="QuoteStream.html" data-owner="N">QuoteStream.cs</a><a href="LineStreaming.html" data-owner="N">LineStreaming.cs</a><a href="QuoteWorkflow.html" data-owner="A">QuoteWorkflow.cs</a><a href="ReportingWorkflow.html" data-owner="R">ReportingWorkflow.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Курьерлерді тағайындау</span><span class="t" data-l="ru">Назначение курьеров</span><span class="t" data-l="en">Courier assignment</span></h4><a href="Assignment.html" data-owner="N">Assignment.cs</a><a href="AssignmentWorkflow.html" data-owner="R">AssignmentWorkflow.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Файл шекаралары</span><span class="t" data-l="ru">Файлы (границы)</span><span class="t" data-l="en">File boundaries</span></h4><a href="DataLoader.html" data-owner="N">DataLoader.cs</a><a href="ReportExporter.html" data-owner="N">ReportExporter.cs</a><h4><span class="t" data-l="kk">Native C кітапханасы</span><span class="t" data-l="ru">Нативная C-библиотека</span><span class="t" data-l="en">Native C library</span></h4><a href="NativeMethods.html" data-owner="R">NativeMethods.cs<span class="me" title="Ravil"></span></a><a href="NativeEffortCalculator.html" data-owner="R">NativeEffortCalculator.cs<span class="me" title="Ravil"></span></a><a href="deliveryscore_h.html" data-owner="R">deliveryscore.h<span class="me" title="Ravil"></span></a><a href="deliveryscore_c.html" data-owner="R">deliveryscore.c<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Консольдік қосымша</span><span class="t" data-l="ru">Консольное приложение</span><span class="t" data-l="en">Console app</span></h4><a href="Program.html" data-owner="R">Program.cs<span class="me" title="Ravil"></span></a></aside><main>
+<div class="top"><button class="btn menu" id="menu" aria-label="menu">☰</button><span class="grow"></span><button class="btn" id="theme" title="theme">◐</button><div class="seg" role="group" aria-label="language"><button data-setlang="kk" aria-pressed="false">KK</button><button data-setlang="ru" aria-pressed="false">RU</button><button data-setlang="en" aria-pressed="false">EN</button></div></div>
+<div class="wrap"><h1 class="mono" style="font-size:26px">Reports.cs</h1><p><span class="pill mono">src/DeliveryQuotes.Core/Reports.cs</span><span class="pill">78 <span class="t" data-l="kk">жол</span><span class="t" data-l="ru">строк</span><span class="t" data-l="en">lines</span></span><span class="pill"><span class="t" data-l="kk">Авторы</span><span class="t" data-l="ru">Автор</span><span class="t" data-l="en">Owner</span>: Neda Farhat</span><span class="pill"><span class="t" data-l="kk">Есептер және жалқау есептеу</span><span class="t" data-l="ru">Отчёты и ленивость</span><span class="t" data-l="en">Reports &amp; laziness</span></span></p><h2><span class="t" data-l="kk">Файл не үшін керек</span><span class="t" data-l="ru">Зачем нужен файл</span><span class="t" data-l="en">What this file is for</span></h2><div class="card"><div class="t" data-l="kk">Екі LINQ есебі: <strong>Dispatch list</strong> (сүзгі, проекция, tie-break-пен сұрыптау) және <strong>Customer workload</strong> (GroupBy + агрегаттар).</div><div class="t" data-l="ru">Два LINQ-отчёта: <strong>Dispatch list</strong> (фильтр, проекция, сортировка с tie-break) и <strong>Customer workload</strong> (GroupBy + агрегаты).</div><div class="t" data-l="en">Two LINQ reports: <strong>Dispatch list</strong> (filter, projection, ordering with tie-break) and <strong>Customer workload</strong> (GroupBy + aggregates).</div></div><div class="tip"><b><span class="t" data-l="kk">Қорғауда не айту керек</span><span class="t" data-l="ru">Что сказать на защите</span><span class="t" data-l="en">What to say at the defense</span>.</b> <span class="t" data-l="kk">PDF бойынша: сүзу (<code>Where</code>), проекция (<code>Select</code>), сұрыптау + tie-breaker, топтау (<code>GroupBy</code>), агрегация (<code>Sum/Count/Aggregate</code>) — бәрі осында.</span><span class="t" data-l="ru">Перечисли из PDF: filtering (<code>Where</code>), projection (<code>Select</code>), ordering+tie-breaker (<code>OrderBy...ThenBy</code>), grouping (<code>GroupBy</code>), aggregation (<code>Sum/Count/Aggregate</code>) — всё здесь.</span><span class="t" data-l="en">From the PDF: filtering (<code>Where</code>), projection (<code>Select</code>), ordering + tie-breaker, grouping (<code>GroupBy</code>), aggregation (<code>Sum/Count/Aggregate</code>) — all here.</span></div><h2><span class="t" data-l="kk">Толық код</span><span class="t" data-l="ru">Полный код</span><span class="t" data-l="en">Full code</span></h2><div class="codebox full"><div class="cb-head"><span class="mono">src/DeliveryQuotes.Core/Reports.cs</span><button class="btn" data-toggle aria-expanded="false"><span class="t" data-l="kk">Ашу / жасыру</span><span class="t" data-l="ru">Развернуть / свернуть</span><span class="t" data-l="en">Expand / collapse</span></button></div><div class="scroll"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Immutable</span><span class="p">;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">DeliveryQuotes.Core</span><span class="p">;</span>
+
+<span class="c1">/// &lt;summary&gt;One row of the dispatch list.&lt;/summary&gt;</span>
+<span class="k">public</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">record</span><span class="w"> </span><span class="nf">DispatchLine</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">Rank</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Id</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Customer</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">DistanceKm</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">WeightKg</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">Price</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">Score</span><span class="p">);</span>
+
+<span class="c1">/// &lt;summary&gt;A request with its native effort points (input of the workload report).&lt;/summary&gt;</span>
+<span class="k">public</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">record</span><span class="w"> </span><span class="nf">EffortItem</span><span class="p">(</span><span class="n">DeliveryRequest</span><span class="w"> </span><span class="n">Request</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Points</span><span class="p">);</span>
+
+<span class="c1">/// &lt;summary&gt;One row of the customer workload report.&lt;/summary&gt;</span>
+<span class="k">public</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">record</span><span class="w"> </span><span class="nf">WorkloadLine</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">Customer</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Orders</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">TotalKm</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">TotalPoints</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">HeaviestKg</span><span class="p">);</span>
+
+<span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// The two LINQ reports. Pure: they read only their arguments, never touch the console, files or the native library.</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Reports</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">    </span><span class="c1">/// REPORT 1 - Dispatch list.</span>
+<span class="w">    </span><span class="c1">/// Intended user: the dispatcher, to decide which deliveries go out first.</span>
+<span class="w">    </span><span class="c1">/// Input: validated requests (loaded from the orders file), a price policy and a configured score function.</span>
+<span class="w">    </span><span class="c1">/// Filter: only requests within the service limits.</span>
+<span class="w">    </span><span class="c1">/// Output fields: Rank, Id, Customer, DistanceKm, WeightKg, Price, Score.</span>
+<span class="w">    </span><span class="c1">/// Stages: Where (eligible) -&gt; lazy yield-return pricing -&gt; Select (add score) -&gt; OrderByDescending + ThenBy (score, then id)</span>
+<span class="w">    </span><span class="c1">///         -&gt; Select with index (rank) -&gt; ToImmutableArray (the one materialisation point).</span>
+<span class="w">    </span><span class="c1">/// Expected: higher score first; equal scores ordered by id; empty input or no eligible request gives an empty list.</span>
+<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">ImmutableArray</span><span class="o">&lt;</span><span class="n">DispatchLine</span><span class="o">&gt;</span><span class="w"> </span><span class="n">DispatchList</span><span class="p">(</span>
+<span class="w">        </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">DeliveryRequest</span><span class="o">&gt;</span><span class="w"> </span><span class="n">requests</span><span class="p">,</span>
+<span class="w">        </span><span class="n">EligibilityRules</span><span class="w"> </span><span class="n">rules</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Func</span><span class="o">&lt;</span><span class="n">DeliveryRequest</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">policy</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Func</span><span class="o">&lt;</span><span class="n">DeliveryRequest</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">score</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">requests</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">rules</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">policy</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">score</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">QuoteStream</span><span class="p">.</span><span class="n">PriceLines</span><span class="p">(</span><span class="n">requests</span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">rules</span><span class="p">.</span><span class="n">Allows</span><span class="p">),</span><span class="w"> </span><span class="n">policy</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">line</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">Line</span><span class="p">:</span><span class="w"> </span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="n">Score</span><span class="p">:</span><span class="w"> </span><span class="n">score</span><span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">Request</span><span class="p">)))</span>
+<span class="w">            </span><span class="p">.</span><span class="n">OrderByDescendingThenById</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">Score</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">Line</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">Id</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">Select</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DispatchLine</span><span class="p">(</span>
+<span class="w">                </span><span class="n">index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">                </span><span class="n">x</span><span class="p">.</span><span class="n">Line</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span>
+<span class="w">                </span><span class="n">x</span><span class="p">.</span><span class="n">Line</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">Customer</span><span class="p">,</span>
+<span class="w">                </span><span class="n">x</span><span class="p">.</span><span class="n">Line</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">DistanceKm</span><span class="p">,</span>
+<span class="w">                </span><span class="n">x</span><span class="p">.</span><span class="n">Line</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">WeightKg</span><span class="p">,</span>
+<span class="w">                </span><span class="n">x</span><span class="p">.</span><span class="n">Line</span><span class="p">.</span><span class="n">Price</span><span class="p">,</span>
+<span class="w">                </span><span class="n">x</span><span class="p">.</span><span class="n">Score</span><span class="p">))</span>
+<span class="w">            </span><span class="p">.</span><span class="n">ToImmutableArray</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">    </span><span class="c1">/// REPORT 2 - Customer workload.</span>
+<span class="w">    </span><span class="c1">/// Intended user: the planner, to see how much courier effort each customer needs.</span>
+<span class="w">    </span><span class="c1">/// Input: requests together with their effort points (the points come from the native library, calculated before this report).</span>
+<span class="w">    </span><span class="c1">/// Filter: none here (the caller passes the eligible requests).</span>
+<span class="w">    </span><span class="c1">/// Output fields: Customer, Orders (Count), TotalKm (Sum), TotalPoints (Sum), HeaviestKg (Aggregate).</span>
+<span class="w">    </span><span class="c1">/// Stages: GroupBy customer (case-insensitive) -&gt; Select (Count, Sum, Aggregate) -&gt; OrderByDescending + ThenBy (points, then name).</span>
+<span class="w">    </span><span class="c1">/// Expected: the customer with most points first; equal points ordered by customer name; empty input gives an empty report.</span>
+<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">ImmutableArray</span><span class="o">&lt;</span><span class="n">WorkloadLine</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CustomerWorkload</span><span class="p">(</span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">EffortItem</span><span class="o">&gt;</span><span class="w"> </span><span class="n">items</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">items</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">items</span>
+<span class="w">            </span><span class="p">.</span><span class="n">GroupBy</span><span class="p">(</span><span class="n">item</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">Customer</span><span class="p">,</span><span class="w"> </span><span class="n">StringComparer</span><span class="p">.</span><span class="n">OrdinalIgnoreCase</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="k">group</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">WorkloadLine</span><span class="p">(</span>
+<span class="w">                </span><span class="k">group</span><span class="p">.</span><span class="n">Key</span><span class="p">,</span>
+<span class="w">                </span><span class="k">group</span><span class="p">.</span><span class="n">Count</span><span class="p">(),</span>
+<span class="w">                </span><span class="k">group</span><span class="p">.</span><span class="n">Sum</span><span class="p">(</span><span class="n">item</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">DistanceKm</span><span class="p">),</span>
+<span class="w">                </span><span class="k">group</span><span class="p">.</span><span class="n">Sum</span><span class="p">(</span><span class="n">item</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="n">Points</span><span class="p">),</span>
+<span class="w">                </span><span class="k">group</span><span class="p">.</span><span class="n">Aggregate</span><span class="p">(</span><span class="mf">0m</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">heaviest</span><span class="p">,</span><span class="w"> </span><span class="n">item</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">Max</span><span class="p">(</span><span class="n">heaviest</span><span class="p">,</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">WeightKg</span><span class="p">))))</span>
+<span class="w">            </span><span class="p">.</span><span class="n">OrderByDescendingThenById</span><span class="p">(</span><span class="n">line</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">line</span><span class="p">.</span><span class="n">TotalPoints</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">line</span><span class="p">.</span><span class="n">Customer</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">ToImmutableArray</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div></div><h2><span class="t" data-l="kk">Блоктар және жолдар бойынша талдау</span><span class="t" data-l="ru">Разбор по блокам и строкам</span><span class="t" data-l="en">Block-by-block breakdown</span></h2><section class="blk" id="L6"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 6–12</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">record</span><span class="w"> </span><span class="nf">DispatchLine</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">Rank</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Id</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Customer</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">DistanceKm</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">WeightKg</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">Price</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">Score</span><span class="p">);</span>
+
+<span class="c1">/// &lt;summary&gt;A request with its native effort points (input of the workload report).&lt;/summary&gt;</span>
+<span class="k">public</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">record</span><span class="w"> </span><span class="nf">EffortItem</span><span class="p">(</span><span class="n">DeliveryRequest</span><span class="w"> </span><span class="n">Request</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Points</span><span class="p">);</span>
+
+<span class="c1">/// &lt;summary&gt;One row of the customer workload report.&lt;/summary&gt;</span>
+<span class="k">public</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">record</span><span class="w"> </span><span class="nf">WorkloadLine</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">Customer</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Orders</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">TotalKm</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">TotalPoints</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">HeaviestKg</span><span class="p">);</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk">Нәтиже жазбалары: <code>DispatchLine</code>, <code>EffortItem</code> (өтінім + native ұпайлары), <code>WorkloadLine</code>.</div><div class="t" data-l="ru">Записи результата: <code>DispatchLine</code>, <code>EffortItem</code> (заявка + очки из native), <code>WorkloadLine</code>.</div><div class="t" data-l="en">Result records: <code>DispatchLine</code>, <code>EffortItem</code> (request + native points), <code>WorkloadLine</code>.</div></div></section><section class="blk" id="L17"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 17–52</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Reports</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">    </span><span class="c1">/// REPORT 1 - Dispatch list.</span>
+<span class="w">    </span><span class="c1">/// Intended user: the dispatcher, to decide which deliveries go out first.</span>
+<span class="w">    </span><span class="c1">/// Input: validated requests (loaded from the orders file), a price policy and a configured score function.</span>
+<span class="w">    </span><span class="c1">/// Filter: only requests within the service limits.</span>
+<span class="w">    </span><span class="c1">/// Output fields: Rank, Id, Customer, DistanceKm, WeightKg, Price, Score.</span>
+<span class="w">    </span><span class="c1">/// Stages: Where (eligible) -&gt; lazy yield-return pricing -&gt; Select (add score) -&gt; OrderByDescending + ThenBy (score, then id)</span>
+<span class="w">    </span><span class="c1">///         -&gt; Select with index (rank) -&gt; ToImmutableArray (the one materialisation point).</span>
+<span class="w">    </span><span class="c1">/// Expected: higher score first; equal scores ordered by id; empty input or no eligible request gives an empty list.</span>
+<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">ImmutableArray</span><span class="o">&lt;</span><span class="n">DispatchLine</span><span class="o">&gt;</span><span class="w"> </span><span class="n">DispatchList</span><span class="p">(</span>
+<span class="w">        </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">DeliveryRequest</span><span class="o">&gt;</span><span class="w"> </span><span class="n">requests</span><span class="p">,</span>
+<span class="w">        </span><span class="n">EligibilityRules</span><span class="w"> </span><span class="n">rules</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Func</span><span class="o">&lt;</span><span class="n">DeliveryRequest</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">policy</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Func</span><span class="o">&lt;</span><span class="n">DeliveryRequest</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">score</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">requests</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">rules</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">policy</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">score</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">QuoteStream</span><span class="p">.</span><span class="n">PriceLines</span><span class="p">(</span><span class="n">requests</span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">rules</span><span class="p">.</span><span class="n">Allows</span><span class="p">),</span><span class="w"> </span><span class="n">policy</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">line</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">Line</span><span class="p">:</span><span class="w"> </span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="n">Score</span><span class="p">:</span><span class="w"> </span><span class="n">score</span><span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">Request</span><span class="p">)))</span>
+<span class="w">            </span><span class="p">.</span><span class="n">OrderByDescendingThenById</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">Score</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">Line</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">Id</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">Select</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DispatchLine</span><span class="p">(</span>
+<span class="w">                </span><span class="n">index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">                </span><span class="n">x</span><span class="p">.</span><span class="n">Line</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span>
+<span class="w">                </span><span class="n">x</span><span class="p">.</span><span class="n">Line</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">Customer</span><span class="p">,</span>
+<span class="w">                </span><span class="n">x</span><span class="p">.</span><span class="n">Line</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">DistanceKm</span><span class="p">,</span>
+<span class="w">                </span><span class="n">x</span><span class="p">.</span><span class="n">Line</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">WeightKg</span><span class="p">,</span>
+<span class="w">                </span><span class="n">x</span><span class="p">.</span><span class="n">Line</span><span class="p">.</span><span class="n">Price</span><span class="p">,</span>
+<span class="w">                </span><span class="n">x</span><span class="p">.</span><span class="n">Score</span><span class="p">))</span>
+<span class="w">            </span><span class="p">.</span><span class="n">ToImmutableArray</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>DispatchList</code>: <code>Where(rules.Allows)</code> → <strong>жалқау</strong> <code>QuoteStream.PriceLines</code> → <code>Select</code> (баға) → <code>OrderByDescendingThenById</code> (extension) → <code>Select((x, index) =&gt; ...)</code> (орын) → <strong>бір</strong> материализация <code>ToImmutableArray</code>.</div><div class="t" data-l="ru"><code>DispatchList</code>: <code>Where(rules.Allows)</code> → <strong>ленивый</strong> <code>QuoteStream.PriceLines</code> → <code>Select</code> (оценка) → <code>OrderByDescendingThenById</code> (extension) → <code>Select((x, index) =&gt; ...)</code> (ранг) → <strong>одна</strong> материализация <code>ToImmutableArray</code>.</div><div class="t" data-l="en"><code>DispatchList</code>: <code>Where(rules.Allows)</code> → <strong>lazy</strong> <code>QuoteStream.PriceLines</code> → <code>Select</code> (score) → <code>OrderByDescendingThenById</code> (extension) → <code>Select((x, index) =&gt; ...)</code> (rank) → <strong>one</strong> materialisation <code>ToImmutableArray</code>.</div></div></section><section class="blk" id="L53"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 53–78</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">    </span><span class="c1">/// REPORT 2 - Customer workload.</span>
+<span class="w">    </span><span class="c1">/// Intended user: the planner, to see how much courier effort each customer needs.</span>
+<span class="w">    </span><span class="c1">/// Input: requests together with their effort points (the points come from the native library, calculated before this report).</span>
+<span class="w">    </span><span class="c1">/// Filter: none here (the caller passes the eligible requests).</span>
+<span class="w">    </span><span class="c1">/// Output fields: Customer, Orders (Count), TotalKm (Sum), TotalPoints (Sum), HeaviestKg (Aggregate).</span>
+<span class="w">    </span><span class="c1">/// Stages: GroupBy customer (case-insensitive) -&gt; Select (Count, Sum, Aggregate) -&gt; OrderByDescending + ThenBy (points, then name).</span>
+<span class="w">    </span><span class="c1">/// Expected: the customer with most points first; equal points ordered by customer name; empty input gives an empty report.</span>
+<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">ImmutableArray</span><span class="o">&lt;</span><span class="n">WorkloadLine</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CustomerWorkload</span><span class="p">(</span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">EffortItem</span><span class="o">&gt;</span><span class="w"> </span><span class="n">items</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">items</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">items</span>
+<span class="w">            </span><span class="p">.</span><span class="n">GroupBy</span><span class="p">(</span><span class="n">item</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">Customer</span><span class="p">,</span><span class="w"> </span><span class="n">StringComparer</span><span class="p">.</span><span class="n">OrdinalIgnoreCase</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="k">group</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">WorkloadLine</span><span class="p">(</span>
+<span class="w">                </span><span class="k">group</span><span class="p">.</span><span class="n">Key</span><span class="p">,</span>
+<span class="w">                </span><span class="k">group</span><span class="p">.</span><span class="n">Count</span><span class="p">(),</span>
+<span class="w">                </span><span class="k">group</span><span class="p">.</span><span class="n">Sum</span><span class="p">(</span><span class="n">item</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">DistanceKm</span><span class="p">),</span>
+<span class="w">                </span><span class="k">group</span><span class="p">.</span><span class="n">Sum</span><span class="p">(</span><span class="n">item</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="n">Points</span><span class="p">),</span>
+<span class="w">                </span><span class="k">group</span><span class="p">.</span><span class="n">Aggregate</span><span class="p">(</span><span class="mf">0m</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">heaviest</span><span class="p">,</span><span class="w"> </span><span class="n">item</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">Max</span><span class="p">(</span><span class="n">heaviest</span><span class="p">,</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">WeightKg</span><span class="p">))))</span>
+<span class="w">            </span><span class="p">.</span><span class="n">OrderByDescendingThenById</span><span class="p">(</span><span class="n">line</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">line</span><span class="p">.</span><span class="n">TotalPoints</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">line</span><span class="p">.</span><span class="n">Customer</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">ToImmutableArray</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>CustomerWorkload</code>: <code>GroupBy(customer)</code> → топқа <code>Count</code>, <code>Sum</code> (км), <code>Sum</code> (ұпай), <code>Aggregate</code> (ең ауыр салмақ) → ұпай бойынша аты бойынша tie-break-пен сұрыптау.</div><div class="t" data-l="ru"><code>CustomerWorkload</code>: <code>GroupBy(customer)</code> → на группу <code>Count</code>, <code>Sum</code> (км), <code>Sum</code> (очки), <code>Aggregate</code> (самый тяжёлый вес) → сортировка по очкам с tie-break по имени. Используются и <code>GroupBy</code>, и агрегаты.</div><div class="t" data-l="en"><code>CustomerWorkload</code>: <code>GroupBy(customer)</code> → per group <code>Count</code>, <code>Sum</code> (km), <code>Sum</code> (points), <code>Aggregate</code> (heaviest weight) → ordering by points with a name tie-break. Both <code>GroupBy</code> and aggregates are used.</div></div></section><div class="nav2"><a href="Scoring.html"><small>← <span class="t" data-l="kk">Алдыңғы</span><span class="t" data-l="ru">Назад</span><span class="t" data-l="en">Previous</span></small>Scoring.cs</a><a href="QuoteStream.html" style="text-align:right"><small><span class="t" data-l="kk">Келесі</span><span class="t" data-l="ru">Дальше</span><span class="t" data-l="en">Next</span> →</small>QuoteStream.cs</a></div></div></main></div><script src="../assets/app.js"></script></body></html>

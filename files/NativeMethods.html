@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NativeMethods.cs · ITFP Final — Courier Delivery Quotes</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var l=localStorage.getItem('lang');if(l)document.documentElement.lang=l;var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head><body><div class="layout"><aside><a class="brand" href="../index.html">ITFP Final · Defense<small>Courier Delivery Quotes and Dispatch</small></a><a href="../index.html"><span class="t" data-l="kk">Басты бет</span><span class="t" data-l="ru">Главная</span><span class="t" data-l="en">Home</span></a><a href="../tech.html"><span class="t" data-l="kk">Технологиялар мен командалар</span><span class="t" data-l="ru">Технологии и команды</span><span class="t" data-l="en">Technologies &amp; commands</span></a><a href="../defense.html"><span class="t" data-l="kk">Қорғаудағы сұрақтар</span><span class="t" data-l="ru">Вопросы на защите</span><span class="t" data-l="en">Defense Q&amp;A</span></a><a href="../tests.html"><span class="t" data-l="kk">Тесттер</span><span class="t" data-l="ru">Тесты</span><span class="t" data-l="en">Tests</span></a><h4><span class="t" data-l="kk">Жоба файлдары</span><span class="t" data-l="ru">Файлы проекта</span><span class="t" data-l="en">Project files</span></h4><label style="display:block;padding:2px 8px;font-size:13px"><input type="checkbox" id="mine"> <span class="t" data-l="kk">Тек менің файлдарым</span><span class="t" data-l="ru">Только мои файлы</span><span class="t" data-l="en">Only my files</span></label><h4><span class="t" data-l="kk">Негіз: Result / Option</span><span class="t" data-l="ru">Основа: Result / Option</span><span class="t" data-l="en">Foundation: Result / Option</span></h4><a href="Result.html" data-owner="A">Result.cs</a><a href="Option.html" data-owner="A">Option.cs</a><a href="Error.html" data-owner="A">Error.cs</a><a href="ResultExtensions.html" data-owner="A">ResultExtensions.cs</a><a href="Extensions.html" data-owner="A">Extensions.cs</a><h4><span class="t" data-l="kk">Модельдер және валидация</span><span class="t" data-l="ru">Модели и валидация</span><span class="t" data-l="en">Models &amp; validation</span></h4><a href="Models.html" data-owner="S">Models.cs</a><a href="DeliveryRequest.html" data-owner="A">DeliveryRequest.cs</a><a href="RequestValidation.html" data-owner="A">RequestValidation.cs</a><a href="RequestParser.html" data-owner="A">RequestParser.cs</a><a href="Courier.html" data-owner="A">Courier.cs</a><a href="DiscountTable.html" data-owner="A">DiscountTable.cs</a><h4><span class="t" data-l="kk">Күйлер және қауіпсіз реттілік</span><span class="t" data-l="ru">Состояния и безопасный порядок</span><span class="t" data-l="en">States &amp; safe sequence</span></h4><a href="OrderState.html" data-owner="N">OrderState.cs</a><a href="TransitionResult.html" data-owner="N">TransitionResult.cs</a><a href="OrderWorkflow.html" data-owner="N">OrderWorkflow.cs</a><a href="OrderBook.html" data-owner="R">OrderBook.cs<span class="me" title="Ravil"></span></a><a href="OrderProcessor.html" data-owner="R">OrderProcessor.cs<span class="me" title="Ravil"></span></a><a href="OrderService.html" data-owner="R">OrderService.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Пайплайн және саясаттар</span><span class="t" data-l="ru">Пайплайн и политики</span><span class="t" data-l="en">Pipeline &amp; policies</span></h4><a href="PipelineStages.Common.html" data-owner="S">PipelineStages.Common.cs</a><a href="PipelineStages.Stage1Select.html" data-owner="N">PipelineStages.Stage1Select.cs</a><a href="PipelineStages.Stage2Price.html" data-owner="N">PipelineStages.Stage2Price.cs</a><a href="PipelineStages.Stage3Summary.html" data-owner="R">PipelineStages.Stage3Summary.cs<span class="me" title="Ravil"></span></a><a href="DeliveryPipeline.html" data-owner="R">DeliveryPipeline.cs<span class="me" title="Ravil"></span></a><a href="PricingPolicies.html" data-owner="N">PricingPolicies.cs</a><a href="Scoring.html" data-owner="A">Scoring.cs</a><h4><span class="t" data-l="kk">Есептер және жалқау есептеу</span><span class="t" data-l="ru">Отчёты и ленивость</span><span class="t" data-l="en">Reports &amp; laziness</span></h4><a href="Reports.html" data-owner="N">Reports.cs</a><a href="QuoteStream.html" data-owner="N">QuoteStream.cs</a><a href="LineStreaming.html" data-owner="N">LineStreaming.cs</a><a href="QuoteWorkflow.html" data-owner="A">QuoteWorkflow.cs</a><a href="ReportingWorkflow.html" data-owner="R">ReportingWorkflow.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Курьерлерді тағайындау</span><span class="t" data-l="ru">Назначение курьеров</span><span class="t" data-l="en">Courier assignment</span></h4><a href="Assignment.html" data-owner="N">Assignment.cs</a><a href="AssignmentWorkflow.html" data-owner="R">AssignmentWorkflow.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Файл шекаралары</span><span class="t" data-l="ru">Файлы (границы)</span><span class="t" data-l="en">File boundaries</span></h4><a href="DataLoader.html" data-owner="N">DataLoader.cs</a><a href="ReportExporter.html" data-owner="N">ReportExporter.cs</a><h4><span class="t" data-l="kk">Native C кітапханасы</span><span class="t" data-l="ru">Нативная C-библиотека</span><span class="t" data-l="en">Native C library</span></h4><a href="NativeMethods.html" class="cur" data-owner="R">NativeMethods.cs<span class="me" title="Ravil"></span></a><a href="NativeEffortCalculator.html" data-owner="R">NativeEffortCalculator.cs<span class="me" title="Ravil"></span></a><a href="deliveryscore_h.html" data-owner="R">deliveryscore.h<span class="me" title="Ravil"></span></a><a href="deliveryscore_c.html" data-owner="R">deliveryscore.c<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Консольдік қосымша</span><span class="t" data-l="ru">Консольное приложение</span><span class="t" data-l="en">Console app</span></h4><a href="Program.html" data-owner="R">Program.cs<span class="me" title="Ravil"></span></a></aside><main>
+<div class="top"><button class="btn menu" id="menu" aria-label="menu">☰</button><span class="grow"></span><button class="btn" id="theme" title="theme">◐</button><div class="seg" role="group" aria-label="language"><button data-setlang="kk" aria-pressed="false">KK</button><button data-setlang="ru" aria-pressed="false">RU</button><button data-setlang="en" aria-pressed="false">EN</button></div></div>
+<div class="wrap"><h1 class="mono" style="font-size:26px">NativeMethods.cs</h1><p><span class="pill mono">src/DeliveryQuotes.Core/NativeMethods.cs</span><span class="pill">74 <span class="t" data-l="kk">жол</span><span class="t" data-l="ru">строк</span><span class="t" data-l="en">lines</span></span><span class="pill me"><span class="t" data-l="kk">Авторы</span><span class="t" data-l="ru">Автор</span><span class="t" data-l="en">Owner</span>: Ravil Maratov ★ <span class="t" data-l="kk">сенің файлың</span><span class="t" data-l="ru">твой файл</span><span class="t" data-l="en">your file</span></span><span class="pill"><span class="t" data-l="kk">Native C кітапханасы</span><span class="t" data-l="ru">Нативная C-библиотека</span><span class="t" data-l="en">Native C library</span></span></p><h2><span class="t" data-l="kk">Файл не үшін керек</span><span class="t" data-l="ru">Зачем нужен файл</span><span class="t" data-l="en">What this file is for</span></h2><div class="card"><div class="t" data-l="kk">C кітапханасына <strong>P/Invoke</strong> (<code>DllImport</code>) арқылы төменгі деңгейлі байланыс және кітапхана файлын қажетті папкалардан іздейтін өз резолвері.</div><div class="t" data-l="ru">Низкоуровневая привязка к C-библиотеке через <strong>P/Invoke</strong> (<code>DllImport</code>) плюс собственный резолвер, который ищет файл библиотеки в нужных папках.</div><div class="t" data-l="en">Low-level binding to the C library via <strong>P/Invoke</strong> (<code>DllImport</code>) plus a custom resolver that finds the library file in the right folders.</div></div><div class="tip"><b><span class="t" data-l="kk">Қорғауда не айту керек</span><span class="t" data-l="ru">Что сказать на защите</span><span class="t" data-l="en">What to say at the defense</span>.</b> <span class="t" data-l="kk">№2 ақауды айт: қарапайым DllImport <code>runtimes/&lt;rid&gt;/native</code>-ті іздемеді; шешім — <code>SetDllImportResolver</code>.</span><span class="t" data-l="ru">Расскажи про дефект №2: обычный DllImport не искал в <code>runtimes/&lt;rid&gt;/native</code>; решение — <code>SetDllImportResolver</code>.</span><span class="t" data-l="en">Tell defect #2: a plain DllImport did not search <code>runtimes/&lt;rid&gt;/native</code>; the fix is <code>SetDllImportResolver</code>.</span></div><h2><span class="t" data-l="kk">Толық код</span><span class="t" data-l="ru">Полный код</span><span class="t" data-l="en">Full code</span></h2><div class="codebox full"><div class="cb-head"><span class="mono">src/DeliveryQuotes.Core/NativeMethods.cs</span><button class="btn" data-toggle aria-expanded="false"><span class="t" data-l="kk">Ашу / жасыру</span><span class="t" data-l="ru">Развернуть / свернуть</span><span class="t" data-l="en">Expand / collapse</span></button></div><div class="scroll"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System.Reflection</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Runtime.InteropServices</span><span class="p">;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">DeliveryQuotes.Core</span><span class="p">;</span>
+
+<span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// P/Invoke declaration of the C export "int32_t dq_load_points(int32_t, int32_t)" (native/include/deliveryscore.h)</span>
+<span class="c1">/// and the documented loading path of the library.</span>
+<span class="c1">///</span>
+<span class="c1">/// LOADING PATH. The default .NET probing only looks next to the application and in the framework folder, and does not</span>
+<span class="c1">/// search runtimes/&amp;lt;rid&amp;gt;/native for a project that is not a NuGet package. So a DllImport resolver is registered</span>
+<span class="c1">/// once for this assembly. It looks, in this order, for the platform file name (deliveryscore.dll, libdeliveryscore.so,</span>
+<span class="c1">/// libdeliveryscore.dylib) in:</span>
+<span class="c1">///   1. the folder named by the environment variable DQ_NATIVE_DIR (optional),</span>
+<span class="c1">///   2. runtimes/&amp;lt;rid&amp;gt;/native next to the application (win-x64, linux-x64, osx-arm64, ...),</span>
+<span class="c1">///   3. the application folder itself.</span>
+<span class="c1">/// If nothing is found, the resolver returns "not handled" and the runtime performs its default probing; the final</span>
+<span class="c1">/// DllNotFoundException is turned into a Result failure by &lt;see cref="NativeEffortCalculator"/&gt;.</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="k">internal</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">NativeMethods</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">internal</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">LibraryName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"deliveryscore"</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="nf">NativeMethods</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">NativeLibrary</span><span class="p">.</span><span class="n">SetDllImportResolver</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">NativeMethods</span><span class="p">).</span><span class="n">Assembly</span><span class="p">,</span><span class="w"> </span><span class="n">Resolve</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">[DllImport(LibraryName, EntryPoint = "dq_load_points", CallingConvention = CallingConvention.Cdecl)]</span>
+<span class="w">    </span><span class="k">internal</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">extern</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">LoadPoints</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">distanceMeters</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">weightGrams</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">IntPtr</span><span class="w"> </span><span class="nf">Resolve</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">libraryName</span><span class="p">,</span><span class="w"> </span><span class="n">Assembly</span><span class="w"> </span><span class="n">assembly</span><span class="p">,</span><span class="w"> </span><span class="n">DllImportSearchPath</span><span class="o">?</span><span class="w"> </span><span class="n">searchPath</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">libraryName</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">LibraryName</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">IntPtr</span><span class="p">.</span><span class="n">Zero</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">candidate</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">Candidates</span><span class="p">())</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">File</span><span class="p">.</span><span class="n">Exists</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">NativeLibrary</span><span class="p">.</span><span class="n">TryLoad</span><span class="p">(</span><span class="n">candidate</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">var</span><span class="w"> </span><span class="n">handle</span><span class="p">))</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">handle</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">IntPtr</span><span class="p">.</span><span class="n">Zero</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">internal</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Candidates</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FileName</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">overrideDirectory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Environment</span><span class="p">.</span><span class="n">GetEnvironmentVariable</span><span class="p">(</span><span class="s">"DQ_NATIVE_DIR"</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrWhiteSpace</span><span class="p">(</span><span class="n">overrideDirectory</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Path</span><span class="p">.</span><span class="n">Combine</span><span class="p">(</span><span class="n">overrideDirectory</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Path</span><span class="p">.</span><span class="n">Combine</span><span class="p">(</span><span class="n">AppContext</span><span class="p">.</span><span class="n">BaseDirectory</span><span class="p">,</span><span class="w"> </span><span class="s">"runtimes"</span><span class="p">,</span><span class="w"> </span><span class="n">RuntimeId</span><span class="p">(),</span><span class="w"> </span><span class="s">"native"</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="p">);</span>
+<span class="w">        </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Path</span><span class="p">.</span><span class="n">Combine</span><span class="p">(</span><span class="n">AppContext</span><span class="p">.</span><span class="n">BaseDirectory</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">FileName</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">OperatingSystem</span><span class="p">.</span><span class="n">IsWindows</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">"deliveryscore.dll"</span>
+<span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="n">OperatingSystem</span><span class="p">.</span><span class="n">IsMacOS</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">"libdeliveryscore.dylib"</span>
+<span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="s">"libdeliveryscore.so"</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">RuntimeId</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">os</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OperatingSystem</span><span class="p">.</span><span class="n">IsWindows</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">"win"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">OperatingSystem</span><span class="p">.</span><span class="n">IsMacOS</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">"osx"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">"linux"</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">architecture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RuntimeInformation</span><span class="p">.</span><span class="n">ProcessArchitecture</span><span class="p">.</span><span class="n">ToString</span><span class="p">().</span><span class="n">ToLowerInvariant</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">$"{os}-{architecture}"</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div></div><h2><span class="t" data-l="kk">Блоктар және жолдар бойынша талдау</span><span class="t" data-l="ru">Разбор по блокам и строкам</span><span class="t" data-l="en">Block-by-block breakdown</span></h2><section class="blk" id="L20"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 20–30</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">internal</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">NativeMethods</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">internal</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">LibraryName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"deliveryscore"</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="nf">NativeMethods</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">NativeLibrary</span><span class="p">.</span><span class="n">SetDllImportResolver</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">NativeMethods</span><span class="p">).</span><span class="n">Assembly</span><span class="p">,</span><span class="w"> </span><span class="n">Resolve</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">[DllImport(LibraryName, EntryPoint = "dq_load_points", CallingConvention = CallingConvention.Cdecl)]</span>
+<span class="w">    </span><span class="k">internal</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">extern</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">LoadPoints</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">distanceMeters</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">weightGrams</span><span class="p">);</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>internal static</code> класс. Статикалық конструктор <code>SetDllImportResolver</code> тіркейді. <code>[DllImport(...)] extern int LoadPoints(int, int)</code> — C функциясының сигнатурасы.</div><div class="t" data-l="ru"><code>internal static</code> класс. Статический конструктор регистрирует <code>SetDllImportResolver</code>. <code>[DllImport("deliveryscore", EntryPoint = "dq_load_points", CallingConvention = Cdecl)] extern int LoadPoints(int, int)</code> — сигнатура C-функции.</div><div class="t" data-l="en"><code>internal static</code> class. The static constructor registers <code>SetDllImportResolver</code>. <code>[DllImport("deliveryscore", EntryPoint = "dq_load_points", CallingConvention = Cdecl)] extern int LoadPoints(int, int)</code> is the C function’s signature.</div></div></section><section class="blk" id="L32"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 32–48</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">IntPtr</span><span class="w"> </span><span class="nf">Resolve</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">libraryName</span><span class="p">,</span><span class="w"> </span><span class="n">Assembly</span><span class="w"> </span><span class="n">assembly</span><span class="p">,</span><span class="w"> </span><span class="n">DllImportSearchPath</span><span class="o">?</span><span class="w"> </span><span class="n">searchPath</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">libraryName</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">LibraryName</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">IntPtr</span><span class="p">.</span><span class="n">Zero</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">candidate</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">Candidates</span><span class="p">())</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">File</span><span class="p">.</span><span class="n">Exists</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">NativeLibrary</span><span class="p">.</span><span class="n">TryLoad</span><span class="p">(</span><span class="n">candidate</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">var</span><span class="w"> </span><span class="n">handle</span><span class="p">))</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">handle</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">IntPtr</span><span class="p">.</span><span class="n">Zero</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>Resolve</code>: біздің кітапхана үшін әр үміткерді <code>NativeLibrary.TryLoad</code>-пен байқайды; табылмаса → <code>IntPtr.Zero</code> (сонда .NET <code>DllNotFoundException</code> шығарады).</div><div class="t" data-l="ru"><code>Resolve</code>: для нашей библиотеки перебирает кандидатов и пробует <code>NativeLibrary.TryLoad</code>; не нашли → <code>IntPtr.Zero</code> (тогда .NET выбросит <code>DllNotFoundException</code>).</div><div class="t" data-l="en"><code>Resolve</code>: for our library tries each candidate with <code>NativeLibrary.TryLoad</code>; not found → <code>IntPtr.Zero</code> (then .NET throws <code>DllNotFoundException</code>).</div></div></section><section class="blk" id="L50"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 50–73</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="k">internal</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Candidates</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FileName</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">overrideDirectory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Environment</span><span class="p">.</span><span class="n">GetEnvironmentVariable</span><span class="p">(</span><span class="s">"DQ_NATIVE_DIR"</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrWhiteSpace</span><span class="p">(</span><span class="n">overrideDirectory</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Path</span><span class="p">.</span><span class="n">Combine</span><span class="p">(</span><span class="n">overrideDirectory</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Path</span><span class="p">.</span><span class="n">Combine</span><span class="p">(</span><span class="n">AppContext</span><span class="p">.</span><span class="n">BaseDirectory</span><span class="p">,</span><span class="w"> </span><span class="s">"runtimes"</span><span class="p">,</span><span class="w"> </span><span class="n">RuntimeId</span><span class="p">(),</span><span class="w"> </span><span class="s">"native"</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="p">);</span>
+<span class="w">        </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Path</span><span class="p">.</span><span class="n">Combine</span><span class="p">(</span><span class="n">AppContext</span><span class="p">.</span><span class="n">BaseDirectory</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">FileName</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">OperatingSystem</span><span class="p">.</span><span class="n">IsWindows</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">"deliveryscore.dll"</span>
+<span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="n">OperatingSystem</span><span class="p">.</span><span class="n">IsMacOS</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">"libdeliveryscore.dylib"</span>
+<span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="s">"libdeliveryscore.so"</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">RuntimeId</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">os</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OperatingSystem</span><span class="p">.</span><span class="n">IsWindows</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">"win"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">OperatingSystem</span><span class="p">.</span><span class="n">IsMacOS</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">"osx"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">"linux"</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">architecture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RuntimeInformation</span><span class="p">.</span><span class="n">ProcessArchitecture</span><span class="p">.</span><span class="n">ToString</span><span class="p">().</span><span class="n">ToLowerInvariant</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">$"{os}-{architecture}"</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk">Іздеу тәртібі: <code>DQ_NATIVE_DIR</code> → <code>runtimes/&lt;rid&gt;/native</code> → қосымша папкасы. Файл аты мен RID ОЖ-ге байланысты. Бұл «кітапхана әдепкіде табылмайды» мәселесінің шешімі.</div><div class="t" data-l="ru">Порядок поиска: <code>DQ_NATIVE_DIR</code> → <code>runtimes/&lt;rid&gt;/native</code> → папка приложения. Имя файла и RID зависят от ОС (<code>.dll</code>, <code>.so</code>, <code>.dylib</code>; <code>win-x64</code>, <code>linux-x64</code>...). Это решение проблемы «библиотека не найдена по умолчанию».</div><div class="t" data-l="en">Search order: <code>DQ_NATIVE_DIR</code> → <code>runtimes/&lt;rid&gt;/native</code> → the application folder. File name and RID depend on the OS (<code>.dll</code>, <code>.so</code>, <code>.dylib</code>; <code>win-x64</code>, <code>linux-x64</code>...). This solves the “library not found by default” problem.</div></div></section><div class="nav2"><a href="ReportExporter.html"><small>← <span class="t" data-l="kk">Алдыңғы</span><span class="t" data-l="ru">Назад</span><span class="t" data-l="en">Previous</span></small>ReportExporter.cs</a><a href="NativeEffortCalculator.html" style="text-align:right"><small><span class="t" data-l="kk">Келесі</span><span class="t" data-l="ru">Дальше</span><span class="t" data-l="en">Next</span> →</small>NativeEffortCalculator.cs</a></div></div></main></div><script src="../assets/app.js"></script></body></html>

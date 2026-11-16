@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WorkflowTests.cs · ITFP Final — Courier Delivery Quotes</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var l=localStorage.getItem('lang');if(l)document.documentElement.lang=l;var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head><body><div class="layout"><aside><a class="brand" href="../index.html">ITFP Final · Defense<small>Courier Delivery Quotes and Dispatch</small></a><a href="../index.html"><span class="t" data-l="kk">Басты бет</span><span class="t" data-l="ru">Главная</span><span class="t" data-l="en">Home</span></a><a href="../tech.html"><span class="t" data-l="kk">Технологиялар мен командалар</span><span class="t" data-l="ru">Технологии и команды</span><span class="t" data-l="en">Technologies &amp; commands</span></a><a href="../defense.html"><span class="t" data-l="kk">Қорғаудағы сұрақтар</span><span class="t" data-l="ru">Вопросы на защите</span><span class="t" data-l="en">Defense Q&amp;A</span></a><a href="../tests.html" class="cur"><span class="t" data-l="kk">Тесттер</span><span class="t" data-l="ru">Тесты</span><span class="t" data-l="en">Tests</span></a><h4><span class="t" data-l="kk">Жоба файлдары</span><span class="t" data-l="ru">Файлы проекта</span><span class="t" data-l="en">Project files</span></h4><label style="display:block;padding:2px 8px;font-size:13px"><input type="checkbox" id="mine"> <span class="t" data-l="kk">Тек менің файлдарым</span><span class="t" data-l="ru">Только мои файлы</span><span class="t" data-l="en">Only my files</span></label><h4><span class="t" data-l="kk">Негіз: Result / Option</span><span class="t" data-l="ru">Основа: Result / Option</span><span class="t" data-l="en">Foundation: Result / Option</span></h4><a href="Result.html" data-owner="A">Result.cs</a><a href="Option.html" data-owner="A">Option.cs</a><a href="Error.html" data-owner="A">Error.cs</a><a href="ResultExtensions.html" data-owner="A">ResultExtensions.cs</a><a href="Extensions.html" data-owner="A">Extensions.cs</a><h4><span class="t" data-l="kk">Модельдер және валидация</span><span class="t" data-l="ru">Модели и валидация</span><span class="t" data-l="en">Models &amp; validation</span></h4><a href="Models.html" data-owner="S">Models.cs</a><a href="DeliveryRequest.html" data-owner="A">DeliveryRequest.cs</a><a href="RequestValidation.html" data-owner="A">RequestValidation.cs</a><a href="RequestParser.html" data-owner="A">RequestParser.cs</a><a href="Courier.html" data-owner="A">Courier.cs</a><a href="DiscountTable.html" data-owner="A">DiscountTable.cs</a><h4><span class="t" data-l="kk">Күйлер және қауіпсіз реттілік</span><span class="t" data-l="ru">Состояния и безопасный порядок</span><span class="t" data-l="en">States &amp; safe sequence</span></h4><a href="OrderState.html" data-owner="N">OrderState.cs</a><a href="TransitionResult.html" data-owner="N">TransitionResult.cs</a><a href="OrderWorkflow.html" data-owner="N">OrderWorkflow.cs</a><a href="OrderBook.html" data-owner="R">OrderBook.cs<span class="me" title="Ravil"></span></a><a href="OrderProcessor.html" data-owner="R">OrderProcessor.cs<span class="me" title="Ravil"></span></a><a href="OrderService.html" data-owner="R">OrderService.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Пайплайн және саясаттар</span><span class="t" data-l="ru">Пайплайн и политики</span><span class="t" data-l="en">Pipeline &amp; policies</span></h4><a href="PipelineStages.Common.html" data-owner="S">PipelineStages.Common.cs</a><a href="PipelineStages.Stage1Select.html" data-owner="N">PipelineStages.Stage1Select.cs</a><a href="PipelineStages.Stage2Price.html" data-owner="N">PipelineStages.Stage2Price.cs</a><a href="PipelineStages.Stage3Summary.html" data-owner="R">PipelineStages.Stage3Summary.cs<span class="me" title="Ravil"></span></a><a href="DeliveryPipeline.html" data-owner="R">DeliveryPipeline.cs<span class="me" title="Ravil"></span></a><a href="PricingPolicies.html" data-owner="N">PricingPolicies.cs</a><a href="Scoring.html" data-owner="A">Scoring.cs</a><h4><span class="t" data-l="kk">Есептер және жалқау есептеу</span><span class="t" data-l="ru">Отчёты и ленивость</span><span class="t" data-l="en">Reports &amp; laziness</span></h4><a href="Reports.html" data-owner="N">Reports.cs</a><a href="QuoteStream.html" data-owner="N">QuoteStream.cs</a><a href="LineStreaming.html" data-owner="N">LineStreaming.cs</a><a href="QuoteWorkflow.html" data-owner="A">QuoteWorkflow.cs</a><a href="ReportingWorkflow.html" data-owner="R">ReportingWorkflow.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Курьерлерді тағайындау</span><span class="t" data-l="ru">Назначение курьеров</span><span class="t" data-l="en">Courier assignment</span></h4><a href="Assignment.html" data-owner="N">Assignment.cs</a><a href="AssignmentWorkflow.html" data-owner="R">AssignmentWorkflow.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Файл шекаралары</span><span class="t" data-l="ru">Файлы (границы)</span><span class="t" data-l="en">File boundaries</span></h4><a href="DataLoader.html" data-owner="N">DataLoader.cs</a><a href="ReportExporter.html" data-owner="N">ReportExporter.cs</a><h4><span class="t" data-l="kk">Native C кітапханасы</span><span class="t" data-l="ru">Нативная C-библиотека</span><span class="t" data-l="en">Native C library</span></h4><a href="NativeMethods.html" data-owner="R">NativeMethods.cs<span class="me" title="Ravil"></span></a><a href="NativeEffortCalculator.html" data-owner="R">NativeEffortCalculator.cs<span class="me" title="Ravil"></span></a><a href="deliveryscore_h.html" data-owner="R">deliveryscore.h<span class="me" title="Ravil"></span></a><a href="deliveryscore_c.html" data-owner="R">deliveryscore.c<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Консольдік қосымша</span><span class="t" data-l="ru">Консольное приложение</span><span class="t" data-l="en">Console app</span></h4><a href="Program.html" data-owner="R">Program.cs<span class="me" title="Ravil"></span></a></aside><main>
+<div class="top"><button class="btn menu" id="menu" aria-label="menu">☰</button><span class="grow"></span><button class="btn" id="theme" title="theme">◐</button><div class="seg" role="group" aria-label="language"><button data-setlang="kk" aria-pressed="false">KK</button><button data-setlang="ru" aria-pressed="false">RU</button><button data-setlang="en" aria-pressed="false">EN</button></div></div>
+<div class="wrap"><h1 class="mono" style="font-size:26px">WorkflowTests.cs</h1><p><span class="pill mono">tests/DeliveryQuotes.Tests/WorkflowTests.cs</span><span class="pill">105 <span class="t" data-l="kk">жол</span><span class="t" data-l="ru">строк</span><span class="t" data-l="en">lines</span></span><span class="pill">6 <span class="t" data-l="kk">тест</span><span class="t" data-l="ru">тестов</span><span class="t" data-l="en">tests</span></span><span class="pill me"><span class="t" data-l="kk">Авторы</span><span class="t" data-l="ru">Автор</span><span class="t" data-l="en">Owner</span>: Ravil Maratov ★ <span class="t" data-l="kk">сенің файлың</span><span class="t" data-l="ru">твой файл</span><span class="t" data-l="en">your file</span></span></p><h2><span class="t" data-l="kk">Файл не үшін керек</span><span class="t" data-l="ru">Зачем нужен файл</span><span class="t" data-l="en">What this file is for</span></h2><div class="card"><div class="t" data-l="kk">№1 workflow (пайплайн): қалыпты жүріс, <code>data/</code> үлгі файлы, бос жиын, екі саясат, жоқ аргументтер қабылданбайды, 3-кезең баға және id бойынша сұрыптайды.</div><div class="t" data-l="ru">Workflow №1 (пайплайн): нормальный ход, файл из <code>data/</code>, пустой набор, две политики, отсутствующие аргументы отвергаются, Stage 3 сортирует по цене и id.</div><div class="t" data-l="en">Workflow #1 (pipeline): normal flow, the sample file from <code>data/</code>, empty dataset, two policies, missing arguments rejected, Stage 3 orders by price then id.</div></div><h2><span class="t" data-l="kk">Толық код</span><span class="t" data-l="ru">Полный код</span><span class="t" data-l="en">Full code</span></h2><div class="codebox full"><div class="cb-head"><span class="mono">WorkflowTests.cs</span><button class="btn" data-toggle aria-expanded="false"><span class="t" data-l="kk">Ашу / жасыру</span><span class="t" data-l="ru">Развернуть / свернуть</span><span class="t" data-l="en">Expand / collapse</span></button></div><div class="scroll"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Immutable</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">DeliveryQuotes.Core</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Xunit</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">static</span><span class="w"> </span><span class="n">DeliveryQuotes</span><span class="p">.</span><span class="n">Tests</span><span class="p">.</span><span class="n">TestData</span><span class="p">;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">DeliveryQuotes.Tests</span><span class="p">;</span>
+
+<span class="c1">// Member C: Stage 3 (summary), composed pipeline, application-level scenarios.</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">WorkflowTests</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">SampleLines</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="s">"Id,Customer,DistanceKm,WeightKg"</span><span class="p">,</span>
+<span class="w">        </span><span class="s">"R-001,Aigerim,2,1"</span><span class="p">,</span>
+<span class="w">        </span><span class="s">"R-002,Dana,10,5"</span><span class="p">,</span>
+<span class="w">        </span><span class="s">"r-003,Nurlan,30,8"</span><span class="p">,</span>
+<span class="w">        </span><span class="s">"R-004,Aruzhan,31,2"</span><span class="p">,</span>
+<span class="w">        </span><span class="s">"R-005,Timur,4.5,0"</span><span class="p">,</span>
+<span class="w">        </span><span class="s">"R-006,Madina,6,25"</span><span class="p">,</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">ImmutableArray</span><span class="o">&lt;</span><span class="n">DeliveryRequest</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ParseValid</span><span class="p">(</span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lines</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">report</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RequestParser</span><span class="p">.</span><span class="n">ParseLines</span><span class="p">(</span><span class="n">lines</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">True</span><span class="p">(</span><span class="n">report</span><span class="p">.</span><span class="n">IsValid</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">"; "</span><span class="p">,</span><span class="w"> </span><span class="n">report</span><span class="p">.</span><span class="n">Errors</span><span class="p">));</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">report</span><span class="p">.</span><span class="n">Requests</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">NormalWorkflow_StandardPolicy_ProducesDocumentedQuotes</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DeliveryPipeline</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">ParseValid</span><span class="p">(</span><span class="n">SampleLines</span><span class="p">),</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Standard</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">"R-003"</span><span class="p">,</span><span class="w"> </span><span class="s">"R-002"</span><span class="p">,</span><span class="w"> </span><span class="s">"R-005"</span><span class="p">,</span><span class="w"> </span><span class="s">"R-001"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="n">summary</span><span class="p">.</span><span class="n">Quotes</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">q</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">Id</span><span class="p">));</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">decimal</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">4350</span><span class="p">,</span><span class="w"> </span><span class="mi">1800</span><span class="p">,</span><span class="w"> </span><span class="mi">1140</span><span class="p">,</span><span class="w"> </span><span class="mi">840</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="n">summary</span><span class="p">.</span><span class="n">Quotes</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">q</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">Price</span><span class="p">));</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mf">8130m</span><span class="p">,</span><span class="w"> </span><span class="n">summary</span><span class="p">.</span><span class="n">TotalPrice</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">summary</span><span class="p">.</span><span class="n">SkippedCount</span><span class="p">);</span><span class="w"> </span><span class="c1">// R-004 (31 km) and R-006 (25 kg)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">NormalWorkflow_SampleFileFromDataFolder_ProducesSameResult</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">File</span><span class="p">.</span><span class="n">ReadAllLines</span><span class="p">(</span><span class="n">Path</span><span class="p">.</span><span class="n">Combine</span><span class="p">(</span><span class="n">AppContext</span><span class="p">.</span><span class="n">BaseDirectory</span><span class="p">,</span><span class="w"> </span><span class="s">"data"</span><span class="p">,</span><span class="w"> </span><span class="s">"requests.csv"</span><span class="p">));</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DeliveryPipeline</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">ParseValid</span><span class="p">(</span><span class="n">lines</span><span class="p">),</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Express</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mf">12520m</span><span class="p">,</span><span class="w"> </span><span class="n">summary</span><span class="p">.</span><span class="n">TotalPrice</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">summary</span><span class="p">.</span><span class="n">Quotes</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">EmptyDataset_HeaderOnly_IsValidAndGivesEmptySummary</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">report</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RequestParser</span><span class="p">.</span><span class="n">ParseLines</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">RequestParser</span><span class="p">.</span><span class="n">Header</span><span class="w"> </span><span class="p">});</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">True</span><span class="p">(</span><span class="n">report</span><span class="p">.</span><span class="n">IsValid</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Empty</span><span class="p">(</span><span class="n">report</span><span class="p">.</span><span class="n">Requests</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DeliveryPipeline</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">report</span><span class="p">.</span><span class="n">Requests</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Standard</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Empty</span><span class="p">(</span><span class="n">summary</span><span class="p">.</span><span class="n">Quotes</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mf">0m</span><span class="p">,</span><span class="w"> </span><span class="n">summary</span><span class="p">.</span><span class="n">TotalPrice</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">summary</span><span class="p">.</span><span class="n">SkippedCount</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TwoPolicies_SameInput_DifferInDocumentedWay</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ParseValid</span><span class="p">(</span><span class="n">SampleLines</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">standard</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DeliveryPipeline</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Standard</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">express</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DeliveryPipeline</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Express</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mf">840m</span><span class="p">,</span><span class="w"> </span><span class="n">standard</span><span class="p">.</span><span class="n">Quotes</span><span class="p">.</span><span class="n">Single</span><span class="p">(</span><span class="n">q</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">Id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"R-001"</span><span class="p">).</span><span class="n">Price</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mf">1360m</span><span class="p">,</span><span class="w"> </span><span class="n">express</span><span class="p">.</span><span class="n">Quotes</span><span class="p">.</span><span class="n">Single</span><span class="p">(</span><span class="n">q</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">Id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"R-001"</span><span class="p">).</span><span class="n">Price</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mf">8130m</span><span class="p">,</span><span class="w"> </span><span class="n">standard</span><span class="p">.</span><span class="n">TotalPrice</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mf">12520m</span><span class="p">,</span><span class="w"> </span><span class="n">express</span><span class="p">.</span><span class="n">TotalPrice</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="n">standard</span><span class="p">.</span><span class="n">Quotes</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">q</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">Id</span><span class="p">),</span><span class="w"> </span><span class="n">express</span><span class="p">.</span><span class="n">Quotes</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">q</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">Id</span><span class="p">));</span><span class="w"> </span><span class="c1">// same pipeline, same selection</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">MissingCollectionOrPolicy_IsRejected_NoFabricatedResult</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Throws</span><span class="o">&lt;</span><span class="n">ArgumentException</span><span class="o">&gt;</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">            </span><span class="n">DeliveryPipeline</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="k">default</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Standard</span><span class="p">));</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Throws</span><span class="o">&lt;</span><span class="n">ArgumentNullException</span><span class="o">&gt;</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">            </span><span class="n">DeliveryPipeline</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">ImmutableArray</span><span class="o">&lt;</span><span class="n">DeliveryRequest</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Empty</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="o">!</span><span class="p">));</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Throws</span><span class="o">&lt;</span><span class="n">ArgumentException</span><span class="o">&gt;</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">PipelineStages</span><span class="p">.</span><span class="n">BuildSummary</span><span class="p">(</span><span class="k">default</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Stage3_OrdersByPriceThenId_AndKeepsInputUnchanged</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">priced</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ImmutableArray</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="nf">PricedRequest</span><span class="p">(</span><span class="n">Req</span><span class="p">(</span><span class="s">"B"</span><span class="p">,</span><span class="w"> </span><span class="mf">2m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">),</span><span class="w"> </span><span class="mf">840m</span><span class="p">),</span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="nf">PricedRequest</span><span class="p">(</span><span class="n">Req</span><span class="p">(</span><span class="s">"A"</span><span class="p">,</span><span class="w"> </span><span class="mf">2m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">),</span><span class="w"> </span><span class="mf">840m</span><span class="p">),</span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="nf">PricedRequest</span><span class="p">(</span><span class="n">Req</span><span class="p">(</span><span class="s">"C"</span><span class="p">,</span><span class="w"> </span><span class="mf">9m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">),</span><span class="w"> </span><span class="mf">1680m</span><span class="p">));</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">snapshot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">priced</span><span class="p">.</span><span class="n">ToArray</span><span class="p">();</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PipelineStages</span><span class="p">.</span><span class="n">BuildSummary</span><span class="p">(</span><span class="n">priced</span><span class="p">,</span><span class="w"> </span><span class="n">skippedCount</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">"C"</span><span class="p">,</span><span class="w"> </span><span class="s">"A"</span><span class="p">,</span><span class="w"> </span><span class="s">"B"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="n">summary</span><span class="p">.</span><span class="n">Quotes</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">q</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">Id</span><span class="p">));</span><span class="w"> </span><span class="c1">// price desc, ties by Id</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mf">3360m</span><span class="p">,</span><span class="w"> </span><span class="n">summary</span><span class="p">.</span><span class="n">TotalPrice</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">summary</span><span class="p">.</span><span class="n">SkippedCount</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="n">snapshot</span><span class="p">,</span><span class="w"> </span><span class="n">priced</span><span class="p">.</span><span class="n">ToArray</span><span class="p">());</span><span class="w">                                </span><span class="c1">// caller's collection untouched</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div></div><h2><span class="t" data-l="kk">Блоктар және жолдар бойынша талдау</span><span class="t" data-l="ru">Разбор по блокам и строкам</span><span class="t" data-l="en">Block-by-block breakdown</span></h2><section class="blk"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 1–28</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Immutable</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">DeliveryQuotes.Core</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Xunit</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">static</span><span class="w"> </span><span class="n">DeliveryQuotes</span><span class="p">.</span><span class="n">Tests</span><span class="p">.</span><span class="n">TestData</span><span class="p">;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">DeliveryQuotes.Tests</span><span class="p">;</span>
+
+<span class="c1">// Member C: Stage 3 (summary), composed pipeline, application-level scenarios.</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">WorkflowTests</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">SampleLines</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="s">"Id,Customer,DistanceKm,WeightKg"</span><span class="p">,</span>
+<span class="w">        </span><span class="s">"R-001,Aigerim,2,1"</span><span class="p">,</span>
+<span class="w">        </span><span class="s">"R-002,Dana,10,5"</span><span class="p">,</span>
+<span class="w">        </span><span class="s">"r-003,Nurlan,30,8"</span><span class="p">,</span>
+<span class="w">        </span><span class="s">"R-004,Aruzhan,31,2"</span><span class="p">,</span>
+<span class="w">        </span><span class="s">"R-005,Timur,4.5,0"</span><span class="p">,</span>
+<span class="w">        </span><span class="s">"R-006,Madina,6,25"</span><span class="p">,</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">ImmutableArray</span><span class="o">&lt;</span><span class="n">DeliveryRequest</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ParseValid</span><span class="p">(</span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lines</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">report</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RequestParser</span><span class="p">.</span><span class="n">ParseLines</span><span class="p">(</span><span class="n">lines</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">True</span><span class="p">(</span><span class="n">report</span><span class="p">.</span><span class="n">IsValid</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">"; "</span><span class="p">,</span><span class="w"> </span><span class="n">report</span><span class="p">.</span><span class="n">Errors</span><span class="p">));</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">report</span><span class="p">.</span><span class="n">Requests</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>using</code>-дер, namespace және тест класының тақырыбы: төмендегі барлық тестке ортақ көмекшілер мен деректер.</div><div class="t" data-l="ru">Подключения (<code>using</code>), пространство имён и заголовок тестового класса: общие помощники и данные для всех тестов ниже.</div><div class="t" data-l="en">Usings, namespace and the test class header: shared helpers and data for all tests below.</div></div></section><section class="blk" id="L29"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 29–38 · <span class="mono">[Fact]</span> <span class="mono">NormalWorkflow_StandardPolicy_ProducesDocumentedQuotes</span></h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">NormalWorkflow_StandardPolicy_ProducesDocumentedQuotes</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DeliveryPipeline</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">ParseValid</span><span class="p">(</span><span class="n">SampleLines</span><span class="p">),</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Standard</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">"R-003"</span><span class="p">,</span><span class="w"> </span><span class="s">"R-002"</span><span class="p">,</span><span class="w"> </span><span class="s">"R-005"</span><span class="p">,</span><span class="w"> </span><span class="s">"R-001"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="n">summary</span><span class="p">.</span><span class="n">Quotes</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">q</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">Id</span><span class="p">));</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">decimal</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">4350</span><span class="p">,</span><span class="w"> </span><span class="mi">1800</span><span class="p">,</span><span class="w"> </span><span class="mi">1140</span><span class="p">,</span><span class="w"> </span><span class="mi">840</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="n">summary</span><span class="p">.</span><span class="n">Quotes</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">q</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">Price</span><span class="p">));</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mf">8130m</span><span class="p">,</span><span class="w"> </span><span class="n">summary</span><span class="p">.</span><span class="n">TotalPrice</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">summary</span><span class="p">.</span><span class="n">SkippedCount</span><span class="p">);</span><span class="w"> </span><span class="c1">// R-004 (31 km) and R-006 (25 kg)</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why auto"><b>Normal Workflow · Standard Policy · Produces Documented Quotes</b><br><span class="t" data-l="kk">Тест құрылымы: Arrange (дерек дайындау) → Act (тексерілетін функцияны шақыру) → Assert (нәтижені тексеру). Атауы «не · қандай жағдайда · не күтіледі» деп оқылады.</span><span class="t" data-l="ru">Схема теста: Arrange (подготовка данных) → Act (вызов проверяемой функции) → Assert (проверка результата). Название читается как «что проверяется · при каком условии · что ожидается».</span><span class="t" data-l="en">Test shape: Arrange (set up data) → Act (call the function under test) → Assert (check the result). The name reads as “what · under which condition · what is expected”.</span></div></section><section class="blk" id="L40"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 40–48 · <span class="mono">[Fact]</span> <span class="mono">NormalWorkflow_SampleFileFromDataFolder_ProducesSameResult</span></h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">NormalWorkflow_SampleFileFromDataFolder_ProducesSameResult</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">File</span><span class="p">.</span><span class="n">ReadAllLines</span><span class="p">(</span><span class="n">Path</span><span class="p">.</span><span class="n">Combine</span><span class="p">(</span><span class="n">AppContext</span><span class="p">.</span><span class="n">BaseDirectory</span><span class="p">,</span><span class="w"> </span><span class="s">"data"</span><span class="p">,</span><span class="w"> </span><span class="s">"requests.csv"</span><span class="p">));</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DeliveryPipeline</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">ParseValid</span><span class="p">(</span><span class="n">lines</span><span class="p">),</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Express</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mf">12520m</span><span class="p">,</span><span class="w"> </span><span class="n">summary</span><span class="p">.</span><span class="n">TotalPrice</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">summary</span><span class="p">.</span><span class="n">Quotes</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why auto"><b>Normal Workflow · Sample File From Data Folder · Produces Same Result</b><br><span class="t" data-l="kk">Тест құрылымы: Arrange (дерек дайындау) → Act (тексерілетін функцияны шақыру) → Assert (нәтижені тексеру). Атауы «не · қандай жағдайда · не күтіледі» деп оқылады.</span><span class="t" data-l="ru">Схема теста: Arrange (подготовка данных) → Act (вызов проверяемой функции) → Assert (проверка результата). Название читается как «что проверяется · при каком условии · что ожидается».</span><span class="t" data-l="en">Test shape: Arrange (set up data) → Act (call the function under test) → Assert (check the result). The name reads as “what · under which condition · what is expected”.</span></div></section><section class="blk" id="L50"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 50–62 · <span class="mono">[Fact]</span> <span class="mono">EmptyDataset_HeaderOnly_IsValidAndGivesEmptySummary</span></h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">EmptyDataset_HeaderOnly_IsValidAndGivesEmptySummary</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">report</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RequestParser</span><span class="p">.</span><span class="n">ParseLines</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">RequestParser</span><span class="p">.</span><span class="n">Header</span><span class="w"> </span><span class="p">});</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">True</span><span class="p">(</span><span class="n">report</span><span class="p">.</span><span class="n">IsValid</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Empty</span><span class="p">(</span><span class="n">report</span><span class="p">.</span><span class="n">Requests</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DeliveryPipeline</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">report</span><span class="p">.</span><span class="n">Requests</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Standard</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Empty</span><span class="p">(</span><span class="n">summary</span><span class="p">.</span><span class="n">Quotes</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mf">0m</span><span class="p">,</span><span class="w"> </span><span class="n">summary</span><span class="p">.</span><span class="n">TotalPrice</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">summary</span><span class="p">.</span><span class="n">SkippedCount</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why auto"><b>Empty Dataset · Header Only · Is Valid And Gives Empty Summary</b><br><span class="t" data-l="kk">Тест құрылымы: Arrange (дерек дайындау) → Act (тексерілетін функцияны шақыру) → Assert (нәтижені тексеру). Атауы «не · қандай жағдайда · не күтіледі» деп оқылады.</span><span class="t" data-l="ru">Схема теста: Arrange (подготовка данных) → Act (вызов проверяемой функции) → Assert (проверка результата). Название читается как «что проверяется · при каком условии · что ожидается».</span><span class="t" data-l="en">Test shape: Arrange (set up data) → Act (call the function under test) → Assert (check the result). The name reads as “what · under which condition · what is expected”.</span></div></section><section class="blk" id="L64"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 64–77 · <span class="mono">[Fact]</span> <span class="mono">TwoPolicies_SameInput_DifferInDocumentedWay</span></h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TwoPolicies_SameInput_DifferInDocumentedWay</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ParseValid</span><span class="p">(</span><span class="n">SampleLines</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">standard</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DeliveryPipeline</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Standard</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">express</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DeliveryPipeline</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Express</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mf">840m</span><span class="p">,</span><span class="w"> </span><span class="n">standard</span><span class="p">.</span><span class="n">Quotes</span><span class="p">.</span><span class="n">Single</span><span class="p">(</span><span class="n">q</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">Id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"R-001"</span><span class="p">).</span><span class="n">Price</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mf">1360m</span><span class="p">,</span><span class="w"> </span><span class="n">express</span><span class="p">.</span><span class="n">Quotes</span><span class="p">.</span><span class="n">Single</span><span class="p">(</span><span class="n">q</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">Id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"R-001"</span><span class="p">).</span><span class="n">Price</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mf">8130m</span><span class="p">,</span><span class="w"> </span><span class="n">standard</span><span class="p">.</span><span class="n">TotalPrice</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mf">12520m</span><span class="p">,</span><span class="w"> </span><span class="n">express</span><span class="p">.</span><span class="n">TotalPrice</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="n">standard</span><span class="p">.</span><span class="n">Quotes</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">q</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">Id</span><span class="p">),</span><span class="w"> </span><span class="n">express</span><span class="p">.</span><span class="n">Quotes</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">q</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">Id</span><span class="p">));</span><span class="w"> </span><span class="c1">// same pipeline, same selection</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why auto"><b>Two Policies · Same Input · Differ In Documented Way</b><br><span class="t" data-l="kk">Тест құрылымы: Arrange (дерек дайындау) → Act (тексерілетін функцияны шақыру) → Assert (нәтижені тексеру). Атауы «не · қандай жағдайда · не күтіледі» деп оқылады.</span><span class="t" data-l="ru">Схема теста: Arrange (подготовка данных) → Act (вызов проверяемой функции) → Assert (проверка результата). Название читается как «что проверяется · при каком условии · что ожидается».</span><span class="t" data-l="en">Test shape: Arrange (set up data) → Act (call the function under test) → Assert (check the result). The name reads as “what · under which condition · what is expected”.</span></div></section><section class="blk" id="L79"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 79–87 · <span class="mono">[Fact]</span> <span class="mono">MissingCollectionOrPolicy_IsRejected_NoFabricatedResult</span></h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">MissingCollectionOrPolicy_IsRejected_NoFabricatedResult</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Throws</span><span class="o">&lt;</span><span class="n">ArgumentException</span><span class="o">&gt;</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">            </span><span class="n">DeliveryPipeline</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="k">default</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Standard</span><span class="p">));</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Throws</span><span class="o">&lt;</span><span class="n">ArgumentNullException</span><span class="o">&gt;</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">            </span><span class="n">DeliveryPipeline</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">ImmutableArray</span><span class="o">&lt;</span><span class="n">DeliveryRequest</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Empty</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="o">!</span><span class="p">));</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Throws</span><span class="o">&lt;</span><span class="n">ArgumentException</span><span class="o">&gt;</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">PipelineStages</span><span class="p">.</span><span class="n">BuildSummary</span><span class="p">(</span><span class="k">default</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why auto"><b>Missing Collection Or Policy · Is Rejected · No Fabricated Result</b><br><span class="t" data-l="kk">Тест құрылымы: Arrange (дерек дайындау) → Act (тексерілетін функцияны шақыру) → Assert (нәтижені тексеру). Атауы «не · қандай жағдайда · не күтіледі» деп оқылады.</span><span class="t" data-l="ru">Схема теста: Arrange (подготовка данных) → Act (вызов проверяемой функции) → Assert (проверка результата). Название читается как «что проверяется · при каком условии · что ожидается».</span><span class="t" data-l="en">Test shape: Arrange (set up data) → Act (call the function under test) → Assert (check the result). The name reads as “what · under which condition · what is expected”.</span></div></section><section class="blk" id="L89"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 89–104 · <span class="mono">[Fact]</span> <span class="mono">Stage3_OrdersByPriceThenId_AndKeepsInputUnchanged</span></h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Stage3_OrdersByPriceThenId_AndKeepsInputUnchanged</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">priced</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ImmutableArray</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="nf">PricedRequest</span><span class="p">(</span><span class="n">Req</span><span class="p">(</span><span class="s">"B"</span><span class="p">,</span><span class="w"> </span><span class="mf">2m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">),</span><span class="w"> </span><span class="mf">840m</span><span class="p">),</span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="nf">PricedRequest</span><span class="p">(</span><span class="n">Req</span><span class="p">(</span><span class="s">"A"</span><span class="p">,</span><span class="w"> </span><span class="mf">2m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">),</span><span class="w"> </span><span class="mf">840m</span><span class="p">),</span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="nf">PricedRequest</span><span class="p">(</span><span class="n">Req</span><span class="p">(</span><span class="s">"C"</span><span class="p">,</span><span class="w"> </span><span class="mf">9m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">),</span><span class="w"> </span><span class="mf">1680m</span><span class="p">));</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">snapshot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">priced</span><span class="p">.</span><span class="n">ToArray</span><span class="p">();</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PipelineStages</span><span class="p">.</span><span class="n">BuildSummary</span><span class="p">(</span><span class="n">priced</span><span class="p">,</span><span class="w"> </span><span class="n">skippedCount</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">"C"</span><span class="p">,</span><span class="w"> </span><span class="s">"A"</span><span class="p">,</span><span class="w"> </span><span class="s">"B"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="n">summary</span><span class="p">.</span><span class="n">Quotes</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">q</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">Id</span><span class="p">));</span><span class="w"> </span><span class="c1">// price desc, ties by Id</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mf">3360m</span><span class="p">,</span><span class="w"> </span><span class="n">summary</span><span class="p">.</span><span class="n">TotalPrice</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">summary</span><span class="p">.</span><span class="n">SkippedCount</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="n">snapshot</span><span class="p">,</span><span class="w"> </span><span class="n">priced</span><span class="p">.</span><span class="n">ToArray</span><span class="p">());</span><span class="w">                                </span><span class="c1">// caller's collection untouched</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why auto"><b>Stage3 · Orders By Price Then Id · And Keeps Input Unchanged</b><br><span class="t" data-l="kk">Тест құрылымы: Arrange (дерек дайындау) → Act (тексерілетін функцияны шақыру) → Assert (нәтижені тексеру). Атауы «не · қандай жағдайда · не күтіледі» деп оқылады.</span><span class="t" data-l="ru">Схема теста: Arrange (подготовка данных) → Act (вызов проверяемой функции) → Assert (проверка результата). Название читается как «что проверяется · при каком условии · что ожидается».</span><span class="t" data-l="en">Test shape: Arrange (set up data) → Act (call the function under test) → Assert (check the result). The name reads as “what · under which condition · what is expected”.</span></div></section><div class="nav2"><a href="test-AssignerTests.html"><small>← <span class="t" data-l="kk">Алдыңғы</span><span class="t" data-l="ru">Назад</span><span class="t" data-l="en">Previous</span></small>AssignerTests.cs</a><a href="test-OrderBookTests.html" style="text-align:right"><small><span class="t" data-l="kk">Келесі</span><span class="t" data-l="ru">Дальше</span><span class="t" data-l="en">Next</span> →</small>OrderBookTests.cs</a></div></div></main></div><script src="../assets/app.js"></script></body></html>

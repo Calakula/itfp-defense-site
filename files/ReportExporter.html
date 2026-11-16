@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ReportExporter.cs · ITFP Final — Courier Delivery Quotes</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var l=localStorage.getItem('lang');if(l)document.documentElement.lang=l;var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head><body><div class="layout"><aside><a class="brand" href="../index.html">ITFP Final · Defense<small>Courier Delivery Quotes and Dispatch</small></a><a href="../index.html"><span class="t" data-l="kk">Басты бет</span><span class="t" data-l="ru">Главная</span><span class="t" data-l="en">Home</span></a><a href="../tech.html"><span class="t" data-l="kk">Технологиялар мен командалар</span><span class="t" data-l="ru">Технологии и команды</span><span class="t" data-l="en">Technologies &amp; commands</span></a><a href="../defense.html"><span class="t" data-l="kk">Қорғаудағы сұрақтар</span><span class="t" data-l="ru">Вопросы на защите</span><span class="t" data-l="en">Defense Q&amp;A</span></a><a href="../tests.html"><span class="t" data-l="kk">Тесттер</span><span class="t" data-l="ru">Тесты</span><span class="t" data-l="en">Tests</span></a><h4><span class="t" data-l="kk">Жоба файлдары</span><span class="t" data-l="ru">Файлы проекта</span><span class="t" data-l="en">Project files</span></h4><label style="display:block;padding:2px 8px;font-size:13px"><input type="checkbox" id="mine"> <span class="t" data-l="kk">Тек менің файлдарым</span><span class="t" data-l="ru">Только мои файлы</span><span class="t" data-l="en">Only my files</span></label><h4><span class="t" data-l="kk">Негіз: Result / Option</span><span class="t" data-l="ru">Основа: Result / Option</span><span class="t" data-l="en">Foundation: Result / Option</span></h4><a href="Result.html" data-owner="A">Result.cs</a><a href="Option.html" data-owner="A">Option.cs</a><a href="Error.html" data-owner="A">Error.cs</a><a href="ResultExtensions.html" data-owner="A">ResultExtensions.cs</a><a href="Extensions.html" data-owner="A">Extensions.cs</a><h4><span class="t" data-l="kk">Модельдер және валидация</span><span class="t" data-l="ru">Модели и валидация</span><span class="t" data-l="en">Models &amp; validation</span></h4><a href="Models.html" data-owner="S">Models.cs</a><a href="DeliveryRequest.html" data-owner="A">DeliveryRequest.cs</a><a href="RequestValidation.html" data-owner="A">RequestValidation.cs</a><a href="RequestParser.html" data-owner="A">RequestParser.cs</a><a href="Courier.html" data-owner="A">Courier.cs</a><a href="DiscountTable.html" data-owner="A">DiscountTable.cs</a><h4><span class="t" data-l="kk">Күйлер және қауіпсіз реттілік</span><span class="t" data-l="ru">Состояния и безопасный порядок</span><span class="t" data-l="en">States &amp; safe sequence</span></h4><a href="OrderState.html" data-owner="N">OrderState.cs</a><a href="TransitionResult.html" data-owner="N">TransitionResult.cs</a><a href="OrderWorkflow.html" data-owner="N">OrderWorkflow.cs</a><a href="OrderBook.html" data-owner="R">OrderBook.cs<span class="me" title="Ravil"></span></a><a href="OrderProcessor.html" data-owner="R">OrderProcessor.cs<span class="me" title="Ravil"></span></a><a href="OrderService.html" data-owner="R">OrderService.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Пайплайн және саясаттар</span><span class="t" data-l="ru">Пайплайн и политики</span><span class="t" data-l="en">Pipeline &amp; policies</span></h4><a href="PipelineStages.Common.html" data-owner="S">PipelineStages.Common.cs</a><a href="PipelineStages.Stage1Select.html" data-owner="N">PipelineStages.Stage1Select.cs</a><a href="PipelineStages.Stage2Price.html" data-owner="N">PipelineStages.Stage2Price.cs</a><a href="PipelineStages.Stage3Summary.html" data-owner="R">PipelineStages.Stage3Summary.cs<span class="me" title="Ravil"></span></a><a href="DeliveryPipeline.html" data-owner="R">DeliveryPipeline.cs<span class="me" title="Ravil"></span></a><a href="PricingPolicies.html" data-owner="N">PricingPolicies.cs</a><a href="Scoring.html" data-owner="A">Scoring.cs</a><h4><span class="t" data-l="kk">Есептер және жалқау есептеу</span><span class="t" data-l="ru">Отчёты и ленивость</span><span class="t" data-l="en">Reports &amp; laziness</span></h4><a href="Reports.html" data-owner="N">Reports.cs</a><a href="QuoteStream.html" data-owner="N">QuoteStream.cs</a><a href="LineStreaming.html" data-owner="N">LineStreaming.cs</a><a href="QuoteWorkflow.html" data-owner="A">QuoteWorkflow.cs</a><a href="ReportingWorkflow.html" data-owner="R">ReportingWorkflow.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Курьерлерді тағайындау</span><span class="t" data-l="ru">Назначение курьеров</span><span class="t" data-l="en">Courier assignment</span></h4><a href="Assignment.html" data-owner="N">Assignment.cs</a><a href="AssignmentWorkflow.html" data-owner="R">AssignmentWorkflow.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Файл шекаралары</span><span class="t" data-l="ru">Файлы (границы)</span><span class="t" data-l="en">File boundaries</span></h4><a href="DataLoader.html" data-owner="N">DataLoader.cs</a><a href="ReportExporter.html" class="cur" data-owner="N">ReportExporter.cs</a><h4><span class="t" data-l="kk">Native C кітапханасы</span><span class="t" data-l="ru">Нативная C-библиотека</span><span class="t" data-l="en">Native C library</span></h4><a href="NativeMethods.html" data-owner="R">NativeMethods.cs<span class="me" title="Ravil"></span></a><a href="NativeEffortCalculator.html" data-owner="R">NativeEffortCalculator.cs<span class="me" title="Ravil"></span></a><a href="deliveryscore_h.html" data-owner="R">deliveryscore.h<span class="me" title="Ravil"></span></a><a href="deliveryscore_c.html" data-owner="R">deliveryscore.c<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Консольдік қосымша</span><span class="t" data-l="ru">Консольное приложение</span><span class="t" data-l="en">Console app</span></h4><a href="Program.html" data-owner="R">Program.cs<span class="me" title="Ravil"></span></a></aside><main>
+<div class="top"><button class="btn menu" id="menu" aria-label="menu">☰</button><span class="grow"></span><button class="btn" id="theme" title="theme">◐</button><div class="seg" role="group" aria-label="language"><button data-setlang="kk" aria-pressed="false">KK</button><button data-setlang="ru" aria-pressed="false">RU</button><button data-setlang="en" aria-pressed="false">EN</button></div></div>
+<div class="wrap"><h1 class="mono" style="font-size:26px">ReportExporter.cs</h1><p><span class="pill mono">src/DeliveryQuotes.Core/ReportExporter.cs</span><span class="pill">92 <span class="t" data-l="kk">жол</span><span class="t" data-l="ru">строк</span><span class="t" data-l="en">lines</span></span><span class="pill"><span class="t" data-l="kk">Авторы</span><span class="t" data-l="ru">Автор</span><span class="t" data-l="en">Owner</span>: Neda Farhat</span><span class="pill"><span class="t" data-l="kk">Файл шекаралары</span><span class="t" data-l="ru">Файлы (границы)</span><span class="t" data-l="en">File boundaries</span></span></p><h2><span class="t" data-l="kk">Файл не үшін керек</span><span class="t" data-l="ru">Зачем нужен файл</span><span class="t" data-l="en">What this file is for</span></h2><div class="card"><div class="t" data-l="kk">Жазу шекарасы: есепті JSON-ға сериализациялап, файлды <strong>атомарлы</strong> жазады (алдымен <code>.tmp</code>, сосын <code>File.Move</code>). Қате болса ескі файл қалады.</div><div class="t" data-l="ru">Граница записи: сериализует отчёт в JSON и пишет файл <strong>атомарно</strong> (сначала <code>.tmp</code>, потом <code>File.Move</code>). При сбое старый файл остаётся.</div><div class="t" data-l="en">Write boundary: serialises the report to JSON and writes the file <strong>atomically</strong> (a <code>.tmp</code> first, then <code>File.Move</code>). On failure the old file stays.</div></div><h2><span class="t" data-l="kk">Толық код</span><span class="t" data-l="ru">Полный код</span><span class="t" data-l="en">Full code</span></h2><div class="codebox full"><div class="cb-head"><span class="mono">src/DeliveryQuotes.Core/ReportExporter.cs</span><button class="btn" data-toggle aria-expanded="false"><span class="t" data-l="kk">Ашу / жасыру</span><span class="t" data-l="ru">Развернуть / свернуть</span><span class="t" data-l="en">Expand / collapse</span></button></div><div class="scroll"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Immutable</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Text</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Text.Json</span><span class="p">;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">DeliveryQuotes.Core</span><span class="p">;</span>
+
+<span class="c1">/// &lt;summary&gt;Everything the reports produce in one value (also the content of the exported file).&lt;/summary&gt;</span>
+<span class="k">public</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">record</span><span class="w"> </span><span class="nf">ReportBundle</span><span class="p">(</span><span class="n">QuoteSummary</span><span class="w"> </span><span class="n">Summary</span><span class="p">,</span><span class="w"> </span><span class="n">ImmutableArray</span><span class="o">&lt;</span><span class="n">DispatchLine</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Dispatch</span><span class="p">,</span><span class="w"> </span><span class="n">ImmutableArray</span><span class="o">&lt;</span><span class="n">WorkloadLine</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Workload</span><span class="p">);</span>
+
+<span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// EXPORT BOUNDARY. Writes the bundle as one JSON file.</span>
+<span class="c1">/// The text is built first (pure), then written to a temporary file next to the target, and only a fully written file</span>
+<span class="c1">/// replaces the target (File.Move with overwrite). OWNER of the StreamWriter: this method, released by "using" on success and on failure.</span>
+<span class="c1">/// If anything fails, the temporary file is removed and an existing target file is left exactly as it was.</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ReportExporter</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">JsonSerializerOptions</span><span class="w"> </span><span class="n">JsonOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">WriteIndented</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="p">};</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">ToJson</span><span class="p">(</span><span class="n">ReportBundle</span><span class="w"> </span><span class="n">bundle</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ToJson</span><span class="o">&lt;</span><span class="n">ReportBundle</span><span class="o">&gt;</span><span class="p">(</span><span class="n">bundle</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">ToJson</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="k">value</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">notnull</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="k">value</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">JsonSerializer</span><span class="p">.</span><span class="n">Serialize</span><span class="p">(</span><span class="k">value</span><span class="p">,</span><span class="w"> </span><span class="n">JsonOptions</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Export</span><span class="p">(</span><span class="kt">string?</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">ReportBundle</span><span class="w"> </span><span class="n">bundle</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ExportJson</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">bundle</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;Atomic JSON export of any plain data value (reports, assignment plans).&lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ExportJson</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="kt">string?</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="k">value</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">notnull</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="k">value</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrWhiteSpace</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Failure</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">InvalidInput</span><span class="p">,</span><span class="w"> </span><span class="s">"No output path was given for the report file."</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ToJson</span><span class="p">(</span><span class="k">value</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">target</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<span class="w">        </span><span class="k">try</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Path</span><span class="p">.</span><span class="n">GetFullPath</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+<span class="w">            </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">".tmp"</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">ArgumentException</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">NotSupportedException</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">PathTooLongException</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Failure</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">FileNotWritable</span><span class="p">,</span><span class="w"> </span><span class="s">$"The output path '{path}' is not valid: {ex.Message}"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">try</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">folder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Path</span><span class="p">.</span><span class="n">GetDirectoryName</span><span class="p">(</span><span class="n">target</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">folder</span><span class="p">))</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">Directory</span><span class="p">.</span><span class="n">CreateDirectory</span><span class="p">(</span><span class="n">folder</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">using</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StreamWriter</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="k">false</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UTF8Encoding</span><span class="p">(</span><span class="k">false</span><span class="p">)))</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">writer</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="n">json</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="n">File</span><span class="p">.</span><span class="n">Move</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">overwrite</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Success</span><span class="p">(</span><span class="n">target</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">UnauthorizedAccessException</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">NotSupportedException</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">ArgumentException</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">cleanup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RemoveTemp</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Failure</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">FileNotWritable</span><span class="p">,</span>
+<span class="w">                </span><span class="s">$"The report could not be written to '{target}': {ex.Message}{cleanup}"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Only a file created by this export is removed; a failure to remove it is reported, not hidden.</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">RemoveTemp</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">temp</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">File</span><span class="p">.</span><span class="n">Exists</span><span class="p">(</span><span class="n">temp</span><span class="p">))</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">File</span><span class="p">.</span><span class="n">Delete</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">UnauthorizedAccessException</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">$" (the temporary file '{temp}' could not be removed: {ex.Message})"</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div></div><h2><span class="t" data-l="kk">Блоктар және жолдар бойынша талдау</span><span class="t" data-l="ru">Разбор по блокам и строкам</span><span class="t" data-l="en">Block-by-block breakdown</span></h2><section class="blk" id="L8"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 8–26</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">record</span><span class="w"> </span><span class="nf">ReportBundle</span><span class="p">(</span><span class="n">QuoteSummary</span><span class="w"> </span><span class="n">Summary</span><span class="p">,</span><span class="w"> </span><span class="n">ImmutableArray</span><span class="o">&lt;</span><span class="n">DispatchLine</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Dispatch</span><span class="p">,</span><span class="w"> </span><span class="n">ImmutableArray</span><span class="o">&lt;</span><span class="n">WorkloadLine</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Workload</span><span class="p">);</span>
+
+<span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// EXPORT BOUNDARY. Writes the bundle as one JSON file.</span>
+<span class="c1">/// The text is built first (pure), then written to a temporary file next to the target, and only a fully written file</span>
+<span class="c1">/// replaces the target (File.Move with overwrite). OWNER of the StreamWriter: this method, released by "using" on success and on failure.</span>
+<span class="c1">/// If anything fails, the temporary file is removed and an existing target file is left exactly as it was.</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ReportExporter</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">JsonSerializerOptions</span><span class="w"> </span><span class="n">JsonOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">WriteIndented</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="p">};</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">ToJson</span><span class="p">(</span><span class="n">ReportBundle</span><span class="w"> </span><span class="n">bundle</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ToJson</span><span class="o">&lt;</span><span class="n">ReportBundle</span><span class="o">&gt;</span><span class="p">(</span><span class="n">bundle</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">ToJson</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="k">value</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">notnull</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="k">value</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">JsonSerializer</span><span class="p">.</span><span class="n">Serialize</span><span class="p">(</span><span class="k">value</span><span class="p">,</span><span class="w"> </span><span class="n">JsonOptions</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>ReportBundle</code> және таза <code>ToJson</code> — файлсыз сериализация, сондықтан бөлек тестіленеді.</div><div class="t" data-l="ru"><code>ReportBundle</code> (summary + dispatch + workload) и чистые <code>ToJson</code> — сериализация без файлов, поэтому тестируется отдельно.</div><div class="t" data-l="en"><code>ReportBundle</code> (summary + dispatch + workload) and pure <code>ToJson</code> — serialisation without files, so it is testable on its own.</div></div></section><section class="blk" id="L28"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 28–74</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Export</span><span class="p">(</span><span class="kt">string?</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">ReportBundle</span><span class="w"> </span><span class="n">bundle</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ExportJson</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">bundle</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;Atomic JSON export of any plain data value (reports, assignment plans).&lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ExportJson</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="kt">string?</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="k">value</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">notnull</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="k">value</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrWhiteSpace</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Failure</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">InvalidInput</span><span class="p">,</span><span class="w"> </span><span class="s">"No output path was given for the report file."</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ToJson</span><span class="p">(</span><span class="k">value</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">target</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<span class="w">        </span><span class="k">try</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Path</span><span class="p">.</span><span class="n">GetFullPath</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+<span class="w">            </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">".tmp"</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">ArgumentException</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">NotSupportedException</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">PathTooLongException</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Failure</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">FileNotWritable</span><span class="p">,</span><span class="w"> </span><span class="s">$"The output path '{path}' is not valid: {ex.Message}"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">try</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">folder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Path</span><span class="p">.</span><span class="n">GetDirectoryName</span><span class="p">(</span><span class="n">target</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">folder</span><span class="p">))</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">Directory</span><span class="p">.</span><span class="n">CreateDirectory</span><span class="p">(</span><span class="n">folder</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">using</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StreamWriter</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="k">false</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UTF8Encoding</span><span class="p">(</span><span class="k">false</span><span class="p">)))</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">writer</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="n">json</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="n">File</span><span class="p">.</span><span class="n">Move</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">overwrite</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Success</span><span class="p">(</span><span class="n">target</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">UnauthorizedAccessException</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">NotSupportedException</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">ArgumentException</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">cleanup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RemoveTemp</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Failure</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">FileNotWritable</span><span class="p">,</span>
+<span class="w">                </span><span class="s">$"The report could not be written to '{target}': {ex.Message}{cleanup}"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>ExportJson&lt;T&gt;</code>: бос жол → <code>InvalidInput</code>; жарамсыз жол → <code>FileNotWritable</code>; папка жасайды, <code>using</code> ішіндегі <code>StreamWriter</code>-мен уақытша файлға жазады, <code>File.Move(..., overwrite: true)</code>. <code>IOException</code>, <code>UnauthorizedAccessException</code> ұсталады → <code>FileNotWritable</code>.</div><div class="t" data-l="ru"><code>ExportJson&lt;T&gt;</code>: пустой путь → <code>InvalidInput</code>; неверный путь → <code>FileNotWritable</code>; создаёт папку, пишет <code>StreamWriter</code> в <code>using</code> во временный файл, <code>File.Move(..., overwrite: true)</code>. Ловятся <code>IOException</code>, <code>UnauthorizedAccessException</code> и т. п. → <code>FileNotWritable</code>.</div><div class="t" data-l="en"><code>ExportJson&lt;T&gt;</code>: empty path → <code>InvalidInput</code>; invalid path → <code>FileNotWritable</code>; creates the folder, writes a <code>StreamWriter</code> in <code>using</code> to a temp file, <code>File.Move(..., overwrite: true)</code>. Catches <code>IOException</code>, <code>UnauthorizedAccessException</code> etc. → <code>FileNotWritable</code>.</div></div></section><section class="blk" id="L76"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 76–91</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="c1">// Only a file created by this export is removed; a failure to remove it is reported, not hidden.</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">RemoveTemp</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">temp</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">File</span><span class="p">.</span><span class="n">Exists</span><span class="p">(</span><span class="n">temp</span><span class="p">))</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">File</span><span class="p">.</span><span class="n">Delete</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">UnauthorizedAccessException</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">$" (the temporary file '{temp}' could not be removed: {ex.Message})"</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>RemoveTemp</code>: тек осы экспорт жасаған <code>.tmp</code>-ты жояды; жою сәтсіздігі жасырылмай хабарланады.</div><div class="t" data-l="ru"><code>RemoveTemp</code>: удаляет только созданный этим экспортом <code>.tmp</code>; неудача удаления сообщается, а не скрывается.</div><div class="t" data-l="en"><code>RemoveTemp</code>: removes only the <code>.tmp</code> created by this export; a failure to remove is reported, not hidden.</div></div></section><div class="nav2"><a href="DataLoader.html"><small>← <span class="t" data-l="kk">Алдыңғы</span><span class="t" data-l="ru">Назад</span><span class="t" data-l="en">Previous</span></small>DataLoader.cs</a><a href="NativeMethods.html" style="text-align:right"><small><span class="t" data-l="kk">Келесі</span><span class="t" data-l="ru">Дальше</span><span class="t" data-l="en">Next</span> →</small>NativeMethods.cs</a></div></div></main></div><script src="../assets/app.js"></script></body></html>

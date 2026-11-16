@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Option.cs · ITFP Final — Courier Delivery Quotes</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var l=localStorage.getItem('lang');if(l)document.documentElement.lang=l;var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head><body><div class="layout"><aside><a class="brand" href="../index.html">ITFP Final · Defense<small>Courier Delivery Quotes and Dispatch</small></a><a href="../index.html"><span class="t" data-l="kk">Басты бет</span><span class="t" data-l="ru">Главная</span><span class="t" data-l="en">Home</span></a><a href="../tech.html"><span class="t" data-l="kk">Технологиялар мен командалар</span><span class="t" data-l="ru">Технологии и команды</span><span class="t" data-l="en">Technologies &amp; commands</span></a><a href="../defense.html"><span class="t" data-l="kk">Қорғаудағы сұрақтар</span><span class="t" data-l="ru">Вопросы на защите</span><span class="t" data-l="en">Defense Q&amp;A</span></a><a href="../tests.html"><span class="t" data-l="kk">Тесттер</span><span class="t" data-l="ru">Тесты</span><span class="t" data-l="en">Tests</span></a><h4><span class="t" data-l="kk">Жоба файлдары</span><span class="t" data-l="ru">Файлы проекта</span><span class="t" data-l="en">Project files</span></h4><label style="display:block;padding:2px 8px;font-size:13px"><input type="checkbox" id="mine"> <span class="t" data-l="kk">Тек менің файлдарым</span><span class="t" data-l="ru">Только мои файлы</span><span class="t" data-l="en">Only my files</span></label><h4><span class="t" data-l="kk">Негіз: Result / Option</span><span class="t" data-l="ru">Основа: Result / Option</span><span class="t" data-l="en">Foundation: Result / Option</span></h4><a href="Result.html" data-owner="A">Result.cs</a><a href="Option.html" class="cur" data-owner="A">Option.cs</a><a href="Error.html" data-owner="A">Error.cs</a><a href="ResultExtensions.html" data-owner="A">ResultExtensions.cs</a><a href="Extensions.html" data-owner="A">Extensions.cs</a><h4><span class="t" data-l="kk">Модельдер және валидация</span><span class="t" data-l="ru">Модели и валидация</span><span class="t" data-l="en">Models &amp; validation</span></h4><a href="Models.html" data-owner="S">Models.cs</a><a href="DeliveryRequest.html" data-owner="A">DeliveryRequest.cs</a><a href="RequestValidation.html" data-owner="A">RequestValidation.cs</a><a href="RequestParser.html" data-owner="A">RequestParser.cs</a><a href="Courier.html" data-owner="A">Courier.cs</a><a href="DiscountTable.html" data-owner="A">DiscountTable.cs</a><h4><span class="t" data-l="kk">Күйлер және қауіпсіз реттілік</span><span class="t" data-l="ru">Состояния и безопасный порядок</span><span class="t" data-l="en">States &amp; safe sequence</span></h4><a href="OrderState.html" data-owner="N">OrderState.cs</a><a href="TransitionResult.html" data-owner="N">TransitionResult.cs</a><a href="OrderWorkflow.html" data-owner="N">OrderWorkflow.cs</a><a href="OrderBook.html" data-owner="R">OrderBook.cs<span class="me" title="Ravil"></span></a><a href="OrderProcessor.html" data-owner="R">OrderProcessor.cs<span class="me" title="Ravil"></span></a><a href="OrderService.html" data-owner="R">OrderService.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Пайплайн және саясаттар</span><span class="t" data-l="ru">Пайплайн и политики</span><span class="t" data-l="en">Pipeline &amp; policies</span></h4><a href="PipelineStages.Common.html" data-owner="S">PipelineStages.Common.cs</a><a href="PipelineStages.Stage1Select.html" data-owner="N">PipelineStages.Stage1Select.cs</a><a href="PipelineStages.Stage2Price.html" data-owner="N">PipelineStages.Stage2Price.cs</a><a href="PipelineStages.Stage3Summary.html" data-owner="R">PipelineStages.Stage3Summary.cs<span class="me" title="Ravil"></span></a><a href="DeliveryPipeline.html" data-owner="R">DeliveryPipeline.cs<span class="me" title="Ravil"></span></a><a href="PricingPolicies.html" data-owner="N">PricingPolicies.cs</a><a href="Scoring.html" data-owner="A">Scoring.cs</a><h4><span class="t" data-l="kk">Есептер және жалқау есептеу</span><span class="t" data-l="ru">Отчёты и ленивость</span><span class="t" data-l="en">Reports &amp; laziness</span></h4><a href="Reports.html" data-owner="N">Reports.cs</a><a href="QuoteStream.html" data-owner="N">QuoteStream.cs</a><a href="LineStreaming.html" data-owner="N">LineStreaming.cs</a><a href="QuoteWorkflow.html" data-owner="A">QuoteWorkflow.cs</a><a href="ReportingWorkflow.html" data-owner="R">ReportingWorkflow.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Курьерлерді тағайындау</span><span class="t" data-l="ru">Назначение курьеров</span><span class="t" data-l="en">Courier assignment</span></h4><a href="Assignment.html" data-owner="N">Assignment.cs</a><a href="AssignmentWorkflow.html" data-owner="R">AssignmentWorkflow.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Файл шекаралары</span><span class="t" data-l="ru">Файлы (границы)</span><span class="t" data-l="en">File boundaries</span></h4><a href="DataLoader.html" data-owner="N">DataLoader.cs</a><a href="ReportExporter.html" data-owner="N">ReportExporter.cs</a><h4><span class="t" data-l="kk">Native C кітапханасы</span><span class="t" data-l="ru">Нативная C-библиотека</span><span class="t" data-l="en">Native C library</span></h4><a href="NativeMethods.html" data-owner="R">NativeMethods.cs<span class="me" title="Ravil"></span></a><a href="NativeEffortCalculator.html" data-owner="R">NativeEffortCalculator.cs<span class="me" title="Ravil"></span></a><a href="deliveryscore_h.html" data-owner="R">deliveryscore.h<span class="me" title="Ravil"></span></a><a href="deliveryscore_c.html" data-owner="R">deliveryscore.c<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Консольдік қосымша</span><span class="t" data-l="ru">Консольное приложение</span><span class="t" data-l="en">Console app</span></h4><a href="Program.html" data-owner="R">Program.cs<span class="me" title="Ravil"></span></a></aside><main>
+<div class="top"><button class="btn menu" id="menu" aria-label="menu">☰</button><span class="grow"></span><button class="btn" id="theme" title="theme">◐</button><div class="seg" role="group" aria-label="language"><button data-setlang="kk" aria-pressed="false">KK</button><button data-setlang="ru" aria-pressed="false">RU</button><button data-setlang="en" aria-pressed="false">EN</button></div></div>
+<div class="wrap"><h1 class="mono" style="font-size:26px">Option.cs</h1><p><span class="pill mono">src/DeliveryQuotes.Core/Option.cs</span><span class="pill">85 <span class="t" data-l="kk">жол</span><span class="t" data-l="ru">строк</span><span class="t" data-l="en">lines</span></span><span class="pill"><span class="t" data-l="kk">Авторы</span><span class="t" data-l="ru">Автор</span><span class="t" data-l="en">Owner</span>: Aruzhan Zhaksylyk</span><span class="pill"><span class="t" data-l="kk">Негіз: Result / Option</span><span class="t" data-l="ru">Основа: Result / Option</span><span class="t" data-l="en">Foundation: Result / Option</span></span></p><h2><span class="t" data-l="kk">Файл не үшін керек</span><span class="t" data-l="ru">Зачем нужен файл</span><span class="t" data-l="en">What this file is for</span></h2><div class="card"><div class="t" data-l="kk">Айқын «табылды / табылмады» моделі: <code>Some(value)</code> немесе <code>None</code>. Іздеу (тапсырыс, саясат, жеңілдік) үшін қажет: <code>null</code> қайтарылмайды, «жазба жоқ» пен «мән 0» шатастырылмайды.</div><div class="t" data-l="ru">Явная модель «найдено / не найдено»: <code>Some(value)</code> или <code>None</code>. Нужна для поиска (заказ, политика, скидка), чтобы не возвращать <code>null</code> и не путать «нет записи» с «значение 0».</div><div class="t" data-l="en">An explicit “found / not found” model: <code>Some(value)</code> or <code>None</code>. Used for lookups (order, policy, discount) so that <code>null</code> is never returned and “no record” is never confused with “value 0”.</div></div><h2><span class="t" data-l="kk">Толық код</span><span class="t" data-l="ru">Полный код</span><span class="t" data-l="en">Full code</span></h2><div class="codebox full"><div class="cb-head"><span class="mono">src/DeliveryQuotes.Core/Option.cs</span><button class="btn" data-toggle aria-expanded="false"><span class="t" data-l="kk">Ашу / жасыру</span><span class="t" data-l="ru">Развернуть / свернуть</span><span class="t" data-l="en">Expand / collapse</span></button></div><div class="scroll"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">DeliveryQuotes.Core</span><span class="p">;</span>
+
+<span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// A lookup outcome: Some carries the found value, None means "not there".</span>
+<span class="c1">/// Presence is a case, never a property of the value: Some(0), Some(false) and Some("") are legitimate found values.</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="k">public</span><span class="w"> </span><span class="k">abstract</span><span class="w"> </span><span class="k">record</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">notnull</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="nf">Option</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">record</span><span class="w"> </span><span class="n">Some</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">internal</span><span class="w"> </span><span class="nf">Some</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="k">value</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">value</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">record</span><span class="w"> </span><span class="n">None</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">internal</span><span class="w"> </span><span class="nf">None</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Option</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Some</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="k">value</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">notnull</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="k">value</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Some</span><span class="p">(</span><span class="k">value</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">None</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">notnull</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">.</span><span class="n">None</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">OptionExtensions</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;Transforms the found value; None stays None and the function is not called.&lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">option</span><span class="p">,</span><span class="w"> </span><span class="n">Func</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">notnull</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">notnull</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">option</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">map</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="k">switch</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Some</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Option</span><span class="p">.</span><span class="n">Some</span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="n">some</span><span class="p">.</span><span class="n">Value</span><span class="p">)),</span>
+<span class="w">            </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">.</span><span class="n">None</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Option</span><span class="p">.</span><span class="n">None</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">            </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">InvalidOperationException</span><span class="p">(</span><span class="s">"Unknown option case."</span><span class="p">),</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;For a REQUIRED item: the missing case becomes a meaningful failure.&lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ToResult</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">option</span><span class="p">,</span><span class="w"> </span><span class="n">Func</span><span class="o">&lt;</span><span class="n">Error</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ifMissing</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">notnull</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">option</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">ifMissing</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="k">switch</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Some</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Success</span><span class="p">(</span><span class="n">some</span><span class="p">.</span><span class="n">Value</span><span class="p">),</span>
+<span class="w">            </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">.</span><span class="n">None</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Failure</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ifMissing</span><span class="p">()),</span>
+<span class="w">            </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Failure</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">Unexpected</span><span class="p">,</span><span class="w"> </span><span class="s">"Unknown option case."</span><span class="p">),</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;For an OPTIONAL item: an explicit, documented fallback used only when the value is absent.&lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">GetValueOr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">option</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">fallback</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">notnull</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">option</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">fallback</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="k">switch</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Some</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">some</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span>
+<span class="w">            </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">.</span><span class="n">None</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">fallback</span><span class="p">,</span>
+<span class="w">            </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">InvalidOperationException</span><span class="p">(</span><span class="s">"Unknown option case."</span><span class="p">),</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div></div><h2><span class="t" data-l="kk">Блоктар және жолдар бойынша талдау</span><span class="t" data-l="ru">Разбор по блокам и строкам</span><span class="t" data-l="en">Block-by-block breakdown</span></h2><section class="blk" id="L1"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 1–11</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">DeliveryQuotes.Core</span><span class="p">;</span>
+
+<span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// A lookup outcome: Some carries the found value, None means "not there".</span>
+<span class="c1">/// Presence is a case, never a property of the value: Some(0), Some(false) and Some("") are legitimate found values.</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="k">public</span><span class="w"> </span><span class="k">abstract</span><span class="w"> </span><span class="k">record</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">notnull</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="nf">Option</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>Result</code>-пен бірдей құрылым: жеке конструкторы бар жабық иерархия. <code>Some(0)</code>, <code>Some(false)</code> — заңды табылған мәндер.</div><div class="t" data-l="ru">Та же схема, что у <code>Result</code>: закрытая иерархия с приватным конструктором. <code>Some(0)</code>, <code>Some(false)</code> — легальные найденные значения.</div><div class="t" data-l="en">Same design as <code>Result</code>: a closed hierarchy with a private constructor. <code>Some(0)</code> and <code>Some(false)</code> are legitimate found values.</div></div></section><section class="blk" id="L13"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 13–29</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">record</span><span class="w"> </span><span class="n">Some</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">internal</span><span class="w"> </span><span class="nf">Some</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="k">value</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">value</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">record</span><span class="w"> </span><span class="n">None</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">internal</span><span class="w"> </span><span class="nf">None</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>Some</code> (<code>Value</code> алып жүреді) және <code>None</code> (деректері жоқ) жағдайлары. Конструкторлар <code>internal</code>.</div><div class="t" data-l="ru">Случаи <code>Some</code> (несёт <code>Value</code>) и <code>None</code> (без данных). Конструкторы <code>internal</code>.</div><div class="t" data-l="en">Cases <code>Some</code> (carries <code>Value</code>) and <code>None</code> (no data). Constructors are <code>internal</code>.</div></div></section><section class="blk" id="L31"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 31–40</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Option</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Some</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="k">value</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">notnull</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="k">value</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Some</span><span class="p">(</span><span class="k">value</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">None</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">notnull</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">.</span><span class="n">None</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>Option.Some</code> және <code>Option.None&lt;T&gt;()</code> фабрикалары. <code>Some(null)</code> exception шығарады.</div><div class="t" data-l="ru">Фабрики <code>Option.Some</code> и <code>Option.None&lt;T&gt;()</code>. <code>Some(null)</code> бросает исключение.</div><div class="t" data-l="en">Factories <code>Option.Some</code> and <code>Option.None&lt;T&gt;()</code>. <code>Some(null)</code> throws.</div></div></section><section class="blk" id="L42"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 42–56</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">OptionExtensions</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;Transforms the found value; None stays None and the function is not called.&lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">option</span><span class="p">,</span><span class="w"> </span><span class="n">Func</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">notnull</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">notnull</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">option</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">map</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="k">switch</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Some</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Option</span><span class="p">.</span><span class="n">Some</span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="n">some</span><span class="p">.</span><span class="n">Value</span><span class="p">)),</span>
+<span class="w">            </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">.</span><span class="n">None</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Option</span><span class="p">.</span><span class="n">None</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">            </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">InvalidOperationException</span><span class="p">(</span><span class="s">"Unknown option case."</span><span class="p">),</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>Map</code>: табылған мәнді функциямен түрлендіреді; <code>None</code> күйінде қалады, функция шақырылмайды. <code>switch</code>-өрнек — жағдай типі бойынша pattern matching.</div><div class="t" data-l="ru"><code>Map</code>: превращает найденное значение функцией; <code>None</code> остаётся <code>None</code>, функция не вызывается. <code>switch</code>-выражение — pattern matching по типу случая.</div><div class="t" data-l="en"><code>Map</code>: transforms the found value; <code>None</code> stays <code>None</code> and the function is not called. The <code>switch</code> expression is pattern matching on the case type.</div></div></section><section class="blk" id="L58"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 58–70</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="c1">/// &lt;summary&gt;For a REQUIRED item: the missing case becomes a meaningful failure.&lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ToResult</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">option</span><span class="p">,</span><span class="w"> </span><span class="n">Func</span><span class="o">&lt;</span><span class="n">Error</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ifMissing</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">notnull</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">option</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">ifMissing</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="k">switch</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Some</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Success</span><span class="p">(</span><span class="n">some</span><span class="p">.</span><span class="n">Value</span><span class="p">),</span>
+<span class="w">            </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">.</span><span class="n">None</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Failure</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ifMissing</span><span class="p">()),</span>
+<span class="w">            </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Failure</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">Unexpected</span><span class="p">,</span><span class="w"> </span><span class="s">"Unknown option case."</span><span class="p">),</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>ToResult</code>: МІНДЕТТІ элемент үшін <code>None</code> мағыналы <code>Failure</code>-ге (мысалы <code>NotFound</code>) айналады. Бұл Option → Result көпірі.</div><div class="t" data-l="ru"><code>ToResult</code>: для ОБЯЗАТЕЛЬНОГО элемента <code>None</code> превращается в осмысленный <code>Failure</code> (например <code>NotFound</code>). Это мост Option → Result.</div><div class="t" data-l="en"><code>ToResult</code>: for a REQUIRED item <code>None</code> becomes a meaningful <code>Failure</code> (e.g. <code>NotFound</code>). This is the Option → Result bridge.</div></div></section><section class="blk" id="L72"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 72–84</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="c1">/// &lt;summary&gt;For an OPTIONAL item: an explicit, documented fallback used only when the value is absent.&lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">GetValueOr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">option</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">fallback</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">notnull</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">option</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">fallback</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="k">switch</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Some</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">some</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span>
+<span class="w">            </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">.</span><span class="n">None</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">fallback</span><span class="p">,</span>
+<span class="w">            </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">InvalidOperationException</span><span class="p">(</span><span class="s">"Unknown option case."</span><span class="p">),</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>GetValueOr</code>: МІНДЕТТІ ЕМЕС элемент үшін — жазба болмағанда ғана айқын резервтік мән (0 % жеңілдік).</div><div class="t" data-l="ru"><code>GetValueOr</code>: для НЕОБЯЗАТЕЛЬНОГО элемента — явное запасное значение только когда записи нет (скидка 0 %).</div><div class="t" data-l="en"><code>GetValueOr</code>: for an OPTIONAL item — an explicit fallback only when the value is absent (discount 0 %).</div></div></section><div class="nav2"><a href="Result.html"><small>← <span class="t" data-l="kk">Алдыңғы</span><span class="t" data-l="ru">Назад</span><span class="t" data-l="en">Previous</span></small>Result.cs</a><a href="Error.html" style="text-align:right"><small><span class="t" data-l="kk">Келесі</span><span class="t" data-l="ru">Дальше</span><span class="t" data-l="en">Next</span> →</small>Error.cs</a></div></div></main></div><script src="../assets/app.js"></script></body></html>

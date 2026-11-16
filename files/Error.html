@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Error.cs · ITFP Final — Courier Delivery Quotes</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var l=localStorage.getItem('lang');if(l)document.documentElement.lang=l;var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head><body><div class="layout"><aside><a class="brand" href="../index.html">ITFP Final · Defense<small>Courier Delivery Quotes and Dispatch</small></a><a href="../index.html"><span class="t" data-l="kk">Басты бет</span><span class="t" data-l="ru">Главная</span><span class="t" data-l="en">Home</span></a><a href="../tech.html"><span class="t" data-l="kk">Технологиялар мен командалар</span><span class="t" data-l="ru">Технологии и команды</span><span class="t" data-l="en">Technologies &amp; commands</span></a><a href="../defense.html"><span class="t" data-l="kk">Қорғаудағы сұрақтар</span><span class="t" data-l="ru">Вопросы на защите</span><span class="t" data-l="en">Defense Q&amp;A</span></a><a href="../tests.html"><span class="t" data-l="kk">Тесттер</span><span class="t" data-l="ru">Тесты</span><span class="t" data-l="en">Tests</span></a><h4><span class="t" data-l="kk">Жоба файлдары</span><span class="t" data-l="ru">Файлы проекта</span><span class="t" data-l="en">Project files</span></h4><label style="display:block;padding:2px 8px;font-size:13px"><input type="checkbox" id="mine"> <span class="t" data-l="kk">Тек менің файлдарым</span><span class="t" data-l="ru">Только мои файлы</span><span class="t" data-l="en">Only my files</span></label><h4><span class="t" data-l="kk">Негіз: Result / Option</span><span class="t" data-l="ru">Основа: Result / Option</span><span class="t" data-l="en">Foundation: Result / Option</span></h4><a href="Result.html" data-owner="A">Result.cs</a><a href="Option.html" data-owner="A">Option.cs</a><a href="Error.html" class="cur" data-owner="A">Error.cs</a><a href="ResultExtensions.html" data-owner="A">ResultExtensions.cs</a><a href="Extensions.html" data-owner="A">Extensions.cs</a><h4><span class="t" data-l="kk">Модельдер және валидация</span><span class="t" data-l="ru">Модели и валидация</span><span class="t" data-l="en">Models &amp; validation</span></h4><a href="Models.html" data-owner="S">Models.cs</a><a href="DeliveryRequest.html" data-owner="A">DeliveryRequest.cs</a><a href="RequestValidation.html" data-owner="A">RequestValidation.cs</a><a href="RequestParser.html" data-owner="A">RequestParser.cs</a><a href="Courier.html" data-owner="A">Courier.cs</a><a href="DiscountTable.html" data-owner="A">DiscountTable.cs</a><h4><span class="t" data-l="kk">Күйлер және қауіпсіз реттілік</span><span class="t" data-l="ru">Состояния и безопасный порядок</span><span class="t" data-l="en">States &amp; safe sequence</span></h4><a href="OrderState.html" data-owner="N">OrderState.cs</a><a href="TransitionResult.html" data-owner="N">TransitionResult.cs</a><a href="OrderWorkflow.html" data-owner="N">OrderWorkflow.cs</a><a href="OrderBook.html" data-owner="R">OrderBook.cs<span class="me" title="Ravil"></span></a><a href="OrderProcessor.html" data-owner="R">OrderProcessor.cs<span class="me" title="Ravil"></span></a><a href="OrderService.html" data-owner="R">OrderService.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Пайплайн және саясаттар</span><span class="t" data-l="ru">Пайплайн и политики</span><span class="t" data-l="en">Pipeline &amp; policies</span></h4><a href="PipelineStages.Common.html" data-owner="S">PipelineStages.Common.cs</a><a href="PipelineStages.Stage1Select.html" data-owner="N">PipelineStages.Stage1Select.cs</a><a href="PipelineStages.Stage2Price.html" data-owner="N">PipelineStages.Stage2Price.cs</a><a href="PipelineStages.Stage3Summary.html" data-owner="R">PipelineStages.Stage3Summary.cs<span class="me" title="Ravil"></span></a><a href="DeliveryPipeline.html" data-owner="R">DeliveryPipeline.cs<span class="me" title="Ravil"></span></a><a href="PricingPolicies.html" data-owner="N">PricingPolicies.cs</a><a href="Scoring.html" data-owner="A">Scoring.cs</a><h4><span class="t" data-l="kk">Есептер және жалқау есептеу</span><span class="t" data-l="ru">Отчёты и ленивость</span><span class="t" data-l="en">Reports &amp; laziness</span></h4><a href="Reports.html" data-owner="N">Reports.cs</a><a href="QuoteStream.html" data-owner="N">QuoteStream.cs</a><a href="LineStreaming.html" data-owner="N">LineStreaming.cs</a><a href="QuoteWorkflow.html" data-owner="A">QuoteWorkflow.cs</a><a href="ReportingWorkflow.html" data-owner="R">ReportingWorkflow.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Курьерлерді тағайындау</span><span class="t" data-l="ru">Назначение курьеров</span><span class="t" data-l="en">Courier assignment</span></h4><a href="Assignment.html" data-owner="N">Assignment.cs</a><a href="AssignmentWorkflow.html" data-owner="R">AssignmentWorkflow.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Файл шекаралары</span><span class="t" data-l="ru">Файлы (границы)</span><span class="t" data-l="en">File boundaries</span></h4><a href="DataLoader.html" data-owner="N">DataLoader.cs</a><a href="ReportExporter.html" data-owner="N">ReportExporter.cs</a><h4><span class="t" data-l="kk">Native C кітапханасы</span><span class="t" data-l="ru">Нативная C-библиотека</span><span class="t" data-l="en">Native C library</span></h4><a href="NativeMethods.html" data-owner="R">NativeMethods.cs<span class="me" title="Ravil"></span></a><a href="NativeEffortCalculator.html" data-owner="R">NativeEffortCalculator.cs<span class="me" title="Ravil"></span></a><a href="deliveryscore_h.html" data-owner="R">deliveryscore.h<span class="me" title="Ravil"></span></a><a href="deliveryscore_c.html" data-owner="R">deliveryscore.c<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Консольдік қосымша</span><span class="t" data-l="ru">Консольное приложение</span><span class="t" data-l="en">Console app</span></h4><a href="Program.html" data-owner="R">Program.cs<span class="me" title="Ravil"></span></a></aside><main>
+<div class="top"><button class="btn menu" id="menu" aria-label="menu">☰</button><span class="grow"></span><button class="btn" id="theme" title="theme">◐</button><div class="seg" role="group" aria-label="language"><button data-setlang="kk" aria-pressed="false">KK</button><button data-setlang="ru" aria-pressed="false">RU</button><button data-setlang="en" aria-pressed="false">EN</button></div></div>
+<div class="wrap"><h1 class="mono" style="font-size:26px">Error.cs</h1><p><span class="pill mono">src/DeliveryQuotes.Core/Error.cs</span><span class="pill">29 <span class="t" data-l="kk">жол</span><span class="t" data-l="ru">строк</span><span class="t" data-l="en">lines</span></span><span class="pill"><span class="t" data-l="kk">Авторы</span><span class="t" data-l="ru">Автор</span><span class="t" data-l="en">Owner</span>: Aruzhan Zhaksylyk</span><span class="pill"><span class="t" data-l="kk">Негіз: Result / Option</span><span class="t" data-l="ru">Основа: Result / Option</span><span class="t" data-l="en">Foundation: Result / Option</span></span></p><h2><span class="t" data-l="kk">Файл не үшін керек</span><span class="t" data-l="ru">Зачем нужен файл</span><span class="t" data-l="en">What this file is for</span></h2><div class="card"><div class="t" data-l="kk">Қате типі: машина оқитын <code>ErrorCode</code> және мәтіндік хабарлама. Кодтар доменді, файлдық және native топтарға бөлінген.</div><div class="t" data-l="ru">Тип ошибки: машиночитаемый <code>ErrorCode</code> + текстовое сообщение. Коды разделены на доменные, файловые и нативные группы.</div><div class="t" data-l="en">The error type: a machine-readable <code>ErrorCode</code> plus a text message. Codes are grouped into domain, file and native failures.</div></div><div class="tip"><b><span class="t" data-l="kk">Қорғауда не айту керек</span><span class="t" data-l="ru">Что сказать на защите</span><span class="t" data-l="en">What to say at the defense</span>.</b> <span class="t" data-l="kk">PDF талабы: «кемінде үш доменді қате үшін Result» — мұнда алты.</span><span class="t" data-l="ru">Требование PDF: «Result минимум для трёх доменных ошибок» — здесь их шесть.</span><span class="t" data-l="en">PDF requires Result for at least three domain failures — there are six here.</span></div><h2><span class="t" data-l="kk">Толық код</span><span class="t" data-l="ru">Полный код</span><span class="t" data-l="en">Full code</span></h2><div class="codebox full"><div class="cb-head"><span class="mono">src/DeliveryQuotes.Core/Error.cs</span><button class="btn" data-toggle aria-expanded="false"><span class="t" data-l="kk">Ашу / жасыру</span><span class="t" data-l="ru">Развернуть / свернуть</span><span class="t" data-l="en">Expand / collapse</span></button></div><div class="scroll"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">DeliveryQuotes.Core</span><span class="p">;</span>
+
+<span class="c1">/// &lt;summary&gt;Machine-readable reason of a failure. Domain failures and operational (file) failures are separate groups.&lt;/summary&gt;</span>
+<span class="k">public</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">ErrorCode</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Expected DOMAIN failures (business rules)</span>
+<span class="w">    </span><span class="n">InvalidInput</span><span class="p">,</span><span class="w">          </span><span class="c1">// a value is missing or not a number, a number is out of range</span>
+<span class="w">    </span><span class="n">InvalidRequest</span><span class="p">,</span><span class="w">        </span><span class="c1">// the validated factory rejected the request</span>
+<span class="w">    </span><span class="n">NotFound</span><span class="p">,</span><span class="w">              </span><span class="c1">// a required item does not exist</span>
+<span class="w">    </span><span class="n">InvalidState</span><span class="p">,</span><span class="w">          </span><span class="c1">// the operation is not allowed in the current state</span>
+<span class="w">    </span><span class="n">OutsideServiceLimits</span><span class="p">,</span><span class="w">  </span><span class="c1">// the order is outside the service limits</span>
+<span class="w">    </span><span class="n">DuplicateOrder</span><span class="p">,</span><span class="w">        </span><span class="c1">// an order with this id already exists</span>
+
+<span class="w">    </span><span class="c1">// OPERATIONAL failures (found at the file boundary)</span>
+<span class="w">    </span><span class="n">FileNotFound</span><span class="p">,</span><span class="w">          </span><span class="c1">// the data file or its folder does not exist</span>
+<span class="w">    </span><span class="n">FileUnreadable</span><span class="p">,</span><span class="w">        </span><span class="c1">// the file exists but cannot be read (access denied, I/O problem)</span>
+<span class="w">    </span><span class="n">MalformedContent</span><span class="p">,</span><span class="w">      </span><span class="c1">// the file was read but its content is invalid CSV/JSON/data</span>
+<span class="w">    </span><span class="n">FileNotWritable</span><span class="p">,</span><span class="w">       </span><span class="c1">// an output file could not be written (access denied, target is a folder, ...)</span>
+
+<span class="w">    </span><span class="c1">// NATIVE library problems (found at the adapter boundary)</span>
+<span class="w">    </span><span class="n">NativeLibraryUnavailable</span><span class="p">,</span><span class="w"> </span><span class="c1">// the library file is missing, wrong architecture, or cannot be loaded</span>
+<span class="w">    </span><span class="n">NativeCallFailed</span><span class="p">,</span><span class="w">         </span><span class="c1">// the library loaded but the export is missing or the call rejected its input</span>
+
+<span class="w">    </span><span class="c1">// A case that should never happen; reported instead of being treated as success</span>
+<span class="w">    </span><span class="n">Unexpected</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1">/// &lt;summary&gt;What went wrong: a code for programs and a message that names the rule, item or file involved.&lt;/summary&gt;</span>
+<span class="k">public</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">record</span><span class="w"> </span><span class="nf">Error</span><span class="p">(</span><span class="n">ErrorCode</span><span class="w"> </span><span class="n">Code</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Message</span><span class="p">);</span>
+</pre></div></td></tr></table></div>
+</div></div><h2><span class="t" data-l="kk">Блоктар және жолдар бойынша талдау</span><span class="t" data-l="ru">Разбор по блокам и строкам</span><span class="t" data-l="en">Block-by-block breakdown</span></h2><section class="blk" id="L3"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 3–26</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><span class="c1">/// &lt;summary&gt;Machine-readable reason of a failure. Domain failures and operational (file) failures are separate groups.&lt;/summary&gt;</span>
+<span class="k">public</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">ErrorCode</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Expected DOMAIN failures (business rules)</span>
+<span class="w">    </span><span class="n">InvalidInput</span><span class="p">,</span><span class="w">          </span><span class="c1">// a value is missing or not a number, a number is out of range</span>
+<span class="w">    </span><span class="n">InvalidRequest</span><span class="p">,</span><span class="w">        </span><span class="c1">// the validated factory rejected the request</span>
+<span class="w">    </span><span class="n">NotFound</span><span class="p">,</span><span class="w">              </span><span class="c1">// a required item does not exist</span>
+<span class="w">    </span><span class="n">InvalidState</span><span class="p">,</span><span class="w">          </span><span class="c1">// the operation is not allowed in the current state</span>
+<span class="w">    </span><span class="n">OutsideServiceLimits</span><span class="p">,</span><span class="w">  </span><span class="c1">// the order is outside the service limits</span>
+<span class="w">    </span><span class="n">DuplicateOrder</span><span class="p">,</span><span class="w">        </span><span class="c1">// an order with this id already exists</span>
+
+<span class="w">    </span><span class="c1">// OPERATIONAL failures (found at the file boundary)</span>
+<span class="w">    </span><span class="n">FileNotFound</span><span class="p">,</span><span class="w">          </span><span class="c1">// the data file or its folder does not exist</span>
+<span class="w">    </span><span class="n">FileUnreadable</span><span class="p">,</span><span class="w">        </span><span class="c1">// the file exists but cannot be read (access denied, I/O problem)</span>
+<span class="w">    </span><span class="n">MalformedContent</span><span class="p">,</span><span class="w">      </span><span class="c1">// the file was read but its content is invalid CSV/JSON/data</span>
+<span class="w">    </span><span class="n">FileNotWritable</span><span class="p">,</span><span class="w">       </span><span class="c1">// an output file could not be written (access denied, target is a folder, ...)</span>
+
+<span class="w">    </span><span class="c1">// NATIVE library problems (found at the adapter boundary)</span>
+<span class="w">    </span><span class="n">NativeLibraryUnavailable</span><span class="p">,</span><span class="w"> </span><span class="c1">// the library file is missing, wrong architecture, or cannot be loaded</span>
+<span class="w">    </span><span class="n">NativeCallFailed</span><span class="p">,</span><span class="w">         </span><span class="c1">// the library loaded but the export is missing or the call rejected its input</span>
+
+<span class="w">    </span><span class="c1">// A case that should never happen; reported instead of being treated as success</span>
+<span class="w">    </span><span class="n">Unexpected</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>enum ErrorCode</code>. Доменді: <code>InvalidInput</code>, <code>InvalidRequest</code>, <code>NotFound</code>, <code>InvalidState</code>, <code>OutsideServiceLimits</code>, <code>DuplicateOrder</code> (6 — талап кемінде 3). Операциялық (файл): <code>FileNotFound</code>, <code>FileUnreadable</code>, <code>MalformedContent</code>, <code>FileNotWritable</code>. Native: <code>NativeLibraryUnavailable</code>, <code>NativeCallFailed</code>. <code>Unexpected</code> — «болмауы тиіс жағдай».</div><div class="t" data-l="ru"><code>enum ErrorCode</code>. Доменные: <code>InvalidInput</code>, <code>InvalidRequest</code>, <code>NotFound</code>, <code>InvalidState</code>, <code>OutsideServiceLimits</code>, <code>DuplicateOrder</code> (6 — требование «минимум 3»). Операционные (файлы): <code>FileNotFound</code>, <code>FileUnreadable</code>, <code>MalformedContent</code>, <code>FileNotWritable</code>. Нативные: <code>NativeLibraryUnavailable</code>, <code>NativeCallFailed</code>. <code>Unexpected</code> — «этого не должно быть».</div><div class="t" data-l="en"><code>enum ErrorCode</code>. Domain: <code>InvalidInput</code>, <code>InvalidRequest</code>, <code>NotFound</code>, <code>InvalidState</code>, <code>OutsideServiceLimits</code>, <code>DuplicateOrder</code> (6 — the requirement says at least 3). Operational (files): <code>FileNotFound</code>, <code>FileUnreadable</code>, <code>MalformedContent</code>, <code>FileNotWritable</code>. Native: <code>NativeLibraryUnavailable</code>, <code>NativeCallFailed</code>. <code>Unexpected</code> — “should never happen”.</div></div></section><section class="blk" id="L28"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 28–29</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><span class="c1">/// &lt;summary&gt;What went wrong: a code for programs and a message that names the rule, item or file involved.&lt;/summary&gt;</span>
+<span class="k">public</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">record</span><span class="w"> </span><span class="nf">Error</span><span class="p">(</span><span class="n">ErrorCode</span><span class="w"> </span><span class="n">Code</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Message</span><span class="p">);</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>record Error(Code, Message)</code> өзгермейді: код — бағдарлама үшін, хабарлама ереже/элемент/файлды атайды.</div><div class="t" data-l="ru"><code>record Error(Code, Message)</code> — неизменяемый: код для программы, сообщение называет правило, элемент или файл.</div><div class="t" data-l="en"><code>record Error(Code, Message)</code> is immutable: the code is for programs, the message names the rule, item or file.</div></div></section><div class="nav2"><a href="Option.html"><small>← <span class="t" data-l="kk">Алдыңғы</span><span class="t" data-l="ru">Назад</span><span class="t" data-l="en">Previous</span></small>Option.cs</a><a href="ResultExtensions.html" style="text-align:right"><small><span class="t" data-l="kk">Келесі</span><span class="t" data-l="ru">Дальше</span><span class="t" data-l="en">Next</span> →</small>ResultExtensions.cs</a></div></div></main></div><script src="../assets/app.js"></script></body></html>

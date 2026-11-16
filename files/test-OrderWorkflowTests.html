@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OrderWorkflowTests.cs · ITFP Final — Courier Delivery Quotes</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var l=localStorage.getItem('lang');if(l)document.documentElement.lang=l;var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head><body><div class="layout"><aside><a class="brand" href="../index.html">ITFP Final · Defense<small>Courier Delivery Quotes and Dispatch</small></a><a href="../index.html"><span class="t" data-l="kk">Басты бет</span><span class="t" data-l="ru">Главная</span><span class="t" data-l="en">Home</span></a><a href="../tech.html"><span class="t" data-l="kk">Технологиялар мен командалар</span><span class="t" data-l="ru">Технологии и команды</span><span class="t" data-l="en">Technologies &amp; commands</span></a><a href="../defense.html"><span class="t" data-l="kk">Қорғаудағы сұрақтар</span><span class="t" data-l="ru">Вопросы на защите</span><span class="t" data-l="en">Defense Q&amp;A</span></a><a href="../tests.html" class="cur"><span class="t" data-l="kk">Тесттер</span><span class="t" data-l="ru">Тесты</span><span class="t" data-l="en">Tests</span></a><h4><span class="t" data-l="kk">Жоба файлдары</span><span class="t" data-l="ru">Файлы проекта</span><span class="t" data-l="en">Project files</span></h4><label style="display:block;padding:2px 8px;font-size:13px"><input type="checkbox" id="mine"> <span class="t" data-l="kk">Тек менің файлдарым</span><span class="t" data-l="ru">Только мои файлы</span><span class="t" data-l="en">Only my files</span></label><h4><span class="t" data-l="kk">Негіз: Result / Option</span><span class="t" data-l="ru">Основа: Result / Option</span><span class="t" data-l="en">Foundation: Result / Option</span></h4><a href="Result.html" data-owner="A">Result.cs</a><a href="Option.html" data-owner="A">Option.cs</a><a href="Error.html" data-owner="A">Error.cs</a><a href="ResultExtensions.html" data-owner="A">ResultExtensions.cs</a><a href="Extensions.html" data-owner="A">Extensions.cs</a><h4><span class="t" data-l="kk">Модельдер және валидация</span><span class="t" data-l="ru">Модели и валидация</span><span class="t" data-l="en">Models &amp; validation</span></h4><a href="Models.html" data-owner="S">Models.cs</a><a href="DeliveryRequest.html" data-owner="A">DeliveryRequest.cs</a><a href="RequestValidation.html" data-owner="A">RequestValidation.cs</a><a href="RequestParser.html" data-owner="A">RequestParser.cs</a><a href="Courier.html" data-owner="A">Courier.cs</a><a href="DiscountTable.html" data-owner="A">DiscountTable.cs</a><h4><span class="t" data-l="kk">Күйлер және қауіпсіз реттілік</span><span class="t" data-l="ru">Состояния и безопасный порядок</span><span class="t" data-l="en">States &amp; safe sequence</span></h4><a href="OrderState.html" data-owner="N">OrderState.cs</a><a href="TransitionResult.html" data-owner="N">TransitionResult.cs</a><a href="OrderWorkflow.html" data-owner="N">OrderWorkflow.cs</a><a href="OrderBook.html" data-owner="R">OrderBook.cs<span class="me" title="Ravil"></span></a><a href="OrderProcessor.html" data-owner="R">OrderProcessor.cs<span class="me" title="Ravil"></span></a><a href="OrderService.html" data-owner="R">OrderService.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Пайплайн және саясаттар</span><span class="t" data-l="ru">Пайплайн и политики</span><span class="t" data-l="en">Pipeline &amp; policies</span></h4><a href="PipelineStages.Common.html" data-owner="S">PipelineStages.Common.cs</a><a href="PipelineStages.Stage1Select.html" data-owner="N">PipelineStages.Stage1Select.cs</a><a href="PipelineStages.Stage2Price.html" data-owner="N">PipelineStages.Stage2Price.cs</a><a href="PipelineStages.Stage3Summary.html" data-owner="R">PipelineStages.Stage3Summary.cs<span class="me" title="Ravil"></span></a><a href="DeliveryPipeline.html" data-owner="R">DeliveryPipeline.cs<span class="me" title="Ravil"></span></a><a href="PricingPolicies.html" data-owner="N">PricingPolicies.cs</a><a href="Scoring.html" data-owner="A">Scoring.cs</a><h4><span class="t" data-l="kk">Есептер және жалқау есептеу</span><span class="t" data-l="ru">Отчёты и ленивость</span><span class="t" data-l="en">Reports &amp; laziness</span></h4><a href="Reports.html" data-owner="N">Reports.cs</a><a href="QuoteStream.html" data-owner="N">QuoteStream.cs</a><a href="LineStreaming.html" data-owner="N">LineStreaming.cs</a><a href="QuoteWorkflow.html" data-owner="A">QuoteWorkflow.cs</a><a href="ReportingWorkflow.html" data-owner="R">ReportingWorkflow.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Курьерлерді тағайындау</span><span class="t" data-l="ru">Назначение курьеров</span><span class="t" data-l="en">Courier assignment</span></h4><a href="Assignment.html" data-owner="N">Assignment.cs</a><a href="AssignmentWorkflow.html" data-owner="R">AssignmentWorkflow.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Файл шекаралары</span><span class="t" data-l="ru">Файлы (границы)</span><span class="t" data-l="en">File boundaries</span></h4><a href="DataLoader.html" data-owner="N">DataLoader.cs</a><a href="ReportExporter.html" data-owner="N">ReportExporter.cs</a><h4><span class="t" data-l="kk">Native C кітапханасы</span><span class="t" data-l="ru">Нативная C-библиотека</span><span class="t" data-l="en">Native C library</span></h4><a href="NativeMethods.html" data-owner="R">NativeMethods.cs<span class="me" title="Ravil"></span></a><a href="NativeEffortCalculator.html" data-owner="R">NativeEffortCalculator.cs<span class="me" title="Ravil"></span></a><a href="deliveryscore_h.html" data-owner="R">deliveryscore.h<span class="me" title="Ravil"></span></a><a href="deliveryscore_c.html" data-owner="R">deliveryscore.c<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Консольдік қосымша</span><span class="t" data-l="ru">Консольное приложение</span><span class="t" data-l="en">Console app</span></h4><a href="Program.html" data-owner="R">Program.cs<span class="me" title="Ravil"></span></a></aside><main>
+<div class="top"><button class="btn menu" id="menu" aria-label="menu">☰</button><span class="grow"></span><button class="btn" id="theme" title="theme">◐</button><div class="seg" role="group" aria-label="language"><button data-setlang="kk" aria-pressed="false">KK</button><button data-setlang="ru" aria-pressed="false">RU</button><button data-setlang="en" aria-pressed="false">EN</button></div></div>
+<div class="wrap"><h1 class="mono" style="font-size:26px">OrderWorkflowTests.cs</h1><p><span class="pill mono">tests/DeliveryQuotes.Tests/OrderWorkflowTests.cs</span><span class="pill">127 <span class="t" data-l="kk">жол</span><span class="t" data-l="ru">строк</span><span class="t" data-l="en">lines</span></span><span class="pill">8 <span class="t" data-l="kk">тест</span><span class="t" data-l="ru">тестов</span><span class="t" data-l="en">tests</span></span><span class="pill"><span class="t" data-l="kk">Авторы</span><span class="t" data-l="ru">Автор</span><span class="t" data-l="en">Owner</span>: Neda Farhat</span></p><h2><span class="t" data-l="kk">Файл не үшін керек</span><span class="t" data-l="ru">Зачем нужен файл</span><span class="t" data-l="en">What this file is for</span></h2><div class="card"><div class="t" data-l="kk">Күй ауысулары: pattern matching арқылы барлық жағдай, котировка, лимит шекаралары, растау нөмірі &gt; 0, <code>Quote</code>-қа дейін <code>Confirm</code> бас тартылады, қайталаулар, теріс баға.</div><div class="t" data-l="ru">Переходы состояний: все случаи через pattern matching, котировка, границы лимитов, номер подтверждения &gt; 0, <code>Confirm</code> до <code>Quote</code> отказ, повторы, отрицательная цена.</div><div class="t" data-l="en">State transitions: all cases by pattern matching, quoting, limit boundaries, confirmation number &gt; 0, <code>Confirm</code> before <code>Quote</code> refused, repeats, negative price.</div></div><h2><span class="t" data-l="kk">Толық код</span><span class="t" data-l="ru">Полный код</span><span class="t" data-l="en">Full code</span></h2><div class="codebox full"><div class="cb-head"><span class="mono">OrderWorkflowTests.cs</span><button class="btn" data-toggle aria-expanded="false"><span class="t" data-l="kk">Ашу / жасыру</span><span class="t" data-l="ru">Развернуть / свернуть</span><span class="t" data-l="en">Expand / collapse</span></button></div><div class="scroll"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">DeliveryQuotes.Core</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Xunit</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">static</span><span class="w"> </span><span class="n">DeliveryQuotes</span><span class="p">.</span><span class="n">Tests</span><span class="p">.</span><span class="n">TestData</span><span class="p">;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">DeliveryQuotes.Tests</span><span class="p">;</span>
+
+<span class="c1">// Member B: states, transitions and pattern matching (pure workflow, no book).</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">OrderWorkflowTests</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// DISTINCT CASES: every declared case is reachable and matched</span>
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">DistinctCases_EveryCaseIsReachableAndHandledByPatternMatching</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Req</span><span class="p">(</span><span class="s">"R-001"</span><span class="p">,</span><span class="w"> </span><span class="mf">2m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// RequestValidation: Valid / Invalid</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"valid R-001"</span><span class="p">,</span><span class="w"> </span><span class="n">Label</span><span class="p">(</span><span class="n">DeliveryRequest</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="s">"R-001"</span><span class="p">,</span><span class="w"> </span><span class="s">"Test"</span><span class="p">,</span><span class="w"> </span><span class="mf">2m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">)));</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"invalid: Id is empty."</span><span class="p">,</span><span class="w"> </span><span class="n">Label</span><span class="p">(</span><span class="n">DeliveryRequest</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="s">""</span><span class="p">,</span><span class="w"> </span><span class="s">"Test"</span><span class="p">,</span><span class="w"> </span><span class="mf">2m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">)));</span>
+
+<span class="w">        </span><span class="c1">// OrderState: Submitted / Quoted / Confirmed (each carries different data)</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"R-001: submitted (2 km, 1 kg), waiting for a quote"</span><span class="p">,</span><span class="w"> </span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Describe</span><span class="p">(</span><span class="n">SubmittedState</span><span class="p">(</span><span class="n">request</span><span class="p">)));</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"R-001: quoted 840 KZT (standard), waiting for confirmation"</span><span class="p">,</span><span class="w"> </span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Describe</span><span class="p">(</span><span class="n">QuotedState</span><span class="p">(</span><span class="n">request</span><span class="p">)));</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"R-001: confirmed #7, 840 KZT (standard)"</span><span class="p">,</span><span class="w"> </span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Describe</span><span class="p">(</span><span class="n">ConfirmedState</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">)));</span>
+
+<span class="w">        </span><span class="c1">// TransitionResult: Moved / Refused</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"moved"</span><span class="p">,</span><span class="w"> </span><span class="n">Label</span><span class="p">(</span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Quote</span><span class="p">(</span><span class="n">SubmittedState</span><span class="p">(</span><span class="n">request</span><span class="p">),</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Standard</span><span class="p">,</span><span class="w"> </span><span class="s">"standard"</span><span class="p">)));</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"refused"</span><span class="p">,</span><span class="w"> </span><span class="n">Label</span><span class="p">(</span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Confirm</span><span class="p">(</span><span class="n">SubmittedState</span><span class="p">(</span><span class="n">request</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">)));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">Label</span><span class="p">(</span><span class="n">RequestValidation</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="k">switch</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">RequestValidation</span><span class="p">.</span><span class="n">Valid</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"valid "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">valid</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span>
+<span class="w">        </span><span class="n">RequestValidation</span><span class="p">.</span><span class="n">Invalid</span><span class="w"> </span><span class="n">invalid</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"invalid: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">" "</span><span class="p">,</span><span class="w"> </span><span class="n">invalid</span><span class="p">.</span><span class="n">Reasons</span><span class="p">),</span>
+<span class="w">        </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"unknown"</span><span class="p">,</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">Label</span><span class="p">(</span><span class="n">TransitionResult</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="k">switch</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Moved</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"moved"</span><span class="p">,</span>
+<span class="w">        </span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Refused</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"refused"</span><span class="p">,</span>
+<span class="w">        </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"unknown"</span><span class="p">,</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="c1">// NORMAL OPERATION</span>
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Quote_SubmittedOrder_MovesToQuotedWithThePolicyPrice</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">submitted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SubmittedState</span><span class="p">(</span><span class="n">Req</span><span class="p">(</span><span class="s">"R-001"</span><span class="p">,</span><span class="w"> </span><span class="mf">2m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">));</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Quote</span><span class="p">(</span><span class="n">submitted</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Express</span><span class="p">,</span><span class="w"> </span><span class="s">"express"</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">quoted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">OrderState</span><span class="p">.</span><span class="n">Quoted</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Moved</span><span class="o">&gt;</span><span class="p">(</span><span class="n">result</span><span class="p">).</span><span class="n">Next</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mf">1360m</span><span class="p">,</span><span class="w"> </span><span class="n">quoted</span><span class="p">.</span><span class="n">Price</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"express"</span><span class="p">,</span><span class="w"> </span><span class="n">quoted</span><span class="p">.</span><span class="n">PolicyName</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"R-001"</span><span class="p">,</span><span class="w"> </span><span class="n">quoted</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">Id</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// BOUNDARY VALUE (service limits and confirmation number)</span>
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Boundary_ExactServiceLimitIsQuoted_JustAboveIsRefused</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">onLimit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SubmittedState</span><span class="p">(</span><span class="n">Req</span><span class="p">(</span><span class="s">"A"</span><span class="p">,</span><span class="w"> </span><span class="mf">30m</span><span class="p">,</span><span class="w"> </span><span class="mf">20m</span><span class="p">));</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">overDistance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SubmittedState</span><span class="p">(</span><span class="n">Req</span><span class="p">(</span><span class="s">"B"</span><span class="p">,</span><span class="w"> </span><span class="mf">30.01m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">));</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">overWeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SubmittedState</span><span class="p">(</span><span class="n">Req</span><span class="p">(</span><span class="s">"C"</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">,</span><span class="w"> </span><span class="mf">20.01m</span><span class="p">));</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Moved</span><span class="o">&gt;</span><span class="p">(</span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Quote</span><span class="p">(</span><span class="n">onLimit</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Standard</span><span class="p">,</span><span class="w"> </span><span class="s">"standard"</span><span class="p">));</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">refused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Refused</span><span class="o">&gt;</span><span class="p">(</span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Quote</span><span class="p">(</span><span class="n">overDistance</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Standard</span><span class="p">,</span><span class="w"> </span><span class="s">"standard"</span><span class="p">));</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">"outside the service limits"</span><span class="p">,</span><span class="w"> </span><span class="n">refused</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Refused</span><span class="o">&gt;</span><span class="p">(</span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Quote</span><span class="p">(</span><span class="n">overWeight</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Standard</span><span class="p">,</span><span class="w"> </span><span class="s">"standard"</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Boundary_ConfirmationNumberMustBePositive</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">quoted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QuotedState</span><span class="p">(</span><span class="n">Req</span><span class="p">(</span><span class="s">"R-001"</span><span class="p">,</span><span class="w"> </span><span class="mf">2m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">));</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Refused</span><span class="o">&gt;</span><span class="p">(</span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Confirm</span><span class="p">(</span><span class="n">quoted</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">));</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Refused</span><span class="o">&gt;</span><span class="p">(</span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Confirm</span><span class="p">(</span><span class="n">quoted</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">moved</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Moved</span><span class="o">&gt;</span><span class="p">(</span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Confirm</span><span class="p">(</span><span class="n">quoted</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">OrderState</span><span class="p">.</span><span class="n">Confirmed</span><span class="o">&gt;</span><span class="p">(</span><span class="n">moved</span><span class="p">.</span><span class="n">Next</span><span class="p">).</span><span class="n">ConfirmationNumber</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// MISSING PREREQUISITE</span>
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Confirm_BeforeQuote_IsRefused_NotAnInvalidSuccess</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">submitted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SubmittedState</span><span class="p">(</span><span class="n">Req</span><span class="p">(</span><span class="s">"R-001"</span><span class="p">,</span><span class="w"> </span><span class="mf">2m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">));</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Confirm</span><span class="p">(</span><span class="n">submitted</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">refused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Refused</span><span class="o">&gt;</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">"no quote yet"</span><span class="p">,</span><span class="w"> </span><span class="n">refused</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// REPEATED OPERATION</span>
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Confirm_Repeated_ReturnsTheExistingConfirmationUnchanged</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Moved</span><span class="o">&gt;</span><span class="p">(</span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Confirm</span><span class="p">(</span><span class="n">QuotedState</span><span class="p">(</span><span class="n">Req</span><span class="p">(</span><span class="s">"R-001"</span><span class="p">,</span><span class="w"> </span><span class="mf">2m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">)),</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">second</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Moved</span><span class="o">&gt;</span><span class="p">(</span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Confirm</span><span class="p">(</span><span class="n">first</span><span class="p">.</span><span class="n">Next</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">));</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Same</span><span class="p">(</span><span class="n">first</span><span class="p">.</span><span class="n">Next</span><span class="p">,</span><span class="w"> </span><span class="n">second</span><span class="p">.</span><span class="n">Next</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">OrderState</span><span class="p">.</span><span class="n">Confirmed</span><span class="o">&gt;</span><span class="p">(</span><span class="n">second</span><span class="p">.</span><span class="n">Next</span><span class="p">).</span><span class="n">ConfirmationNumber</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Quote_Repeated_IsRefused_AndKeepsTheOriginalPrice</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">quoted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QuotedState</span><span class="p">(</span><span class="n">Req</span><span class="p">(</span><span class="s">"R-001"</span><span class="p">,</span><span class="w"> </span><span class="mf">2m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">));</span><span class="w"> </span><span class="c1">// Standard: 840</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">again</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Quote</span><span class="p">(</span><span class="n">quoted</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Express</span><span class="p">,</span><span class="w"> </span><span class="s">"express"</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Refused</span><span class="o">&gt;</span><span class="p">(</span><span class="n">again</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mf">840m</span><span class="p">,</span><span class="w"> </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">OrderState</span><span class="p">.</span><span class="n">Quoted</span><span class="o">&gt;</span><span class="p">(</span><span class="n">quoted</span><span class="p">).</span><span class="n">Price</span><span class="p">);</span><span class="w"> </span><span class="c1">// the original state object is untouched</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Quote_PolicyReturningNegativePrice_IsRefused</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">submitted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SubmittedState</span><span class="p">(</span><span class="n">Req</span><span class="p">(</span><span class="s">"R-001"</span><span class="p">,</span><span class="w"> </span><span class="mf">2m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">));</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Quote</span><span class="p">(</span><span class="n">submitted</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">-</span><span class="mf">5m</span><span class="p">,</span><span class="w"> </span><span class="s">"broken"</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">"negative price"</span><span class="p">,</span><span class="w"> </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Refused</span><span class="o">&gt;</span><span class="p">(</span><span class="n">result</span><span class="p">).</span><span class="n">Message</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div></div><h2><span class="t" data-l="kk">Блоктар және жолдар бойынша талдау</span><span class="t" data-l="ru">Разбор по блокам и строкам</span><span class="t" data-l="en">Block-by-block breakdown</span></h2><section class="blk"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 1–10</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">DeliveryQuotes.Core</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Xunit</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">static</span><span class="w"> </span><span class="n">DeliveryQuotes</span><span class="p">.</span><span class="n">Tests</span><span class="p">.</span><span class="n">TestData</span><span class="p">;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">DeliveryQuotes.Tests</span><span class="p">;</span>
+
+<span class="c1">// Member B: states, transitions and pattern matching (pure workflow, no book).</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">OrderWorkflowTests</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// DISTINCT CASES: every declared case is reachable and matched</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>using</code>-дер, namespace және тест класының тақырыбы: төмендегі барлық тестке ортақ көмекшілер мен деректер.</div><div class="t" data-l="ru">Подключения (<code>using</code>), пространство имён и заголовок тестового класса: общие помощники и данные для всех тестов ниже.</div><div class="t" data-l="en">Usings, namespace and the test class header: shared helpers and data for all tests below.</div></div></section><section class="blk" id="L11"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 11–28 · <span class="mono">[Fact]</span> <span class="mono">DistinctCases_EveryCaseIsReachableAndHandledByPatternMatching</span></h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">DistinctCases_EveryCaseIsReachableAndHandledByPatternMatching</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Req</span><span class="p">(</span><span class="s">"R-001"</span><span class="p">,</span><span class="w"> </span><span class="mf">2m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// RequestValidation: Valid / Invalid</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"valid R-001"</span><span class="p">,</span><span class="w"> </span><span class="n">Label</span><span class="p">(</span><span class="n">DeliveryRequest</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="s">"R-001"</span><span class="p">,</span><span class="w"> </span><span class="s">"Test"</span><span class="p">,</span><span class="w"> </span><span class="mf">2m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">)));</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"invalid: Id is empty."</span><span class="p">,</span><span class="w"> </span><span class="n">Label</span><span class="p">(</span><span class="n">DeliveryRequest</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="s">""</span><span class="p">,</span><span class="w"> </span><span class="s">"Test"</span><span class="p">,</span><span class="w"> </span><span class="mf">2m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">)));</span>
+
+<span class="w">        </span><span class="c1">// OrderState: Submitted / Quoted / Confirmed (each carries different data)</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"R-001: submitted (2 km, 1 kg), waiting for a quote"</span><span class="p">,</span><span class="w"> </span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Describe</span><span class="p">(</span><span class="n">SubmittedState</span><span class="p">(</span><span class="n">request</span><span class="p">)));</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"R-001: quoted 840 KZT (standard), waiting for confirmation"</span><span class="p">,</span><span class="w"> </span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Describe</span><span class="p">(</span><span class="n">QuotedState</span><span class="p">(</span><span class="n">request</span><span class="p">)));</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"R-001: confirmed #7, 840 KZT (standard)"</span><span class="p">,</span><span class="w"> </span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Describe</span><span class="p">(</span><span class="n">ConfirmedState</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">)));</span>
+
+<span class="w">        </span><span class="c1">// TransitionResult: Moved / Refused</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"moved"</span><span class="p">,</span><span class="w"> </span><span class="n">Label</span><span class="p">(</span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Quote</span><span class="p">(</span><span class="n">SubmittedState</span><span class="p">(</span><span class="n">request</span><span class="p">),</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Standard</span><span class="p">,</span><span class="w"> </span><span class="s">"standard"</span><span class="p">)));</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"refused"</span><span class="p">,</span><span class="w"> </span><span class="n">Label</span><span class="p">(</span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Confirm</span><span class="p">(</span><span class="n">SubmittedState</span><span class="p">(</span><span class="n">request</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">)));</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why auto"><b>Distinct Cases · Every Case Is Reachable And Handled By Pattern Matching</b><br><span class="t" data-l="kk">Тест құрылымы: Arrange (дерек дайындау) → Act (тексерілетін функцияны шақыру) → Assert (нәтижені тексеру). Атауы «не · қандай жағдайда · не күтіледі» деп оқылады.</span><span class="t" data-l="ru">Схема теста: Arrange (подготовка данных) → Act (вызов проверяемой функции) → Assert (проверка результата). Название читается как «что проверяется · при каком условии · что ожидается».</span><span class="t" data-l="en">Test shape: Arrange (set up data) → Act (call the function under test) → Assert (check the result). The name reads as “what · under which condition · what is expected”.</span></div></section><section class="blk" id="L45"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 45–56 · <span class="mono">[Fact]</span> <span class="mono">Quote_SubmittedOrder_MovesToQuotedWithThePolicyPrice</span></h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Quote_SubmittedOrder_MovesToQuotedWithThePolicyPrice</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">submitted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SubmittedState</span><span class="p">(</span><span class="n">Req</span><span class="p">(</span><span class="s">"R-001"</span><span class="p">,</span><span class="w"> </span><span class="mf">2m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">));</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Quote</span><span class="p">(</span><span class="n">submitted</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Express</span><span class="p">,</span><span class="w"> </span><span class="s">"express"</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">quoted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">OrderState</span><span class="p">.</span><span class="n">Quoted</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Moved</span><span class="o">&gt;</span><span class="p">(</span><span class="n">result</span><span class="p">).</span><span class="n">Next</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mf">1360m</span><span class="p">,</span><span class="w"> </span><span class="n">quoted</span><span class="p">.</span><span class="n">Price</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"express"</span><span class="p">,</span><span class="w"> </span><span class="n">quoted</span><span class="p">.</span><span class="n">PolicyName</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"R-001"</span><span class="p">,</span><span class="w"> </span><span class="n">quoted</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">Id</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why auto"><b>Quote · Submitted Order · Moves To Quoted With The Policy Price</b><br><span class="t" data-l="kk">Тест құрылымы: Arrange (дерек дайындау) → Act (тексерілетін функцияны шақыру) → Assert (нәтижені тексеру). Атауы «не · қандай жағдайда · не күтіледі» деп оқылады.</span><span class="t" data-l="ru">Схема теста: Arrange (подготовка данных) → Act (вызов проверяемой функции) → Assert (проверка результата). Название читается как «что проверяется · при каком условии · что ожидается».</span><span class="t" data-l="en">Test shape: Arrange (set up data) → Act (call the function under test) → Assert (check the result). The name reads as “what · under which condition · what is expected”.</span></div></section><section class="blk" id="L59"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 59–70 · <span class="mono">[Fact]</span> <span class="mono">Boundary_ExactServiceLimitIsQuoted_JustAboveIsRefused</span></h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Boundary_ExactServiceLimitIsQuoted_JustAboveIsRefused</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">onLimit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SubmittedState</span><span class="p">(</span><span class="n">Req</span><span class="p">(</span><span class="s">"A"</span><span class="p">,</span><span class="w"> </span><span class="mf">30m</span><span class="p">,</span><span class="w"> </span><span class="mf">20m</span><span class="p">));</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">overDistance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SubmittedState</span><span class="p">(</span><span class="n">Req</span><span class="p">(</span><span class="s">"B"</span><span class="p">,</span><span class="w"> </span><span class="mf">30.01m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">));</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">overWeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SubmittedState</span><span class="p">(</span><span class="n">Req</span><span class="p">(</span><span class="s">"C"</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">,</span><span class="w"> </span><span class="mf">20.01m</span><span class="p">));</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Moved</span><span class="o">&gt;</span><span class="p">(</span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Quote</span><span class="p">(</span><span class="n">onLimit</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Standard</span><span class="p">,</span><span class="w"> </span><span class="s">"standard"</span><span class="p">));</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">refused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Refused</span><span class="o">&gt;</span><span class="p">(</span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Quote</span><span class="p">(</span><span class="n">overDistance</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Standard</span><span class="p">,</span><span class="w"> </span><span class="s">"standard"</span><span class="p">));</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">"outside the service limits"</span><span class="p">,</span><span class="w"> </span><span class="n">refused</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Refused</span><span class="o">&gt;</span><span class="p">(</span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Quote</span><span class="p">(</span><span class="n">overWeight</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Standard</span><span class="p">,</span><span class="w"> </span><span class="s">"standard"</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why auto"><b>Boundary · Exact Service Limit Is Quoted · Just Above Is Refused</b><br><span class="t" data-l="kk">Тест құрылымы: Arrange (дерек дайындау) → Act (тексерілетін функцияны шақыру) → Assert (нәтижені тексеру). Атауы «не · қандай жағдайда · не күтіледі» деп оқылады.</span><span class="t" data-l="ru">Схема теста: Arrange (подготовка данных) → Act (вызов проверяемой функции) → Assert (проверка результата). Название читается как «что проверяется · при каком условии · что ожидается».</span><span class="t" data-l="en">Test shape: Arrange (set up data) → Act (call the function under test) → Assert (check the result). The name reads as “what · under which condition · what is expected”.</span></div></section><section class="blk" id="L72"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 72–81 · <span class="mono">[Fact]</span> <span class="mono">Boundary_ConfirmationNumberMustBePositive</span></h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Boundary_ConfirmationNumberMustBePositive</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">quoted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QuotedState</span><span class="p">(</span><span class="n">Req</span><span class="p">(</span><span class="s">"R-001"</span><span class="p">,</span><span class="w"> </span><span class="mf">2m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">));</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Refused</span><span class="o">&gt;</span><span class="p">(</span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Confirm</span><span class="p">(</span><span class="n">quoted</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">));</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Refused</span><span class="o">&gt;</span><span class="p">(</span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Confirm</span><span class="p">(</span><span class="n">quoted</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">moved</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Moved</span><span class="o">&gt;</span><span class="p">(</span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Confirm</span><span class="p">(</span><span class="n">quoted</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">OrderState</span><span class="p">.</span><span class="n">Confirmed</span><span class="o">&gt;</span><span class="p">(</span><span class="n">moved</span><span class="p">.</span><span class="n">Next</span><span class="p">).</span><span class="n">ConfirmationNumber</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why auto"><b>Boundary · Confirmation Number Must Be Positive</b><br><span class="t" data-l="kk">Тест құрылымы: Arrange (дерек дайындау) → Act (тексерілетін функцияны шақыру) → Assert (нәтижені тексеру). Атауы «не · қандай жағдайда · не күтіледі» деп оқылады.</span><span class="t" data-l="ru">Схема теста: Arrange (подготовка данных) → Act (вызов проверяемой функции) → Assert (проверка результата). Название читается как «что проверяется · при каком условии · что ожидается».</span><span class="t" data-l="en">Test shape: Arrange (set up data) → Act (call the function under test) → Assert (check the result). The name reads as “what · under which condition · what is expected”.</span></div></section><section class="blk" id="L84"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 84–93 · <span class="mono">[Fact]</span> <span class="mono">Confirm_BeforeQuote_IsRefused_NotAnInvalidSuccess</span></h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Confirm_BeforeQuote_IsRefused_NotAnInvalidSuccess</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">submitted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SubmittedState</span><span class="p">(</span><span class="n">Req</span><span class="p">(</span><span class="s">"R-001"</span><span class="p">,</span><span class="w"> </span><span class="mf">2m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">));</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Confirm</span><span class="p">(</span><span class="n">submitted</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">refused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Refused</span><span class="o">&gt;</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">"no quote yet"</span><span class="p">,</span><span class="w"> </span><span class="n">refused</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why auto"><b>Confirm · Before Quote · Is Refused · Not An Invalid Success</b><br><span class="t" data-l="kk">Тест құрылымы: Arrange (дерек дайындау) → Act (тексерілетін функцияны шақыру) → Assert (нәтижені тексеру). Атауы «не · қандай жағдайда · не күтіледі» деп оқылады.</span><span class="t" data-l="ru">Схема теста: Arrange (подготовка данных) → Act (вызов проверяемой функции) → Assert (проверка результата). Название читается как «что проверяется · при каком условии · что ожидается».</span><span class="t" data-l="en">Test shape: Arrange (set up data) → Act (call the function under test) → Assert (check the result). The name reads as “what · under which condition · what is expected”.</span></div></section><section class="blk" id="L96"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 96–105 · <span class="mono">[Fact]</span> <span class="mono">Confirm_Repeated_ReturnsTheExistingConfirmationUnchanged</span></h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Confirm_Repeated_ReturnsTheExistingConfirmationUnchanged</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Moved</span><span class="o">&gt;</span><span class="p">(</span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Confirm</span><span class="p">(</span><span class="n">QuotedState</span><span class="p">(</span><span class="n">Req</span><span class="p">(</span><span class="s">"R-001"</span><span class="p">,</span><span class="w"> </span><span class="mf">2m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">)),</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">second</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Moved</span><span class="o">&gt;</span><span class="p">(</span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Confirm</span><span class="p">(</span><span class="n">first</span><span class="p">.</span><span class="n">Next</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">));</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Same</span><span class="p">(</span><span class="n">first</span><span class="p">.</span><span class="n">Next</span><span class="p">,</span><span class="w"> </span><span class="n">second</span><span class="p">.</span><span class="n">Next</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">OrderState</span><span class="p">.</span><span class="n">Confirmed</span><span class="o">&gt;</span><span class="p">(</span><span class="n">second</span><span class="p">.</span><span class="n">Next</span><span class="p">).</span><span class="n">ConfirmationNumber</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why auto"><b>Confirm · Repeated · Returns The Existing Confirmation Unchanged</b><br><span class="t" data-l="kk">Тест құрылымы: Arrange (дерек дайындау) → Act (тексерілетін функцияны шақыру) → Assert (нәтижені тексеру). Атауы «не · қандай жағдайда · не күтіледі» деп оқылады.</span><span class="t" data-l="ru">Схема теста: Arrange (подготовка данных) → Act (вызов проверяемой функции) → Assert (проверка результата). Название читается как «что проверяется · при каком условии · что ожидается».</span><span class="t" data-l="en">Test shape: Arrange (set up data) → Act (call the function under test) → Assert (check the result). The name reads as “what · under which condition · what is expected”.</span></div></section><section class="blk" id="L107"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 107–116 · <span class="mono">[Fact]</span> <span class="mono">Quote_Repeated_IsRefused_AndKeepsTheOriginalPrice</span></h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Quote_Repeated_IsRefused_AndKeepsTheOriginalPrice</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">quoted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QuotedState</span><span class="p">(</span><span class="n">Req</span><span class="p">(</span><span class="s">"R-001"</span><span class="p">,</span><span class="w"> </span><span class="mf">2m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">));</span><span class="w"> </span><span class="c1">// Standard: 840</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">again</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Quote</span><span class="p">(</span><span class="n">quoted</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Express</span><span class="p">,</span><span class="w"> </span><span class="s">"express"</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Refused</span><span class="o">&gt;</span><span class="p">(</span><span class="n">again</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mf">840m</span><span class="p">,</span><span class="w"> </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">OrderState</span><span class="p">.</span><span class="n">Quoted</span><span class="o">&gt;</span><span class="p">(</span><span class="n">quoted</span><span class="p">).</span><span class="n">Price</span><span class="p">);</span><span class="w"> </span><span class="c1">// the original state object is untouched</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why auto"><b>Quote · Repeated · Is Refused · And Keeps The Original Price</b><br><span class="t" data-l="kk">Тест құрылымы: Arrange (дерек дайындау) → Act (тексерілетін функцияны шақыру) → Assert (нәтижені тексеру). Атауы «не · қандай жағдайда · не күтіледі» деп оқылады.</span><span class="t" data-l="ru">Схема теста: Arrange (подготовка данных) → Act (вызов проверяемой функции) → Assert (проверка результата). Название читается как «что проверяется · при каком условии · что ожидается».</span><span class="t" data-l="en">Test shape: Arrange (set up data) → Act (call the function under test) → Assert (check the result). The name reads as “what · under which condition · what is expected”.</span></div></section><section class="blk" id="L118"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 118–126 · <span class="mono">[Fact]</span> <span class="mono">Quote_PolicyReturningNegativePrice_IsRefused</span></h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Quote_PolicyReturningNegativePrice_IsRefused</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">submitted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SubmittedState</span><span class="p">(</span><span class="n">Req</span><span class="p">(</span><span class="s">"R-001"</span><span class="p">,</span><span class="w"> </span><span class="mf">2m</span><span class="p">,</span><span class="w"> </span><span class="mf">1m</span><span class="p">));</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Quote</span><span class="p">(</span><span class="n">submitted</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">-</span><span class="mf">5m</span><span class="p">,</span><span class="w"> </span><span class="s">"broken"</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">"negative price"</span><span class="p">,</span><span class="w"> </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsType</span><span class="o">&lt;</span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Refused</span><span class="o">&gt;</span><span class="p">(</span><span class="n">result</span><span class="p">).</span><span class="n">Message</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why auto"><b>Quote · Policy Returning Negative Price · Is Refused</b><br><span class="t" data-l="kk">Тест құрылымы: Arrange (дерек дайындау) → Act (тексерілетін функцияны шақыру) → Assert (нәтижені тексеру). Атауы «не · қандай жағдайда · не күтіледі» деп оқылады.</span><span class="t" data-l="ru">Схема теста: Arrange (подготовка данных) → Act (вызов проверяемой функции) → Assert (проверка результата). Название читается как «что проверяется · при каком условии · что ожидается».</span><span class="t" data-l="en">Test shape: Arrange (set up data) → Act (call the function under test) → Assert (check the result). The name reads as “what · under which condition · what is expected”.</span></div></section><div class="nav2"><a href="test-Stage1And2Tests.html"><small>← <span class="t" data-l="kk">Алдыңғы</span><span class="t" data-l="ru">Назад</span><span class="t" data-l="en">Previous</span></small>Stage1And2Tests.cs</a><a href="test-DataLoaderTests.html" style="text-align:right"><small><span class="t" data-l="kk">Келесі</span><span class="t" data-l="ru">Дальше</span><span class="t" data-l="en">Next</span> →</small>DataLoaderTests.cs</a></div></div></main></div><script src="../assets/app.js"></script></body></html>

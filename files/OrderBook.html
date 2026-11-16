@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OrderBook.cs · ITFP Final — Courier Delivery Quotes</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var l=localStorage.getItem('lang');if(l)document.documentElement.lang=l;var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head><body><div class="layout"><aside><a class="brand" href="../index.html">ITFP Final · Defense<small>Courier Delivery Quotes and Dispatch</small></a><a href="../index.html"><span class="t" data-l="kk">Басты бет</span><span class="t" data-l="ru">Главная</span><span class="t" data-l="en">Home</span></a><a href="../tech.html"><span class="t" data-l="kk">Технологиялар мен командалар</span><span class="t" data-l="ru">Технологии и команды</span><span class="t" data-l="en">Technologies &amp; commands</span></a><a href="../defense.html"><span class="t" data-l="kk">Қорғаудағы сұрақтар</span><span class="t" data-l="ru">Вопросы на защите</span><span class="t" data-l="en">Defense Q&amp;A</span></a><a href="../tests.html"><span class="t" data-l="kk">Тесттер</span><span class="t" data-l="ru">Тесты</span><span class="t" data-l="en">Tests</span></a><h4><span class="t" data-l="kk">Жоба файлдары</span><span class="t" data-l="ru">Файлы проекта</span><span class="t" data-l="en">Project files</span></h4><label style="display:block;padding:2px 8px;font-size:13px"><input type="checkbox" id="mine"> <span class="t" data-l="kk">Тек менің файлдарым</span><span class="t" data-l="ru">Только мои файлы</span><span class="t" data-l="en">Only my files</span></label><h4><span class="t" data-l="kk">Негіз: Result / Option</span><span class="t" data-l="ru">Основа: Result / Option</span><span class="t" data-l="en">Foundation: Result / Option</span></h4><a href="Result.html" data-owner="A">Result.cs</a><a href="Option.html" data-owner="A">Option.cs</a><a href="Error.html" data-owner="A">Error.cs</a><a href="ResultExtensions.html" data-owner="A">ResultExtensions.cs</a><a href="Extensions.html" data-owner="A">Extensions.cs</a><h4><span class="t" data-l="kk">Модельдер және валидация</span><span class="t" data-l="ru">Модели и валидация</span><span class="t" data-l="en">Models &amp; validation</span></h4><a href="Models.html" data-owner="S">Models.cs</a><a href="DeliveryRequest.html" data-owner="A">DeliveryRequest.cs</a><a href="RequestValidation.html" data-owner="A">RequestValidation.cs</a><a href="RequestParser.html" data-owner="A">RequestParser.cs</a><a href="Courier.html" data-owner="A">Courier.cs</a><a href="DiscountTable.html" data-owner="A">DiscountTable.cs</a><h4><span class="t" data-l="kk">Күйлер және қауіпсіз реттілік</span><span class="t" data-l="ru">Состояния и безопасный порядок</span><span class="t" data-l="en">States &amp; safe sequence</span></h4><a href="OrderState.html" data-owner="N">OrderState.cs</a><a href="TransitionResult.html" data-owner="N">TransitionResult.cs</a><a href="OrderWorkflow.html" data-owner="N">OrderWorkflow.cs</a><a href="OrderBook.html" class="cur" data-owner="R">OrderBook.cs<span class="me" title="Ravil"></span></a><a href="OrderProcessor.html" data-owner="R">OrderProcessor.cs<span class="me" title="Ravil"></span></a><a href="OrderService.html" data-owner="R">OrderService.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Пайплайн және саясаттар</span><span class="t" data-l="ru">Пайплайн и политики</span><span class="t" data-l="en">Pipeline &amp; policies</span></h4><a href="PipelineStages.Common.html" data-owner="S">PipelineStages.Common.cs</a><a href="PipelineStages.Stage1Select.html" data-owner="N">PipelineStages.Stage1Select.cs</a><a href="PipelineStages.Stage2Price.html" data-owner="N">PipelineStages.Stage2Price.cs</a><a href="PipelineStages.Stage3Summary.html" data-owner="R">PipelineStages.Stage3Summary.cs<span class="me" title="Ravil"></span></a><a href="DeliveryPipeline.html" data-owner="R">DeliveryPipeline.cs<span class="me" title="Ravil"></span></a><a href="PricingPolicies.html" data-owner="N">PricingPolicies.cs</a><a href="Scoring.html" data-owner="A">Scoring.cs</a><h4><span class="t" data-l="kk">Есептер және жалқау есептеу</span><span class="t" data-l="ru">Отчёты и ленивость</span><span class="t" data-l="en">Reports &amp; laziness</span></h4><a href="Reports.html" data-owner="N">Reports.cs</a><a href="QuoteStream.html" data-owner="N">QuoteStream.cs</a><a href="LineStreaming.html" data-owner="N">LineStreaming.cs</a><a href="QuoteWorkflow.html" data-owner="A">QuoteWorkflow.cs</a><a href="ReportingWorkflow.html" data-owner="R">ReportingWorkflow.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Курьерлерді тағайындау</span><span class="t" data-l="ru">Назначение курьеров</span><span class="t" data-l="en">Courier assignment</span></h4><a href="Assignment.html" data-owner="N">Assignment.cs</a><a href="AssignmentWorkflow.html" data-owner="R">AssignmentWorkflow.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Файл шекаралары</span><span class="t" data-l="ru">Файлы (границы)</span><span class="t" data-l="en">File boundaries</span></h4><a href="DataLoader.html" data-owner="N">DataLoader.cs</a><a href="ReportExporter.html" data-owner="N">ReportExporter.cs</a><h4><span class="t" data-l="kk">Native C кітапханасы</span><span class="t" data-l="ru">Нативная C-библиотека</span><span class="t" data-l="en">Native C library</span></h4><a href="NativeMethods.html" data-owner="R">NativeMethods.cs<span class="me" title="Ravil"></span></a><a href="NativeEffortCalculator.html" data-owner="R">NativeEffortCalculator.cs<span class="me" title="Ravil"></span></a><a href="deliveryscore_h.html" data-owner="R">deliveryscore.h<span class="me" title="Ravil"></span></a><a href="deliveryscore_c.html" data-owner="R">deliveryscore.c<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Консольдік қосымша</span><span class="t" data-l="ru">Консольное приложение</span><span class="t" data-l="en">Console app</span></h4><a href="Program.html" data-owner="R">Program.cs<span class="me" title="Ravil"></span></a></aside><main>
+<div class="top"><button class="btn menu" id="menu" aria-label="menu">☰</button><span class="grow"></span><button class="btn" id="theme" title="theme">◐</button><div class="seg" role="group" aria-label="language"><button data-setlang="kk" aria-pressed="false">KK</button><button data-setlang="ru" aria-pressed="false">RU</button><button data-setlang="en" aria-pressed="false">EN</button></div></div>
+<div class="wrap"><h1 class="mono" style="font-size:26px">OrderBook.cs</h1><p><span class="pill mono">src/DeliveryQuotes.Core/OrderBook.cs</span><span class="pill">92 <span class="t" data-l="kk">жол</span><span class="t" data-l="ru">строк</span><span class="t" data-l="en">lines</span></span><span class="pill me"><span class="t" data-l="kk">Авторы</span><span class="t" data-l="ru">Автор</span><span class="t" data-l="en">Owner</span>: Ravil Maratov ★ <span class="t" data-l="kk">сенің файлың</span><span class="t" data-l="ru">твой файл</span><span class="t" data-l="en">your file</span></span><span class="pill"><span class="t" data-l="kk">Күйлер және қауіпсіз реттілік</span><span class="t" data-l="ru">Состояния и безопасный порядок</span><span class="t" data-l="en">States &amp; safe sequence</span></span></p><h2><span class="t" data-l="kk">Файл не үшін керек</span><span class="t" data-l="ru">Зачем нужен файл</span><span class="t" data-l="en">What this file is for</span></h2><div class="card"><div class="t" data-l="kk">Өзгермейтін «тапсырыстар кітабы»: әр операция ЖАҢА кітап пен нәтиже қайтарады. Бас тартқанда сол кітап қайтады — жартылай күй жоқ.</div><div class="t" data-l="ru">Неизменяемая «книга заказов»: каждая операция возвращает НОВУЮ книгу и результат. При отказе возвращается та же книга — частичного состояния нет.</div><div class="t" data-l="en">An immutable “order book”: every operation returns a NEW book plus a result. On refusal the same book is returned — no partial state.</div></div><div class="tip"><b><span class="t" data-l="kk">Қорғауда не айту керек</span><span class="t" data-l="ru">Что сказать на защите</span><span class="t" data-l="en">What to say at the defense</span>.</b> <span class="t" data-l="kk">Негізгі сөз тіркесі: «immutable state transition» — ескі кітап өзгермейді, сондықтан бас тарту деректі бұза алмайды.</span><span class="t" data-l="ru">Ключевая фраза: «immutable state transition» — старая книга не меняется, поэтому отказ не может испортить данные.</span><span class="t" data-l="en">Key phrase: “immutable state transition” — the old book never changes, so a refusal cannot corrupt data.</span></div><h2><span class="t" data-l="kk">Толық код</span><span class="t" data-l="ru">Полный код</span><span class="t" data-l="en">Full code</span></h2><div class="codebox full"><div class="cb-head"><span class="mono">src/DeliveryQuotes.Core/OrderBook.cs</span><button class="btn" data-toggle aria-expanded="false"><span class="t" data-l="kk">Ашу / жасыру</span><span class="t" data-l="ru">Развернуть / свернуть</span><span class="t" data-l="en">Expand / collapse</span></button></div><div class="scroll"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Immutable</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Diagnostics.CodeAnalysis</span><span class="p">;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">DeliveryQuotes.Core</span><span class="p">;</span>
+
+<span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// Immutable store of orders by id. Every operation returns a NEW book together with the outcome.</span>
+<span class="c1">/// A refused operation returns the SAME book instance, so a failure can never leave a half-applied update.</span>
+<span class="c1">/// All prerequisites (order exists, transition allowed) are checked BEFORE the new book is created.</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="k">public</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">OrderBook</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">ImmutableDictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="n">OrderState</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_orders</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="nf">OrderBook</span><span class="p">(</span><span class="n">ImmutableDictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="n">OrderState</span><span class="o">&gt;</span><span class="w"> </span><span class="n">orders</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">_orders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orders</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">OrderBook</span><span class="w"> </span><span class="n">Empty</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="n">ImmutableDictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="n">OrderState</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Empty</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Count</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_orders</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;Order ids in ordinal order.&lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">ImmutableArray</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Ids</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_orders</span><span class="p">.</span><span class="n">Keys</span><span class="p">.</span><span class="n">OrderBy</span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">StringComparer</span><span class="p">.</span><span class="n">Ordinal</span><span class="p">).</span><span class="n">ToImmutableArray</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">TryGet</span><span class="p">(</span><span class="kt">string?</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">NotNullWhen</span><span class="p">(</span><span class="k">true</span><span class="p">)]</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="n">OrderState</span><span class="o">?</span><span class="w"> </span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">_orders</span><span class="p">.</span><span class="n">TryGetValue</span><span class="p">(</span><span class="n">DeliveryRequest</span><span class="p">.</span><span class="n">NormalizeId</span><span class="p">(</span><span class="n">id</span><span class="p">),</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="n">state</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;Lookup: Some(state) when the order exists, None when it does not (an empty or null id is simply not found).&lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">OrderState</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Find</span><span class="p">(</span><span class="kt">string?</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">TryGet</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">var</span><span class="w"> </span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">Option</span><span class="p">.</span><span class="n">Some</span><span class="p">(</span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Option</span><span class="p">.</span><span class="n">None</span><span class="o">&lt;</span><span class="n">OrderState</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;Accepts an already validated request. A duplicate id is refused (documented rule).&lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="p">(</span><span class="n">OrderBook</span><span class="w"> </span><span class="n">Book</span><span class="p">,</span><span class="w"> </span><span class="n">TransitionResult</span><span class="w"> </span><span class="n">Result</span><span class="p">)</span><span class="w"> </span><span class="n">Submit</span><span class="p">(</span><span class="n">DeliveryRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_orders</span><span class="p">.</span><span class="n">ContainsKey</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">Id</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Refuse</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">DuplicateOrder</span><span class="p">,</span><span class="w"> </span><span class="s">$"Order {request.Id} already exists; a duplicate submission is refused."</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">submitted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OrderState</span><span class="p">.</span><span class="n">Submitted</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">OrderBook</span><span class="p">(</span><span class="n">_orders</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span><span class="w"> </span><span class="n">submitted</span><span class="p">)),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Moved</span><span class="p">(</span><span class="n">submitted</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;Accepts the factory outcome; Invalid never enters the book.&lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="p">(</span><span class="n">OrderBook</span><span class="w"> </span><span class="n">Book</span><span class="p">,</span><span class="w"> </span><span class="n">TransitionResult</span><span class="w"> </span><span class="n">Result</span><span class="p">)</span><span class="w"> </span><span class="n">Submit</span><span class="p">(</span><span class="n">RequestValidation</span><span class="w"> </span><span class="n">validation</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">validation</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">validation</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">RequestValidation</span><span class="p">.</span><span class="n">Valid</span><span class="w"> </span><span class="n">valid</span><span class="p">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nf">Submit</span><span class="p">(</span><span class="n">valid</span><span class="p">.</span><span class="n">Request</span><span class="p">);</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">RequestValidation</span><span class="p">.</span><span class="n">Invalid</span><span class="w"> </span><span class="n">invalid</span><span class="p">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Refused</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">InvalidRequest</span><span class="p">,</span><span class="w"> </span><span class="n">invalid</span><span class="p">.</span><span class="n">Reasons</span><span class="p">));</span>
+<span class="w">            </span><span class="k">default</span><span class="p">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Refuse</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">Unexpected</span><span class="p">,</span><span class="w"> </span><span class="s">"Unknown validation outcome; submission refused."</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="p">(</span><span class="n">OrderBook</span><span class="w"> </span><span class="n">Book</span><span class="p">,</span><span class="w"> </span><span class="n">TransitionResult</span><span class="w"> </span><span class="n">Result</span><span class="p">)</span><span class="w"> </span><span class="n">Quote</span><span class="p">(</span>
+<span class="w">        </span><span class="kt">string?</span><span class="w"> </span><span class="n">id</span><span class="p">,</span>
+<span class="w">        </span><span class="n">EligibilityRules</span><span class="w"> </span><span class="n">rules</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Func</span><span class="o">&lt;</span><span class="n">DeliveryRequest</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">policy</span><span class="p">,</span>
+<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">policyName</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">Apply</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Quote</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">rules</span><span class="p">,</span><span class="w"> </span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">policyName</span><span class="p">));</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="p">(</span><span class="n">OrderBook</span><span class="w"> </span><span class="n">Book</span><span class="p">,</span><span class="w"> </span><span class="n">TransitionResult</span><span class="w"> </span><span class="n">Result</span><span class="p">)</span><span class="w"> </span><span class="n">Confirm</span><span class="p">(</span><span class="kt">string?</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">confirmationNumber</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">Apply</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Confirm</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">confirmationNumber</span><span class="p">));</span>
+
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="p">(</span><span class="n">OrderBook</span><span class="w"> </span><span class="n">Book</span><span class="p">,</span><span class="w"> </span><span class="n">TransitionResult</span><span class="w"> </span><span class="n">Result</span><span class="p">)</span><span class="w"> </span><span class="n">Apply</span><span class="p">(</span><span class="kt">string?</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">Func</span><span class="o">&lt;</span><span class="n">OrderState</span><span class="p">,</span><span class="w"> </span><span class="n">TransitionResult</span><span class="o">&gt;</span><span class="w"> </span><span class="n">transition</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DeliveryRequest</span><span class="p">.</span><span class="n">NormalizeId</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">_orders</span><span class="p">.</span><span class="n">TryGetValue</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">var</span><span class="w"> </span><span class="n">current</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Refuse</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">NotFound</span><span class="p">,</span><span class="w"> </span><span class="s">$"Order '{(id ?? string.Empty).Trim()}' does not exist; submit it first."</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">transition</span><span class="p">(</span><span class="n">current</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Moved</span><span class="w"> </span><span class="n">moved</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">OrderBook</span><span class="p">(</span><span class="n">_orders</span><span class="p">.</span><span class="n">SetItem</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">moved</span><span class="p">.</span><span class="n">Next</span><span class="p">)),</span><span class="w"> </span><span class="n">moved</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span><span class="w"> </span><span class="c1">// refused (or unexpected): nothing is stored</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div></div><h2><span class="t" data-l="kk">Блоктар және жолдар бойынша талдау</span><span class="t" data-l="ru">Разбор по блокам и строкам</span><span class="t" data-l="en">Block-by-block breakdown</span></h2><section class="blk" id="L11"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 11–25</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">OrderBook</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">ImmutableDictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="n">OrderState</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_orders</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="nf">OrderBook</span><span class="p">(</span><span class="n">ImmutableDictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="n">OrderState</span><span class="o">&gt;</span><span class="w"> </span><span class="n">orders</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">_orders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orders</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">OrderBook</span><span class="w"> </span><span class="n">Empty</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="n">ImmutableDictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="n">OrderState</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Empty</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Count</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_orders</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;Order ids in ordinal order.&lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">ImmutableArray</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Ids</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_orders</span><span class="p">.</span><span class="n">Keys</span><span class="p">.</span><span class="n">OrderBy</span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">StringComparer</span><span class="p">.</span><span class="n">Ordinal</span><span class="p">).</span><span class="n">ToImmutableArray</span><span class="p">();</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk">Ішінде <code>ImmutableDictionary&lt;string, OrderState&gt;</code>; жеке конструктор, <code>Empty</code> — бос кітап, <code>Ids</code> ординалды сұрыпталған (тұрақты тәртіп).</div><div class="t" data-l="ru">Внутри <code>ImmutableDictionary&lt;string, OrderState&gt;</code>; конструктор приватный, <code>Empty</code> — пустая книга, <code>Ids</code> отсортированы ординально (стабильный порядок).</div><div class="t" data-l="en">Inside is an <code>ImmutableDictionary&lt;string, OrderState&gt;</code>; private constructor, <code>Empty</code> is an empty book, <code>Ids</code> are sorted ordinally (stable order).</div></div></section><section class="blk" id="L27"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 27–33</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">TryGet</span><span class="p">(</span><span class="kt">string?</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">NotNullWhen</span><span class="p">(</span><span class="k">true</span><span class="p">)]</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="n">OrderState</span><span class="o">?</span><span class="w"> </span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">_orders</span><span class="p">.</span><span class="n">TryGetValue</span><span class="p">(</span><span class="n">DeliveryRequest</span><span class="p">.</span><span class="n">NormalizeId</span><span class="p">(</span><span class="n">id</span><span class="p">),</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="n">state</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;Lookup: Some(state) when the order exists, None when it does not (an empty or null id is simply not found).&lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">OrderState</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Find</span><span class="p">(</span><span class="kt">string?</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">TryGet</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">var</span><span class="w"> </span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">Option</span><span class="p">.</span><span class="n">Some</span><span class="p">(</span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Option</span><span class="p">.</span><span class="n">None</span><span class="o">&lt;</span><span class="n">OrderState</span><span class="o">&gt;</span><span class="p">();</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>TryGet</code> және <code>Find</code>: нормализацияланған id бойынша іздеу; <code>Find</code> <code>Option&lt;OrderState&gt;</code> қайтарады — жоқтық айқын.</div><div class="t" data-l="ru"><code>TryGet</code> и <code>Find</code>: поиск по нормализованному id; <code>Find</code> возвращает <code>Option&lt;OrderState&gt;</code> — отсутствие явно.</div><div class="t" data-l="en"><code>TryGet</code> and <code>Find</code>: lookup by normalised id; <code>Find</code> returns <code>Option&lt;OrderState&gt;</code> — absence is explicit.</div></div></section><section class="blk" id="L35"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 35–62</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="p">(</span><span class="n">OrderBook</span><span class="w"> </span><span class="n">Book</span><span class="p">,</span><span class="w"> </span><span class="n">TransitionResult</span><span class="w"> </span><span class="n">Result</span><span class="p">)</span><span class="w"> </span><span class="n">Submit</span><span class="p">(</span><span class="n">DeliveryRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_orders</span><span class="p">.</span><span class="n">ContainsKey</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">Id</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Refuse</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">DuplicateOrder</span><span class="p">,</span><span class="w"> </span><span class="s">$"Order {request.Id} already exists; a duplicate submission is refused."</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">submitted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OrderState</span><span class="p">.</span><span class="n">Submitted</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">OrderBook</span><span class="p">(</span><span class="n">_orders</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span><span class="w"> </span><span class="n">submitted</span><span class="p">)),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Moved</span><span class="p">(</span><span class="n">submitted</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;Accepts the factory outcome; Invalid never enters the book.&lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="p">(</span><span class="n">OrderBook</span><span class="w"> </span><span class="n">Book</span><span class="p">,</span><span class="w"> </span><span class="n">TransitionResult</span><span class="w"> </span><span class="n">Result</span><span class="p">)</span><span class="w"> </span><span class="n">Submit</span><span class="p">(</span><span class="n">RequestValidation</span><span class="w"> </span><span class="n">validation</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">validation</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">validation</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">RequestValidation</span><span class="p">.</span><span class="n">Valid</span><span class="w"> </span><span class="n">valid</span><span class="p">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nf">Submit</span><span class="p">(</span><span class="n">valid</span><span class="p">.</span><span class="n">Request</span><span class="p">);</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">RequestValidation</span><span class="p">.</span><span class="n">Invalid</span><span class="w"> </span><span class="n">invalid</span><span class="p">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Refused</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">InvalidRequest</span><span class="p">,</span><span class="w"> </span><span class="n">invalid</span><span class="p">.</span><span class="n">Reasons</span><span class="p">));</span>
+<span class="w">            </span><span class="k">default</span><span class="p">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Refuse</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">Unexpected</span><span class="p">,</span><span class="w"> </span><span class="s">"Unknown validation outcome; submission refused."</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>Submit</code> (екі overload): дубликат → <code>(this, Refused DuplicateOrder)</code>; әйтпесе <code>_orders.Add(...)</code> жаңа кітап жасайды. <code>RequestValidation</code> overload-ы <code>Invalid</code>-ті <code>InvalidRequest</code> бас тартуына айналдырады.</div><div class="t" data-l="ru"><code>Submit</code> (две перегрузки): дубликат → <code>(this, Refused DuplicateOrder)</code>; иначе <code>_orders.Add(...)</code> создаёт новую книгу. Перегрузка с <code>RequestValidation</code> через <code>switch</code> превращает <code>Invalid</code> в отказ <code>InvalidRequest</code>.</div><div class="t" data-l="en"><code>Submit</code> (two overloads): duplicate → <code>(this, Refused DuplicateOrder)</code>; otherwise <code>_orders.Add(...)</code> creates a new book. The <code>RequestValidation</code> overload turns <code>Invalid</code> into an <code>InvalidRequest</code> refusal via <code>switch</code>.</div></div></section><section class="blk" id="L64"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 64–72</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="p">(</span><span class="n">OrderBook</span><span class="w"> </span><span class="n">Book</span><span class="p">,</span><span class="w"> </span><span class="n">TransitionResult</span><span class="w"> </span><span class="n">Result</span><span class="p">)</span><span class="w"> </span><span class="n">Quote</span><span class="p">(</span>
+<span class="w">        </span><span class="kt">string?</span><span class="w"> </span><span class="n">id</span><span class="p">,</span>
+<span class="w">        </span><span class="n">EligibilityRules</span><span class="w"> </span><span class="n">rules</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Func</span><span class="o">&lt;</span><span class="n">DeliveryRequest</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">policy</span><span class="p">,</span>
+<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">policyName</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">Apply</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Quote</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">rules</span><span class="p">,</span><span class="w"> </span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">policyName</span><span class="p">));</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="p">(</span><span class="n">OrderBook</span><span class="w"> </span><span class="n">Book</span><span class="p">,</span><span class="w"> </span><span class="n">TransitionResult</span><span class="w"> </span><span class="n">Result</span><span class="p">)</span><span class="w"> </span><span class="n">Confirm</span><span class="p">(</span><span class="kt">string?</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">confirmationNumber</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">Apply</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">OrderWorkflow</span><span class="p">.</span><span class="n">Confirm</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">confirmationNumber</span><span class="p">));</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>Quote</code> және <code>Confirm</code> — <code>OrderWorkflow</code> ауысуын <code>Apply</code>-ға беретін жұқа орауыштар.</div><div class="t" data-l="ru"><code>Quote</code> и <code>Confirm</code> — тонкие обёртки: передают переход из <code>OrderWorkflow</code> в <code>Apply</code>.</div><div class="t" data-l="en"><code>Quote</code> and <code>Confirm</code> are thin wrappers passing the transition from <code>OrderWorkflow</code> to <code>Apply</code>.</div></div></section><section class="blk" id="L74"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 74–91</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="p">(</span><span class="n">OrderBook</span><span class="w"> </span><span class="n">Book</span><span class="p">,</span><span class="w"> </span><span class="n">TransitionResult</span><span class="w"> </span><span class="n">Result</span><span class="p">)</span><span class="w"> </span><span class="n">Apply</span><span class="p">(</span><span class="kt">string?</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">Func</span><span class="o">&lt;</span><span class="n">OrderState</span><span class="p">,</span><span class="w"> </span><span class="n">TransitionResult</span><span class="o">&gt;</span><span class="w"> </span><span class="n">transition</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DeliveryRequest</span><span class="p">.</span><span class="n">NormalizeId</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">_orders</span><span class="p">.</span><span class="n">TryGetValue</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">var</span><span class="w"> </span><span class="n">current</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Refuse</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">NotFound</span><span class="p">,</span><span class="w"> </span><span class="s">$"Order '{(id ?? string.Empty).Trim()}' does not exist; submit it first."</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">transition</span><span class="p">(</span><span class="n">current</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Moved</span><span class="w"> </span><span class="n">moved</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">OrderBook</span><span class="p">(</span><span class="n">_orders</span><span class="p">.</span><span class="n">SetItem</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">moved</span><span class="p">.</span><span class="n">Next</span><span class="p">)),</span><span class="w"> </span><span class="n">moved</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span><span class="w"> </span><span class="c1">// refused (or unexpected): nothing is stored</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>Apply</code> — ортақ механизм: тапсырыс жоқ → <code>NotFound</code>; ауысуды есептейді; <code>Moved</code> → <code>SetItem</code> жаңа кітап жасайды; әйтпесе <code>this</code> қайтарады.</div><div class="t" data-l="ru"><code>Apply</code> — общий механизм: нет заказа → <code>NotFound</code>; считаем переход; <code>Moved</code> → <code>SetItem</code> создаёт новую книгу; иначе возвращаем <code>this</code> («nothing is stored»).</div><div class="t" data-l="en"><code>Apply</code> is the shared mechanism: no order → <code>NotFound</code>; compute the transition; <code>Moved</code> → <code>SetItem</code> builds a new book; otherwise return <code>this</code> (“nothing is stored”).</div></div></section><div class="nav2"><a href="OrderWorkflow.html"><small>← <span class="t" data-l="kk">Алдыңғы</span><span class="t" data-l="ru">Назад</span><span class="t" data-l="en">Previous</span></small>OrderWorkflow.cs</a><a href="OrderProcessor.html" style="text-align:right"><small><span class="t" data-l="kk">Келесі</span><span class="t" data-l="ru">Дальше</span><span class="t" data-l="en">Next</span> →</small>OrderProcessor.cs</a></div></div></main></div><script src="../assets/app.js"></script></body></html>

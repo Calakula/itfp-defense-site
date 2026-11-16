@@ -1,0 +1,1116 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Program.cs · ITFP Final — Courier Delivery Quotes</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var l=localStorage.getItem('lang');if(l)document.documentElement.lang=l;var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head><body><div class="layout"><aside><a class="brand" href="../index.html">ITFP Final · Defense<small>Courier Delivery Quotes and Dispatch</small></a><a href="../index.html"><span class="t" data-l="kk">Басты бет</span><span class="t" data-l="ru">Главная</span><span class="t" data-l="en">Home</span></a><a href="../tech.html"><span class="t" data-l="kk">Технологиялар мен командалар</span><span class="t" data-l="ru">Технологии и команды</span><span class="t" data-l="en">Technologies &amp; commands</span></a><a href="../defense.html"><span class="t" data-l="kk">Қорғаудағы сұрақтар</span><span class="t" data-l="ru">Вопросы на защите</span><span class="t" data-l="en">Defense Q&amp;A</span></a><a href="../tests.html"><span class="t" data-l="kk">Тесттер</span><span class="t" data-l="ru">Тесты</span><span class="t" data-l="en">Tests</span></a><h4><span class="t" data-l="kk">Жоба файлдары</span><span class="t" data-l="ru">Файлы проекта</span><span class="t" data-l="en">Project files</span></h4><label style="display:block;padding:2px 8px;font-size:13px"><input type="checkbox" id="mine"> <span class="t" data-l="kk">Тек менің файлдарым</span><span class="t" data-l="ru">Только мои файлы</span><span class="t" data-l="en">Only my files</span></label><h4><span class="t" data-l="kk">Негіз: Result / Option</span><span class="t" data-l="ru">Основа: Result / Option</span><span class="t" data-l="en">Foundation: Result / Option</span></h4><a href="Result.html" data-owner="A">Result.cs</a><a href="Option.html" data-owner="A">Option.cs</a><a href="Error.html" data-owner="A">Error.cs</a><a href="ResultExtensions.html" data-owner="A">ResultExtensions.cs</a><a href="Extensions.html" data-owner="A">Extensions.cs</a><h4><span class="t" data-l="kk">Модельдер және валидация</span><span class="t" data-l="ru">Модели и валидация</span><span class="t" data-l="en">Models &amp; validation</span></h4><a href="Models.html" data-owner="S">Models.cs</a><a href="DeliveryRequest.html" data-owner="A">DeliveryRequest.cs</a><a href="RequestValidation.html" data-owner="A">RequestValidation.cs</a><a href="RequestParser.html" data-owner="A">RequestParser.cs</a><a href="Courier.html" data-owner="A">Courier.cs</a><a href="DiscountTable.html" data-owner="A">DiscountTable.cs</a><h4><span class="t" data-l="kk">Күйлер және қауіпсіз реттілік</span><span class="t" data-l="ru">Состояния и безопасный порядок</span><span class="t" data-l="en">States &amp; safe sequence</span></h4><a href="OrderState.html" data-owner="N">OrderState.cs</a><a href="TransitionResult.html" data-owner="N">TransitionResult.cs</a><a href="OrderWorkflow.html" data-owner="N">OrderWorkflow.cs</a><a href="OrderBook.html" data-owner="R">OrderBook.cs<span class="me" title="Ravil"></span></a><a href="OrderProcessor.html" data-owner="R">OrderProcessor.cs<span class="me" title="Ravil"></span></a><a href="OrderService.html" data-owner="R">OrderService.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Пайплайн және саясаттар</span><span class="t" data-l="ru">Пайплайн и политики</span><span class="t" data-l="en">Pipeline &amp; policies</span></h4><a href="PipelineStages.Common.html" data-owner="S">PipelineStages.Common.cs</a><a href="PipelineStages.Stage1Select.html" data-owner="N">PipelineStages.Stage1Select.cs</a><a href="PipelineStages.Stage2Price.html" data-owner="N">PipelineStages.Stage2Price.cs</a><a href="PipelineStages.Stage3Summary.html" data-owner="R">PipelineStages.Stage3Summary.cs<span class="me" title="Ravil"></span></a><a href="DeliveryPipeline.html" data-owner="R">DeliveryPipeline.cs<span class="me" title="Ravil"></span></a><a href="PricingPolicies.html" data-owner="N">PricingPolicies.cs</a><a href="Scoring.html" data-owner="A">Scoring.cs</a><h4><span class="t" data-l="kk">Есептер және жалқау есептеу</span><span class="t" data-l="ru">Отчёты и ленивость</span><span class="t" data-l="en">Reports &amp; laziness</span></h4><a href="Reports.html" data-owner="N">Reports.cs</a><a href="QuoteStream.html" data-owner="N">QuoteStream.cs</a><a href="LineStreaming.html" data-owner="N">LineStreaming.cs</a><a href="QuoteWorkflow.html" data-owner="A">QuoteWorkflow.cs</a><a href="ReportingWorkflow.html" data-owner="R">ReportingWorkflow.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Курьерлерді тағайындау</span><span class="t" data-l="ru">Назначение курьеров</span><span class="t" data-l="en">Courier assignment</span></h4><a href="Assignment.html" data-owner="N">Assignment.cs</a><a href="AssignmentWorkflow.html" data-owner="R">AssignmentWorkflow.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Файл шекаралары</span><span class="t" data-l="ru">Файлы (границы)</span><span class="t" data-l="en">File boundaries</span></h4><a href="DataLoader.html" data-owner="N">DataLoader.cs</a><a href="ReportExporter.html" data-owner="N">ReportExporter.cs</a><h4><span class="t" data-l="kk">Native C кітапханасы</span><span class="t" data-l="ru">Нативная C-библиотека</span><span class="t" data-l="en">Native C library</span></h4><a href="NativeMethods.html" data-owner="R">NativeMethods.cs<span class="me" title="Ravil"></span></a><a href="NativeEffortCalculator.html" data-owner="R">NativeEffortCalculator.cs<span class="me" title="Ravil"></span></a><a href="deliveryscore_h.html" data-owner="R">deliveryscore.h<span class="me" title="Ravil"></span></a><a href="deliveryscore_c.html" data-owner="R">deliveryscore.c<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Консольдік қосымша</span><span class="t" data-l="ru">Консольное приложение</span><span class="t" data-l="en">Console app</span></h4><a href="Program.html" class="cur" data-owner="R">Program.cs<span class="me" title="Ravil"></span></a></aside><main>
+<div class="top"><button class="btn menu" id="menu" aria-label="menu">☰</button><span class="grow"></span><button class="btn" id="theme" title="theme">◐</button><div class="seg" role="group" aria-label="language"><button data-setlang="kk" aria-pressed="false">KK</button><button data-setlang="ru" aria-pressed="false">RU</button><button data-setlang="en" aria-pressed="false">EN</button></div></div>
+<div class="wrap"><h1 class="mono" style="font-size:26px">Program.cs</h1><p><span class="pill mono">src/DeliveryQuotes.App/Program.cs</span><span class="pill">281 <span class="t" data-l="kk">жол</span><span class="t" data-l="ru">строк</span><span class="t" data-l="en">lines</span></span><span class="pill me"><span class="t" data-l="kk">Авторы</span><span class="t" data-l="ru">Автор</span><span class="t" data-l="en">Owner</span>: Ravil Maratov ★ <span class="t" data-l="kk">сенің файлың</span><span class="t" data-l="ru">твой файл</span><span class="t" data-l="en">your file</span></span><span class="pill"><span class="t" data-l="kk">Консольдік қосымша</span><span class="t" data-l="ru">Консольное приложение</span><span class="t" data-l="en">Console app</span></span></p><h2><span class="t" data-l="kk">Файл не үшін керек</span><span class="t" data-l="ru">Зачем нужен файл</span><span class="t" data-l="en">What this file is for</span></h2><div class="card"><div class="t" data-l="kk">Лас қабық (сенікі): пәрмен жолы аргументтері, консольге шығару және <code>Result</code> шығу кодына айналатын ЖАЛҒЫЗ орын. Бүкіл логика <code>DeliveryQuotes.Core</code>-да.</div><div class="t" data-l="ru">Грязная оболочка (твоя): аргументы командной строки, вывод в консоль и ЕДИНСТВЕННОЕ место, где <code>Result</code> превращается в код выхода. Вся логика — в <code>DeliveryQuotes.Core</code>.</div><div class="t" data-l="en">The impure shell (yours): command-line arguments, console output and the ONE place where a <code>Result</code> becomes an exit code. All logic is in <code>DeliveryQuotes.Core</code>.</div></div><div class="tip"><b><span class="t" data-l="kk">Қорғауда не айту керек</span><span class="t" data-l="ru">Что сказать на защите</span><span class="t" data-l="en">What to say at the defense</span>.</b> <span class="t" data-l="kk">Атап өт: <code>Program.cs</code>-та бизнес-логика жоқ — тек аргументтерді талдау, басып шығару және <code>Result</code>-ті шығу кодына айналдыру. Бұл «таза / жанама әсер» шекарасы.</span><span class="t" data-l="ru">Подчеркни: в <code>Program.cs</code> нет бизнес-логики — только разбор аргументов, печать и перевод <code>Result</code> в код выхода. Это граница «чистое / побочные эффекты».</span><span class="t" data-l="en">Stress: <code>Program.cs</code> has no business logic — only argument parsing, printing and turning <code>Result</code> into an exit code. This is the “pure / side-effect” boundary.</span></div><h2><span class="t" data-l="kk">Толық код</span><span class="t" data-l="ru">Полный код</span><span class="t" data-l="en">Full code</span></h2><div class="codebox full"><div class="cb-head"><span class="mono">src/DeliveryQuotes.App/Program.cs</span><button class="btn" data-toggle aria-expanded="false"><span class="t" data-l="kk">Ашу / жасыру</span><span class="t" data-l="ru">Развернуть / свернуть</span><span class="t" data-l="en">Expand / collapse</span></button></div><div class="scroll"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Immutable</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Globalization</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">DeliveryQuotes.Core</span><span class="p">;</span>
+
+<span class="c1">// Impure shell: arguments, console output and the single place where a Result is turned into an exit code.</span>
+<span class="c1">// All decisions and calculations are in DeliveryQuotes.Core; all file access is in DataLoader.</span>
+<span class="c1">//</span>
+<span class="c1">// Usage:</span>
+<span class="c1">//   &lt;csv&gt; &lt;standard|express|both&gt;                                   quote summary (Assignment 5 pipeline)</span>
+<span class="c1">//   lifecycle &lt;csv&gt; &lt;standard|express&gt;                              submit -&gt; quote -&gt; confirm (Assignment 6 states)</span>
+<span class="c1">//   quote &lt;policy&gt; &lt;id&gt; &lt;customer&gt; &lt;km&gt; &lt;kg&gt; [discounts.json]       one quote typed by the user (Assignment 7 chain A)</span>
+<span class="c1">//   process &lt;csv&gt; &lt;policy&gt; &lt;orderId&gt; &lt;quote|confirm|full&gt; [discounts.json]   one order of the file (chain B)</span>
+<span class="c1">//   reports &lt;csv&gt; &lt;policy&gt; &lt;distance-first|heavy-first&gt; &lt;outputFile&gt;   two LINQ reports + native call + JSON export</span>
+<span class="c1">//   assign &lt;csv&gt; &lt;couriers.json&gt; &lt;first-fit|best-fit&gt; &lt;distance-first|heavy-first&gt; &lt;outputFile&gt;   courier assignment plan (final project)</span>
+<span class="c1">//</span>
+<span class="c1">// Exit codes: 0 ok | 1 file missing, unreadable or not writable | 2 malformed file content | 3 domain failure</span>
+<span class="c1">//             4 native library problem | 64 bad arguments | 70 unexpected case</span>
+
+<span class="k">return</span><span class="w"> </span><span class="n">args</span><span class="w"> </span><span class="k">switch</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">["lifecycle", var csv, var policy]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">RunLifecycle</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="n">policy</span><span class="p">),</span>
+<span class="w">    </span><span class="na">["quote", var policy, var id, var customer, var km, var kg]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">RunQuote</span><span class="p">(</span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">customer</span><span class="p">,</span><span class="w"> </span><span class="n">km</span><span class="p">,</span><span class="w"> </span><span class="n">kg</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">),</span>
+<span class="w">    </span><span class="na">["quote", var policy, var id, var customer, var km, var kg, var discounts]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">RunQuote</span><span class="p">(</span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">customer</span><span class="p">,</span><span class="w"> </span><span class="n">km</span><span class="p">,</span><span class="w"> </span><span class="n">kg</span><span class="p">,</span><span class="w"> </span><span class="n">discounts</span><span class="p">),</span>
+<span class="w">    </span><span class="na">["process", var csv, var policy, var orderId, var action]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">RunProcess</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">orderId</span><span class="p">,</span><span class="w"> </span><span class="n">action</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">),</span>
+<span class="w">    </span><span class="na">["process", var csv, var policy, var orderId, var action, var discounts]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">RunProcess</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">orderId</span><span class="p">,</span><span class="w"> </span><span class="n">action</span><span class="p">,</span><span class="w"> </span><span class="n">discounts</span><span class="p">),</span>
+<span class="w">    </span><span class="na">["reports", var csv, var policy, var config, var output]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">RunReports</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="n">output</span><span class="p">),</span>
+<span class="w">    </span><span class="na">["assign", var csv, var couriers, var policy, var config, var output]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">RunAssign</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="n">couriers</span><span class="p">,</span><span class="w"> </span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="n">output</span><span class="p">),</span>
+<span class="w">    </span><span class="na">[var csv, var policy]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">RunSummary</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="n">policy</span><span class="p">),</span>
+<span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Usage</span><span class="p">(),</span>
+<span class="p">};</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">Usage</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">Error</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Usage: &lt;csv&gt; &lt;standard|express|both&gt;"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">Error</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"       lifecycle &lt;csv&gt; &lt;standard|express&gt;"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">Error</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"       quote &lt;standard|express&gt; &lt;id&gt; &lt;customer&gt; &lt;km&gt; &lt;kg&gt; [discounts.json]"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">Error</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"       process &lt;csv&gt; &lt;standard|express&gt; &lt;orderId&gt; &lt;quote|confirm|full&gt; [discounts.json]"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">Error</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"       reports &lt;csv&gt; &lt;standard|express&gt; &lt;distance-first|heavy-first&gt; &lt;outputFile&gt;"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">Error</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"       assign &lt;csv&gt; &lt;couriers.json&gt; &lt;first-fit|best-fit&gt; &lt;distance-first|heavy-first&gt; &lt;outputFile&gt;"</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// The one place where the final outcome is handled, with explicit pattern matching.</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Report</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Result</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="n">Action</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">onSuccess</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">notnull</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Ok</span><span class="w"> </span><span class="n">ok</span><span class="p">:</span>
+<span class="w">            </span><span class="n">onSuccess</span><span class="p">(</span><span class="n">ok</span><span class="p">.</span><span class="n">Value</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Failure</span><span class="w"> </span><span class="n">failure</span><span class="p">:</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">Error</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"{Describe(failure.Error.Code)} [{failure.Error.Code}]: {failure.Error.Message}"</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nf">ExitCodeFor</span><span class="p">(</span><span class="n">failure</span><span class="p">.</span><span class="n">Error</span><span class="p">.</span><span class="n">Code</span><span class="p">);</span>
+<span class="w">        </span><span class="k">default</span><span class="p">:</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">Error</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Unexpected result case."</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">70</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">Describe</span><span class="p">(</span><span class="n">ErrorCode</span><span class="w"> </span><span class="n">code</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="k">switch</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">FileNotFound</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">FileUnreadable</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">MalformedContent</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">FileNotWritable</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"File problem"</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">NativeLibraryUnavailable</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">NativeCallFailed</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Native library problem"</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">Unexpected</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Internal problem"</span><span class="p">,</span>
+<span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Rejected"</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">ExitCodeFor</span><span class="p">(</span><span class="n">ErrorCode</span><span class="w"> </span><span class="n">code</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="k">switch</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">FileNotFound</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">FileUnreadable</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">FileNotWritable</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">NativeLibraryUnavailable</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">NativeCallFailed</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">MalformedContent</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">Unexpected</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">70</span><span class="p">,</span>
+<span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="k">static</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">PolicyChoice</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ResolvePolicy</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">normalized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">.</span><span class="n">Trim</span><span class="p">().</span><span class="n">ToLowerInvariant</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">normalized</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="n">Map</span><span class="p">(</span><span class="n">policy</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PolicyChoice</span><span class="p">(</span><span class="n">normalized</span><span class="p">,</span><span class="w"> </span><span class="n">policy</span><span class="p">))</span>
+<span class="w">        </span><span class="p">.</span><span class="n">ToResult</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">NotFound</span><span class="p">,</span><span class="w"> </span><span class="s">$"Policy '{name}' was not found. Use standard or express."</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="k">static</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">DiscountTable</span><span class="o">&gt;</span><span class="w"> </span><span class="n">LoadDiscountsOrNone</span><span class="p">(</span><span class="kt">string?</span><span class="w"> </span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="n">path</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Success</span><span class="p">(</span><span class="n">DiscountTable</span><span class="p">.</span><span class="n">Empty</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">DataLoader</span><span class="p">.</span><span class="n">LoadDiscounts</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+
+<span class="k">static</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">ScoreConfig</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ResolveScoreConfig</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="n">ScoreConfig</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">name</span><span class="p">).</span><span class="n">ToResult</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">NotFound</span><span class="p">,</span><span class="w"> </span><span class="s">$"Score configuration '{name}' was not found. Use distance-first or heavy-first."</span><span class="p">));</span>
+
+<span class="k">static</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">ProcessAction</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ParseAction</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">text</span><span class="p">.</span><span class="n">Trim</span><span class="p">().</span><span class="n">ToLowerInvariant</span><span class="p">()</span><span class="w"> </span><span class="k">switch</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="s">"quote"</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Success</span><span class="p">(</span><span class="n">ProcessAction</span><span class="p">.</span><span class="n">Quote</span><span class="p">),</span>
+<span class="w">    </span><span class="s">"confirm"</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Success</span><span class="p">(</span><span class="n">ProcessAction</span><span class="p">.</span><span class="n">Confirm</span><span class="p">),</span>
+<span class="w">    </span><span class="s">"full"</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Success</span><span class="p">(</span><span class="n">ProcessAction</span><span class="p">.</span><span class="n">Full</span><span class="p">),</span>
+<span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Failure</span><span class="o">&lt;</span><span class="n">ProcessAction</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">InvalidInput</span><span class="p">,</span><span class="w"> </span><span class="s">$"Action '{text}' is not known. Use quote, confirm or full."</span><span class="p">),</span>
+<span class="p">};</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">RunSummary</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">mode</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">wanted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mode</span><span class="p">.</span><span class="n">Trim</span><span class="p">().</span><span class="n">ToLowerInvariant</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wanted</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"both"</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="k">new</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">"standard"</span><span class="p">,</span><span class="w"> </span><span class="s">"express"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">new</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">wanted</span><span class="w"> </span><span class="p">};</span>
+
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">choices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ImmutableArray</span><span class="p">.</span><span class="n">CreateBuilder</span><span class="o">&lt;</span><span class="n">PolicyChoice</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">names</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">ResolvePolicy</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">PolicyChoice</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Ok</span><span class="w"> </span><span class="n">ok</span><span class="p">:</span>
+<span class="w">                </span><span class="n">choices</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">ok</span><span class="p">.</span><span class="n">Value</span><span class="p">);</span>
+<span class="w">                </span><span class="k">break</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">PolicyChoice</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Failure</span><span class="w"> </span><span class="n">failure</span><span class="p">:</span>
+<span class="w">                </span><span class="n">Console</span><span class="p">.</span><span class="n">Error</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"{failure.Error.Message}"</span><span class="p">);</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nf">Report</span><span class="p">(</span><span class="n">DataLoader</span><span class="p">.</span><span class="n">LoadRequests</span><span class="p">(</span><span class="n">csv</span><span class="p">),</span><span class="w"> </span><span class="n">requests</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">totals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">decimal</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">choice</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">choices</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DeliveryPipeline</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">requests</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">.</span><span class="n">Policy</span><span class="p">);</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Policy: {choice.Name}"</span><span class="p">);</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Quotes: {summary.Quotes.Length} (not eligible: {summary.SkippedCount})"</span><span class="p">);</span>
+<span class="w">            </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">summary</span><span class="p">.</span><span class="n">Quotes</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {q.Id,-6} {q.Customer,-10} {q.Price,7:0} KZT"</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Total: {summary.TotalPrice:0} KZT"</span><span class="p">);</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+<span class="w">            </span><span class="n">totals</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">summary</span><span class="p">.</span><span class="n">TotalPrice</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">totals</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Express minus standard total: {totals[1] - totals[0]:0} KZT"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">RunLifecycle</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">policyName</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ResolvePolicy</span><span class="p">(</span><span class="n">policyName</span><span class="p">).</span><span class="n">Bind</span><span class="p">(</span><span class="n">choice</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">DataLoader</span><span class="p">.</span><span class="n">LoadRequests</span><span class="p">(</span><span class="n">csv</span><span class="p">).</span><span class="n">Map</span><span class="p">(</span><span class="n">requests</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">            </span><span class="p">(</span><span class="n">Choice</span><span class="p">:</span><span class="w"> </span><span class="n">choice</span><span class="p">,</span><span class="w"> </span><span class="n">Report</span><span class="p">:</span><span class="w"> </span><span class="n">OrderProcessor</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">requests</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">.</span><span class="n">Policy</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">.</span><span class="n">Name</span><span class="p">))));</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nf">Report</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="n">outcome</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Lifecycle, policy: {outcome.Choice.Name}"</span><span class="p">);</span>
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">outcome</span><span class="p">.</span><span class="n">Report</span><span class="p">.</span><span class="n">Steps</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">step</span><span class="p">.</span><span class="n">Result</span><span class="w"> </span><span class="k">switch</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Moved</span><span class="w"> </span><span class="n">moved</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">$"OK       {OrderWorkflow.Describe(moved.Next)}"</span><span class="p">,</span>
+<span class="w">                </span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Refused</span><span class="w"> </span><span class="n">refused</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">$"REFUSED  {refused.Message}"</span><span class="p">,</span>
+<span class="w">                </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"UNKNOWN RESULT"</span><span class="p">,</span>
+<span class="w">            </span><span class="p">};</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {step.Action,-16} {step.OrderId,-6} {text}"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Final orders:"</span><span class="p">);</span>
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">outcome</span><span class="p">.</span><span class="n">Report</span><span class="p">.</span><span class="n">Book</span><span class="p">.</span><span class="n">Ids</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">outcome</span><span class="p">.</span><span class="n">Report</span><span class="p">.</span><span class="n">Book</span><span class="p">.</span><span class="n">TryGet</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">var</span><span class="w"> </span><span class="n">state</span><span class="p">))</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {OrderWorkflow.Describe(state)}"</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">RunQuote</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">policyName</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">customer</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">km</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">kg</span><span class="p">,</span><span class="w"> </span><span class="kt">string?</span><span class="w"> </span><span class="n">discountsPath</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ResolvePolicy</span><span class="p">(</span><span class="n">policyName</span><span class="p">).</span><span class="n">Bind</span><span class="p">(</span><span class="n">choice</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">LoadDiscountsOrNone</span><span class="p">(</span><span class="n">discountsPath</span><span class="p">).</span><span class="n">Bind</span><span class="p">(</span><span class="n">discounts</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">            </span><span class="n">QuoteWorkflow</span><span class="p">.</span><span class="n">QuoteOne</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">customer</span><span class="p">,</span><span class="w"> </span><span class="n">km</span><span class="p">,</span><span class="w"> </span><span class="n">kg</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">.</span><span class="n">Policy</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span><span class="w"> </span><span class="n">discounts</span><span class="p">)));</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nf">Report</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="n">quote</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">discountText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">quote</span><span class="p">.</span><span class="n">DiscountRecordFound</span>
+<span class="w">            </span><span class="o">?</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="n">CultureInfo</span><span class="p">.</span><span class="n">InvariantCulture</span><span class="p">,</span><span class="w"> </span><span class="s">$"discount {quote.DiscountPercent:0.##}% from the customer record"</span><span class="p">)</span>
+<span class="w">            </span><span class="p">:</span><span class="w"> </span><span class="s">"no discount record"</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Quote {quote.Id} for {quote.Customer}: {quote.Price:0} KZT ({quote.PolicyName}, {discountText})"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">RunProcess</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">policyName</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">orderId</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">actionText</span><span class="p">,</span><span class="w"> </span><span class="kt">string?</span><span class="w"> </span><span class="n">discountsPath</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ResolvePolicy</span><span class="p">(</span><span class="n">policyName</span><span class="p">).</span><span class="n">Bind</span><span class="p">(</span><span class="n">choice</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">ParseAction</span><span class="p">(</span><span class="n">actionText</span><span class="p">).</span><span class="n">Bind</span><span class="p">(</span><span class="n">action</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">            </span><span class="n">DataLoader</span><span class="p">.</span><span class="n">LoadRequests</span><span class="p">(</span><span class="n">csv</span><span class="p">).</span><span class="n">Bind</span><span class="p">(</span><span class="n">OrderService</span><span class="p">.</span><span class="n">LoadBook</span><span class="p">).</span><span class="n">Bind</span><span class="p">(</span><span class="n">book</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">                </span><span class="n">LoadDiscountsOrNone</span><span class="p">(</span><span class="n">discountsPath</span><span class="p">).</span><span class="n">Bind</span><span class="p">(</span><span class="n">discounts</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">                    </span><span class="n">OrderService</span><span class="p">.</span><span class="n">Process</span><span class="p">(</span><span class="n">book</span><span class="p">,</span><span class="w"> </span><span class="n">orderId</span><span class="p">,</span><span class="w"> </span><span class="n">action</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">.</span><span class="n">Policy</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span><span class="w"> </span><span class="n">discounts</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)))));</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nf">Report</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="n">outcome</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"{outcome.View.Status}: {outcome.View.Text}"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="k">static</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">AssignmentPolicyChoice</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ResolveAssignmentPolicy</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">normalized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">.</span><span class="n">Trim</span><span class="p">().</span><span class="n">ToLowerInvariant</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">AssignmentPolicies</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">normalized</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="n">Map</span><span class="p">(</span><span class="n">policy</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AssignmentPolicyChoice</span><span class="p">(</span><span class="n">normalized</span><span class="p">,</span><span class="w"> </span><span class="n">policy</span><span class="p">))</span>
+<span class="w">        </span><span class="p">.</span><span class="n">ToResult</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">NotFound</span><span class="p">,</span><span class="w"> </span><span class="s">$"Assignment policy '{name}' was not found. Use first-fit or best-fit."</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">RunAssign</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">couriersPath</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">policyName</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">configName</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">outputFile</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ResolveAssignmentPolicy</span><span class="p">(</span><span class="n">policyName</span><span class="p">).</span><span class="n">Bind</span><span class="p">(</span><span class="n">choice</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">ResolveScoreConfig</span><span class="p">(</span><span class="n">configName</span><span class="p">).</span><span class="n">Bind</span><span class="p">(</span><span class="n">config</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">            </span><span class="n">AssignmentWorkflow</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="n">couriersPath</span><span class="p">,</span><span class="w"> </span><span class="n">outputFile</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">Scoring</span><span class="p">.</span><span class="n">CreateScore</span><span class="p">(</span><span class="n">config</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NativeEffortCalculator</span><span class="p">(),</span><span class="w"> </span><span class="n">choice</span><span class="p">.</span><span class="n">Policy</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">.</span><span class="n">Name</span><span class="p">)));</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nf">Report</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Assignment policy: {run.Plan.PolicyName}, score: {configName.Trim().ToLowerInvariant()}"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Orders in dispatch order"</span><span class="p">);</span>
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">outcome</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">run</span><span class="p">.</span><span class="n">Plan</span><span class="p">.</span><span class="n">Outcomes</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">outcome</span><span class="w"> </span><span class="k">switch</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">AssignmentOutcome</span><span class="p">.</span><span class="n">Assigned</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">$"  {a.Order.Request.Id,-6} {a.Order.Points,5} points -&gt; {a.Courier.Id} ({a.Courier.Name}), {a.RemainingCapacity} left"</span><span class="p">,</span>
+<span class="w">                </span><span class="n">AssignmentOutcome</span><span class="p">.</span><span class="n">Unassigned</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">$"  {u.Order.Request.Id,-6} {u.Order.Points,5} points -&gt; NOT ASSIGNED: {u.Reason}"</span><span class="p">,</span>
+<span class="w">                </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"  unknown outcome"</span><span class="p">,</span>
+<span class="w">            </span><span class="p">};</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Courier loads"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {"</span><span class="n">Courier</span><span class="s">",-8} {"</span><span class="n">Name</span><span class="s">",-10} {"</span><span class="n">Capacity</span><span class="s">",9} {"</span><span class="n">Used</span><span class="s">",6} {"</span><span class="n">Orders</span><span class="s">",7}"</span><span class="p">);</span>
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">load</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">run</span><span class="p">.</span><span class="n">Plan</span><span class="p">.</span><span class="n">Loads</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {load.CourierId,-8} {load.Name,-10} {load.Capacity,9} {load.Used,6} {load.Orders,7}"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Exported to {run.OutputPath}"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">RunReports</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">policyName</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">configName</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">outputFile</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ResolvePolicy</span><span class="p">(</span><span class="n">policyName</span><span class="p">).</span><span class="n">Bind</span><span class="p">(</span><span class="n">choice</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">ResolveScoreConfig</span><span class="p">(</span><span class="n">configName</span><span class="p">).</span><span class="n">Bind</span><span class="p">(</span><span class="n">config</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">            </span><span class="n">ReportingWorkflow</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="n">outputFile</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">.</span><span class="n">Policy</span><span class="p">,</span><span class="w"> </span><span class="n">Scoring</span><span class="p">.</span><span class="n">CreateScore</span><span class="p">(</span><span class="n">config</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NativeEffortCalculator</span><span class="p">())));</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nf">Report</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Policy: {policyName.Trim().ToLowerInvariant()}, score: {configName.Trim().ToLowerInvariant()}"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Report 1 - Dispatch list (highest score first)"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {"</span><span class="n">Rank</span><span class="s">",-5} {"</span><span class="n">Id</span><span class="s">",-6} {"</span><span class="n">Customer</span><span class="s">",-10} {"</span><span class="n">Km</span><span class="s">",6} {"</span><span class="n">Kg</span><span class="s">",6} {"</span><span class="n">Price</span><span class="s">",8} {"</span><span class="n">Score</span><span class="s">",8}"</span><span class="p">);</span>
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">run</span><span class="p">.</span><span class="n">Bundle</span><span class="p">.</span><span class="n">Dispatch</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="n">CultureInfo</span><span class="p">.</span><span class="n">InvariantCulture</span><span class="p">,</span>
+<span class="w">                </span><span class="s">$"  {line.Rank,-5} {line.Id,-6} {line.Customer,-10} {line.DistanceKm,6:0.##} {line.WeightKg,6:0.##} {line.Price,8:0} {line.Score,8:0.##}"</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Report 2 - Customer workload (native effort points)"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {"</span><span class="n">Customer</span><span class="s">",-10} {"</span><span class="n">Orders</span><span class="s">",6} {"</span><span class="n">Km</span><span class="s">",7} {"</span><span class="n">Points</span><span class="s">",7} {"</span><span class="n">Heaviest</span><span class="w"> </span><span class="n">kg</span><span class="s">",12}"</span><span class="p">);</span>
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">run</span><span class="p">.</span><span class="n">Bundle</span><span class="p">.</span><span class="n">Workload</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="n">CultureInfo</span><span class="p">.</span><span class="n">InvariantCulture</span><span class="p">,</span>
+<span class="w">                </span><span class="s">$"  {line.Customer,-10} {line.Orders,6} {line.TotalKm,7:0.##} {line.TotalPoints,7} {line.HeaviestKg,12:0.##}"</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Quote summary (pipeline): {run.Bundle.Summary.Quotes.Length} quotes, total {run.Bundle.Summary.TotalPrice:0} KZT, not eligible: {run.Bundle.Summary.SkippedCount}"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Exported to {run.OutputPath}"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="k">internal</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">record</span><span class="w"> </span><span class="nf">PolicyChoice</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="p">,</span><span class="w"> </span><span class="n">Func</span><span class="o">&lt;</span><span class="n">DeliveryRequest</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Policy</span><span class="p">);</span>
+
+<span class="k">internal</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">record</span><span class="w"> </span><span class="nf">AssignmentPolicyChoice</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="p">,</span><span class="w"> </span><span class="n">Func</span><span class="o">&lt;</span><span class="n">System</span><span class="p">.</span><span class="n">Collections</span><span class="p">.</span><span class="n">Immutable</span><span class="p">.</span><span class="n">ImmutableArray</span><span class="o">&lt;</span><span class="n">CourierLoad</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">CourierLoad</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">Policy</span><span class="p">);</span>
+</pre></div></td></tr></table></div>
+</div></div><h2><span class="t" data-l="kk">Блоктар және жолдар бойынша талдау</span><span class="t" data-l="ru">Разбор по блокам и строкам</span><span class="t" data-l="en">Block-by-block breakdown</span></h2><section class="blk" id="L1"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 1–30</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Immutable</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Globalization</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">DeliveryQuotes.Core</span><span class="p">;</span>
+
+<span class="c1">// Impure shell: arguments, console output and the single place where a Result is turned into an exit code.</span>
+<span class="c1">// All decisions and calculations are in DeliveryQuotes.Core; all file access is in DataLoader.</span>
+<span class="c1">//</span>
+<span class="c1">// Usage:</span>
+<span class="c1">//   &lt;csv&gt; &lt;standard|express|both&gt;                                   quote summary (Assignment 5 pipeline)</span>
+<span class="c1">//   lifecycle &lt;csv&gt; &lt;standard|express&gt;                              submit -&gt; quote -&gt; confirm (Assignment 6 states)</span>
+<span class="c1">//   quote &lt;policy&gt; &lt;id&gt; &lt;customer&gt; &lt;km&gt; &lt;kg&gt; [discounts.json]       one quote typed by the user (Assignment 7 chain A)</span>
+<span class="c1">//   process &lt;csv&gt; &lt;policy&gt; &lt;orderId&gt; &lt;quote|confirm|full&gt; [discounts.json]   one order of the file (chain B)</span>
+<span class="c1">//   reports &lt;csv&gt; &lt;policy&gt; &lt;distance-first|heavy-first&gt; &lt;outputFile&gt;   two LINQ reports + native call + JSON export</span>
+<span class="c1">//   assign &lt;csv&gt; &lt;couriers.json&gt; &lt;first-fit|best-fit&gt; &lt;distance-first|heavy-first&gt; &lt;outputFile&gt;   courier assignment plan (final project)</span>
+<span class="c1">//</span>
+<span class="c1">// Exit codes: 0 ok | 1 file missing, unreadable or not writable | 2 malformed file content | 3 domain failure</span>
+<span class="c1">//             4 native library problem | 64 bad arguments | 70 unexpected case</span>
+
+<span class="k">return</span><span class="w"> </span><span class="n">args</span><span class="w"> </span><span class="k">switch</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">["lifecycle", var csv, var policy]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">RunLifecycle</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="n">policy</span><span class="p">),</span>
+<span class="w">    </span><span class="na">["quote", var policy, var id, var customer, var km, var kg]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">RunQuote</span><span class="p">(</span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">customer</span><span class="p">,</span><span class="w"> </span><span class="n">km</span><span class="p">,</span><span class="w"> </span><span class="n">kg</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">),</span>
+<span class="w">    </span><span class="na">["quote", var policy, var id, var customer, var km, var kg, var discounts]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">RunQuote</span><span class="p">(</span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">customer</span><span class="p">,</span><span class="w"> </span><span class="n">km</span><span class="p">,</span><span class="w"> </span><span class="n">kg</span><span class="p">,</span><span class="w"> </span><span class="n">discounts</span><span class="p">),</span>
+<span class="w">    </span><span class="na">["process", var csv, var policy, var orderId, var action]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">RunProcess</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">orderId</span><span class="p">,</span><span class="w"> </span><span class="n">action</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">),</span>
+<span class="w">    </span><span class="na">["process", var csv, var policy, var orderId, var action, var discounts]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">RunProcess</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">orderId</span><span class="p">,</span><span class="w"> </span><span class="n">action</span><span class="p">,</span><span class="w"> </span><span class="n">discounts</span><span class="p">),</span>
+<span class="w">    </span><span class="na">["reports", var csv, var policy, var config, var output]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">RunReports</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="n">output</span><span class="p">),</span>
+<span class="w">    </span><span class="na">["assign", var csv, var couriers, var policy, var config, var output]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">RunAssign</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="n">couriers</span><span class="p">,</span><span class="w"> </span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="n">output</span><span class="p">),</span>
+<span class="w">    </span><span class="na">[var csv, var policy]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">RunSummary</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="n">policy</span><span class="p">),</span>
+<span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Usage</span><span class="p">(),</span>
+<span class="p">};</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk">Top-level statements. Түсініктемелер барлық команданы және шығу кодтарын сипаттайды. <code>args switch</code> — <strong>list patterns</strong>: <code>["lifecycle", var csv, var policy]</code> аргументтер массивінің пішінін сәйкестендіріп, аттарды береді. Соңғы <code>_</code> → <code>Usage()</code>.</div><div class="t" data-l="ru">Top-level statements. Комментарии описывают все команды и коды выхода. <code>args switch</code> — <strong>list patterns</strong>: <code>["lifecycle", var csv, var policy]</code> сопоставляет форму массива аргументов и сразу даёт имена. Последний шаблон <code>_</code> → <code>Usage()</code>.</div><div class="t" data-l="en">Top-level statements. Comments list all commands and exit codes. <code>args switch</code> uses <strong>list patterns</strong>: <code>["lifecycle", var csv, var policy]</code> matches the shape of the argument array and binds names. The last <code>_</code> → <code>Usage()</code>.</div></div></section><section class="blk" id="L32"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 32–41</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">Usage</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">Error</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Usage: &lt;csv&gt; &lt;standard|express|both&gt;"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">Error</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"       lifecycle &lt;csv&gt; &lt;standard|express&gt;"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">Error</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"       quote &lt;standard|express&gt; &lt;id&gt; &lt;customer&gt; &lt;km&gt; &lt;kg&gt; [discounts.json]"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">Error</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"       process &lt;csv&gt; &lt;standard|express&gt; &lt;orderId&gt; &lt;quote|confirm|full&gt; [discounts.json]"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">Error</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"       reports &lt;csv&gt; &lt;standard|express&gt; &lt;distance-first|heavy-first&gt; &lt;outputFile&gt;"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">Error</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"       assign &lt;csv&gt; &lt;couriers.json&gt; &lt;first-fit|best-fit&gt; &lt;distance-first|heavy-first&gt; &lt;outputFile&gt;"</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>Usage</code>: анықтаманы stderr-ге шығарып, 64 қайтарады (дұрыс емес аргументтер).</div><div class="t" data-l="ru"><code>Usage</code>: печатает справку в stderr и возвращает 64 (неверные аргументы).</div><div class="t" data-l="en"><code>Usage</code>: prints help to stderr and returns 64 (bad arguments).</div></div></section><section class="blk" id="L43"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 43–75</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span></pre></div></td><td class="code"><div><pre><span></span><span class="c1">// The one place where the final outcome is handled, with explicit pattern matching.</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Report</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Result</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="n">Action</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">onSuccess</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">notnull</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Ok</span><span class="w"> </span><span class="n">ok</span><span class="p">:</span>
+<span class="w">            </span><span class="n">onSuccess</span><span class="p">(</span><span class="n">ok</span><span class="p">.</span><span class="n">Value</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Failure</span><span class="w"> </span><span class="n">failure</span><span class="p">:</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">Error</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"{Describe(failure.Error.Code)} [{failure.Error.Code}]: {failure.Error.Message}"</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nf">ExitCodeFor</span><span class="p">(</span><span class="n">failure</span><span class="p">.</span><span class="n">Error</span><span class="p">.</span><span class="n">Code</span><span class="p">);</span>
+<span class="w">        </span><span class="k">default</span><span class="p">:</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">Error</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Unexpected result case."</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">70</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">Describe</span><span class="p">(</span><span class="n">ErrorCode</span><span class="w"> </span><span class="n">code</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="k">switch</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">FileNotFound</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">FileUnreadable</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">MalformedContent</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">FileNotWritable</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"File problem"</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">NativeLibraryUnavailable</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">NativeCallFailed</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Native library problem"</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">Unexpected</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Internal problem"</span><span class="p">,</span>
+<span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Rejected"</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">ExitCodeFor</span><span class="p">(</span><span class="n">ErrorCode</span><span class="w"> </span><span class="n">code</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="k">switch</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">FileNotFound</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">FileUnreadable</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">FileNotWritable</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">NativeLibraryUnavailable</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">NativeCallFailed</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">MalformedContent</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">Unexpected</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">70</span><span class="p">,</span>
+<span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="p">};</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><strong><code>Report&lt;T&gt;</code></strong> — нәтижені өңдейтін жалғыз нүкте: <code>Ok</code> → шығару, код 0; <code>Failure</code> → <code>{Describe(code)} [{code}]: {message}</code> stderr-ге және <code>ExitCodeFor(code)</code>: 1 файл, 2 формат, 3 домен, 4 native, 70 күтпеген.</div><div class="t" data-l="ru"><strong><code>Report&lt;T&gt;</code></strong> — единственная точка обработки итога: <code>Ok</code> → выполнить вывод, код 0; <code>Failure</code> → сообщение <code>{Describe(code)} [{code}]: {message}</code> в stderr и <code>ExitCodeFor(code)</code>: 1 файл, 2 формат, 3 домен, 4 native, 70 непредвиденное.</div><div class="t" data-l="en"><strong><code>Report&lt;T&gt;</code></strong> is the single outcome handler: <code>Ok</code> → print, code 0; <code>Failure</code> → message <code>{Describe(code)} [{code}]: {message}</code> to stderr and <code>ExitCodeFor(code)</code>: 1 file, 2 format, 3 domain, 4 native, 70 unexpected.</div></div></section><section class="blk" id="L77"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 77–97</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span>
+<span class="normal">94</span>
+<span class="normal">95</span>
+<span class="normal">96</span>
+<span class="normal">97</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">static</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">PolicyChoice</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ResolvePolicy</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">normalized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">.</span><span class="n">Trim</span><span class="p">().</span><span class="n">ToLowerInvariant</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">PricingPolicies</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">normalized</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="n">Map</span><span class="p">(</span><span class="n">policy</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PolicyChoice</span><span class="p">(</span><span class="n">normalized</span><span class="p">,</span><span class="w"> </span><span class="n">policy</span><span class="p">))</span>
+<span class="w">        </span><span class="p">.</span><span class="n">ToResult</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">NotFound</span><span class="p">,</span><span class="w"> </span><span class="s">$"Policy '{name}' was not found. Use standard or express."</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="k">static</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">DiscountTable</span><span class="o">&gt;</span><span class="w"> </span><span class="n">LoadDiscountsOrNone</span><span class="p">(</span><span class="kt">string?</span><span class="w"> </span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="n">path</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Success</span><span class="p">(</span><span class="n">DiscountTable</span><span class="p">.</span><span class="n">Empty</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">DataLoader</span><span class="p">.</span><span class="n">LoadDiscounts</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+
+<span class="k">static</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">ScoreConfig</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ResolveScoreConfig</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="n">ScoreConfig</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">name</span><span class="p">).</span><span class="n">ToResult</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">NotFound</span><span class="p">,</span><span class="w"> </span><span class="s">$"Score configuration '{name}' was not found. Use distance-first or heavy-first."</span><span class="p">));</span>
+
+<span class="k">static</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">ProcessAction</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ParseAction</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">text</span><span class="p">.</span><span class="n">Trim</span><span class="p">().</span><span class="n">ToLowerInvariant</span><span class="p">()</span><span class="w"> </span><span class="k">switch</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="s">"quote"</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Success</span><span class="p">(</span><span class="n">ProcessAction</span><span class="p">.</span><span class="n">Quote</span><span class="p">),</span>
+<span class="w">    </span><span class="s">"confirm"</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Success</span><span class="p">(</span><span class="n">ProcessAction</span><span class="p">.</span><span class="n">Confirm</span><span class="p">),</span>
+<span class="w">    </span><span class="s">"full"</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Success</span><span class="p">(</span><span class="n">ProcessAction</span><span class="p">.</span><span class="n">Full</span><span class="p">),</span>
+<span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Failure</span><span class="o">&lt;</span><span class="n">ProcessAction</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">InvalidInput</span><span class="p">,</span><span class="w"> </span><span class="s">$"Action '{text}' is not known. Use quote, confirm or full."</span><span class="p">),</span>
+<span class="p">};</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk">Аргументтерді <code>Result</code> ретінде шешу: <code>ResolvePolicy</code>, <code>ResolveScoreConfig</code>, <code>ParseAction</code>, <code>LoadDiscountsOrNone</code> (файл жоқ → <code>DiscountTable.Empty</code>).</div><div class="t" data-l="ru">Разбор аргументов как <code>Result</code>: <code>ResolvePolicy</code> (<code>Option</code> → <code>Map</code> → <code>ToResult(NotFound)</code>), <code>ResolveScoreConfig</code>, <code>ParseAction</code>, <code>LoadDiscountsOrNone</code> (без файла — <code>DiscountTable.Empty</code>).</div><div class="t" data-l="en">Argument resolution as <code>Result</code>: <code>ResolvePolicy</code> (<code>Option</code> → <code>Map</code> → <code>ToResult(NotFound)</code>), <code>ResolveScoreConfig</code>, <code>ParseAction</code>, <code>LoadDiscountsOrNone</code> (no file → <code>DiscountTable.Empty</code>).</div></div></section><section class="blk" id="L99"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 99–140</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">RunSummary</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">mode</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">wanted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mode</span><span class="p">.</span><span class="n">Trim</span><span class="p">().</span><span class="n">ToLowerInvariant</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wanted</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"both"</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="k">new</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">"standard"</span><span class="p">,</span><span class="w"> </span><span class="s">"express"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">new</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">wanted</span><span class="w"> </span><span class="p">};</span>
+
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">choices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ImmutableArray</span><span class="p">.</span><span class="n">CreateBuilder</span><span class="o">&lt;</span><span class="n">PolicyChoice</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">names</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">ResolvePolicy</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">PolicyChoice</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Ok</span><span class="w"> </span><span class="n">ok</span><span class="p">:</span>
+<span class="w">                </span><span class="n">choices</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">ok</span><span class="p">.</span><span class="n">Value</span><span class="p">);</span>
+<span class="w">                </span><span class="k">break</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">PolicyChoice</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Failure</span><span class="w"> </span><span class="n">failure</span><span class="p">:</span>
+<span class="w">                </span><span class="n">Console</span><span class="p">.</span><span class="n">Error</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"{failure.Error.Message}"</span><span class="p">);</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nf">Report</span><span class="p">(</span><span class="n">DataLoader</span><span class="p">.</span><span class="n">LoadRequests</span><span class="p">(</span><span class="n">csv</span><span class="p">),</span><span class="w"> </span><span class="n">requests</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">totals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">decimal</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">choice</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">choices</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DeliveryPipeline</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">requests</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">.</span><span class="n">Policy</span><span class="p">);</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Policy: {choice.Name}"</span><span class="p">);</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Quotes: {summary.Quotes.Length} (not eligible: {summary.SkippedCount})"</span><span class="p">);</span>
+<span class="w">            </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">summary</span><span class="p">.</span><span class="n">Quotes</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {q.Id,-6} {q.Customer,-10} {q.Price,7:0} KZT"</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Total: {summary.TotalPrice:0} KZT"</span><span class="p">);</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+<span class="w">            </span><span class="n">totals</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">summary</span><span class="p">.</span><span class="n">TotalPrice</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">totals</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Express minus standard total: {totals[1] - totals[0]:0} KZT"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>RunSummary</code> (1-workflow): <code>standard</code>, <code>express</code> немесе <code>both</code>; <code>DataLoader.LoadRequests</code> → әр саясат үшін <code>DeliveryPipeline.Run</code>, жиынтық және Express − Standard айырмасы.</div><div class="t" data-l="ru"><code>RunSummary</code> (workflow 1): <code>standard</code>, <code>express</code> или <code>both</code>; <code>DataLoader.LoadRequests</code> → <code>DeliveryPipeline.Run</code> для каждой политики, итог и разница Express − Standard.</div><div class="t" data-l="en"><code>RunSummary</code> (workflow 1): <code>standard</code>, <code>express</code> or <code>both</code>; <code>DataLoader.LoadRequests</code> → <code>DeliveryPipeline.Run</code> for each policy, then the total and the Express − Standard difference.</div></div></section><section class="blk" id="L142"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 142–172</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">RunLifecycle</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">policyName</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ResolvePolicy</span><span class="p">(</span><span class="n">policyName</span><span class="p">).</span><span class="n">Bind</span><span class="p">(</span><span class="n">choice</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">DataLoader</span><span class="p">.</span><span class="n">LoadRequests</span><span class="p">(</span><span class="n">csv</span><span class="p">).</span><span class="n">Map</span><span class="p">(</span><span class="n">requests</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">            </span><span class="p">(</span><span class="n">Choice</span><span class="p">:</span><span class="w"> </span><span class="n">choice</span><span class="p">,</span><span class="w"> </span><span class="n">Report</span><span class="p">:</span><span class="w"> </span><span class="n">OrderProcessor</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">requests</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">.</span><span class="n">Policy</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">.</span><span class="n">Name</span><span class="p">))));</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nf">Report</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="n">outcome</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Lifecycle, policy: {outcome.Choice.Name}"</span><span class="p">);</span>
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">outcome</span><span class="p">.</span><span class="n">Report</span><span class="p">.</span><span class="n">Steps</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">step</span><span class="p">.</span><span class="n">Result</span><span class="w"> </span><span class="k">switch</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Moved</span><span class="w"> </span><span class="n">moved</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">$"OK       {OrderWorkflow.Describe(moved.Next)}"</span><span class="p">,</span>
+<span class="w">                </span><span class="n">TransitionResult</span><span class="p">.</span><span class="n">Refused</span><span class="w"> </span><span class="n">refused</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">$"REFUSED  {refused.Message}"</span><span class="p">,</span>
+<span class="w">                </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"UNKNOWN RESULT"</span><span class="p">,</span>
+<span class="w">            </span><span class="p">};</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {step.Action,-16} {step.OrderId,-6} {text}"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Final orders:"</span><span class="p">);</span>
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">outcome</span><span class="p">.</span><span class="n">Report</span><span class="p">.</span><span class="n">Book</span><span class="p">.</span><span class="n">Ids</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">outcome</span><span class="p">.</span><span class="n">Report</span><span class="p">.</span><span class="n">Book</span><span class="p">.</span><span class="n">TryGet</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">var</span><span class="w"> </span><span class="n">state</span><span class="p">))</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {OrderWorkflow.Describe(state)}"</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>RunLifecycle</code> (2-workflow): <code>ResolvePolicy.Bind(... LoadRequests.Map(... OrderProcessor.Run))</code>; <code>TransitionResult</code> бойынша <code>switch</code> арқылы <code>OK</code> / <code>REFUSED</code> қадамдарын шығарады.</div><div class="t" data-l="ru"><code>RunLifecycle</code> (workflow 2): <code>ResolvePolicy.Bind(... LoadRequests.Map(... OrderProcessor.Run))</code>; печатает шаги <code>OK</code> / <code>REFUSED</code> через <code>switch</code> по <code>TransitionResult</code>.</div><div class="t" data-l="en"><code>RunLifecycle</code> (workflow 2): <code>ResolvePolicy.Bind(... LoadRequests.Map(... OrderProcessor.Run))</code>; prints steps <code>OK</code> / <code>REFUSED</code> with a <code>switch</code> on <code>TransitionResult</code>.</div></div></section><section class="blk" id="L174"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 174–201</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">RunQuote</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">policyName</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">customer</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">km</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">kg</span><span class="p">,</span><span class="w"> </span><span class="kt">string?</span><span class="w"> </span><span class="n">discountsPath</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ResolvePolicy</span><span class="p">(</span><span class="n">policyName</span><span class="p">).</span><span class="n">Bind</span><span class="p">(</span><span class="n">choice</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">LoadDiscountsOrNone</span><span class="p">(</span><span class="n">discountsPath</span><span class="p">).</span><span class="n">Bind</span><span class="p">(</span><span class="n">discounts</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">            </span><span class="n">QuoteWorkflow</span><span class="p">.</span><span class="n">QuoteOne</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">customer</span><span class="p">,</span><span class="w"> </span><span class="n">km</span><span class="p">,</span><span class="w"> </span><span class="n">kg</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">.</span><span class="n">Policy</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span><span class="w"> </span><span class="n">discounts</span><span class="p">)));</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nf">Report</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="n">quote</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">discountText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">quote</span><span class="p">.</span><span class="n">DiscountRecordFound</span>
+<span class="w">            </span><span class="o">?</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="n">CultureInfo</span><span class="p">.</span><span class="n">InvariantCulture</span><span class="p">,</span><span class="w"> </span><span class="s">$"discount {quote.DiscountPercent:0.##}% from the customer record"</span><span class="p">)</span>
+<span class="w">            </span><span class="p">:</span><span class="w"> </span><span class="s">"no discount record"</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Quote {quote.Id} for {quote.Customer}: {quote.Price:0} KZT ({quote.PolicyName}, {discountText})"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">RunProcess</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">policyName</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">orderId</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">actionText</span><span class="p">,</span><span class="w"> </span><span class="kt">string?</span><span class="w"> </span><span class="n">discountsPath</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ResolvePolicy</span><span class="p">(</span><span class="n">policyName</span><span class="p">).</span><span class="n">Bind</span><span class="p">(</span><span class="n">choice</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">ParseAction</span><span class="p">(</span><span class="n">actionText</span><span class="p">).</span><span class="n">Bind</span><span class="p">(</span><span class="n">action</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">            </span><span class="n">DataLoader</span><span class="p">.</span><span class="n">LoadRequests</span><span class="p">(</span><span class="n">csv</span><span class="p">).</span><span class="n">Bind</span><span class="p">(</span><span class="n">OrderService</span><span class="p">.</span><span class="n">LoadBook</span><span class="p">).</span><span class="n">Bind</span><span class="p">(</span><span class="n">book</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">                </span><span class="n">LoadDiscountsOrNone</span><span class="p">(</span><span class="n">discountsPath</span><span class="p">).</span><span class="n">Bind</span><span class="p">(</span><span class="n">discounts</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">                    </span><span class="n">OrderService</span><span class="p">.</span><span class="n">Process</span><span class="p">(</span><span class="n">book</span><span class="p">,</span><span class="w"> </span><span class="n">orderId</span><span class="p">,</span><span class="w"> </span><span class="n">action</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">.</span><span class="n">Policy</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span><span class="w"> </span><span class="n">discounts</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)))));</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nf">Report</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="n">outcome</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"{outcome.View.Status}: {outcome.View.Text}"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>RunQuote</code> (3-workflow, A тізбегі) және <code>RunProcess</code> (2-workflow, B тізбегі): кірістірілген <code>Bind</code>-тер; <code>OrderService.LoadBook</code> method group ретінде; растау нөмірі әрқашан 1.</div><div class="t" data-l="ru"><code>RunQuote</code> (workflow 3, цепочка A) и <code>RunProcess</code> (workflow 2, цепочка B): вложенные <code>Bind</code>; <code>OrderService.LoadBook</code> передан как method group; номер подтверждения всегда 1 (один заказ).</div><div class="t" data-l="en"><code>RunQuote</code> (workflow 3, chain A) and <code>RunProcess</code> (workflow 2, chain B): nested <code>Bind</code>s; <code>OrderService.LoadBook</code> passed as a method group; the confirmation number is always 1 (one order).</div></div></section><section class="blk" id="L203"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 203–244</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">static</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">AssignmentPolicyChoice</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ResolveAssignmentPolicy</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">normalized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">.</span><span class="n">Trim</span><span class="p">().</span><span class="n">ToLowerInvariant</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">AssignmentPolicies</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">normalized</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="n">Map</span><span class="p">(</span><span class="n">policy</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AssignmentPolicyChoice</span><span class="p">(</span><span class="n">normalized</span><span class="p">,</span><span class="w"> </span><span class="n">policy</span><span class="p">))</span>
+<span class="w">        </span><span class="p">.</span><span class="n">ToResult</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">NotFound</span><span class="p">,</span><span class="w"> </span><span class="s">$"Assignment policy '{name}' was not found. Use first-fit or best-fit."</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">RunAssign</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">couriersPath</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">policyName</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">configName</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">outputFile</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ResolveAssignmentPolicy</span><span class="p">(</span><span class="n">policyName</span><span class="p">).</span><span class="n">Bind</span><span class="p">(</span><span class="n">choice</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">ResolveScoreConfig</span><span class="p">(</span><span class="n">configName</span><span class="p">).</span><span class="n">Bind</span><span class="p">(</span><span class="n">config</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">            </span><span class="n">AssignmentWorkflow</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="n">couriersPath</span><span class="p">,</span><span class="w"> </span><span class="n">outputFile</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">Scoring</span><span class="p">.</span><span class="n">CreateScore</span><span class="p">(</span><span class="n">config</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NativeEffortCalculator</span><span class="p">(),</span><span class="w"> </span><span class="n">choice</span><span class="p">.</span><span class="n">Policy</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">.</span><span class="n">Name</span><span class="p">)));</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nf">Report</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Assignment policy: {run.Plan.PolicyName}, score: {configName.Trim().ToLowerInvariant()}"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Orders in dispatch order"</span><span class="p">);</span>
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">outcome</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">run</span><span class="p">.</span><span class="n">Plan</span><span class="p">.</span><span class="n">Outcomes</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">outcome</span><span class="w"> </span><span class="k">switch</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">AssignmentOutcome</span><span class="p">.</span><span class="n">Assigned</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">$"  {a.Order.Request.Id,-6} {a.Order.Points,5} points -&gt; {a.Courier.Id} ({a.Courier.Name}), {a.RemainingCapacity} left"</span><span class="p">,</span>
+<span class="w">                </span><span class="n">AssignmentOutcome</span><span class="p">.</span><span class="n">Unassigned</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">$"  {u.Order.Request.Id,-6} {u.Order.Points,5} points -&gt; NOT ASSIGNED: {u.Reason}"</span><span class="p">,</span>
+<span class="w">                </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"  unknown outcome"</span><span class="p">,</span>
+<span class="w">            </span><span class="p">};</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Courier loads"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {"</span><span class="n">Courier</span><span class="s">",-8} {"</span><span class="n">Name</span><span class="s">",-10} {"</span><span class="n">Capacity</span><span class="s">",9} {"</span><span class="n">Used</span><span class="s">",6} {"</span><span class="n">Orders</span><span class="s">",7}"</span><span class="p">);</span>
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">load</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">run</span><span class="p">.</span><span class="n">Plan</span><span class="p">.</span><span class="n">Loads</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {load.CourierId,-8} {load.Name,-10} {load.Capacity,9} {load.Used,6} {load.Orders,7}"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Exported to {run.OutputPath}"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>RunAssign</code> (5-workflow): тағайындау саясаты + бағалау конфигурациясы → <code>AssignmentWorkflow.Run(...)</code>; тапсырыстарды жөнелту тәртібімен және курьер жүктемесін шығарады.</div><div class="t" data-l="ru"><code>RunAssign</code> (workflow 5): политика назначения + конфигурация оценки → <code>AssignmentWorkflow.Run(... Scoring.CreateScore(config), new NativeEffortCalculator() ...)</code>; печатает заказы в порядке отправки и нагрузку курьеров.</div><div class="t" data-l="en"><code>RunAssign</code> (workflow 5): assignment policy + score configuration → <code>AssignmentWorkflow.Run(... Scoring.CreateScore(config), new NativeEffortCalculator() ...)</code>; prints orders in dispatch order and courier loads.</div></div></section><section class="blk" id="L246"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 246–281</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">RunReports</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">policyName</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">configName</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">outputFile</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ResolvePolicy</span><span class="p">(</span><span class="n">policyName</span><span class="p">).</span><span class="n">Bind</span><span class="p">(</span><span class="n">choice</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">ResolveScoreConfig</span><span class="p">(</span><span class="n">configName</span><span class="p">).</span><span class="n">Bind</span><span class="p">(</span><span class="n">config</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">            </span><span class="n">ReportingWorkflow</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="n">outputFile</span><span class="p">,</span><span class="w"> </span><span class="n">EligibilityRules</span><span class="p">.</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">.</span><span class="n">Policy</span><span class="p">,</span><span class="w"> </span><span class="n">Scoring</span><span class="p">.</span><span class="n">CreateScore</span><span class="p">(</span><span class="n">config</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NativeEffortCalculator</span><span class="p">())));</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nf">Report</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Policy: {policyName.Trim().ToLowerInvariant()}, score: {configName.Trim().ToLowerInvariant()}"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Report 1 - Dispatch list (highest score first)"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {"</span><span class="n">Rank</span><span class="s">",-5} {"</span><span class="n">Id</span><span class="s">",-6} {"</span><span class="n">Customer</span><span class="s">",-10} {"</span><span class="n">Km</span><span class="s">",6} {"</span><span class="n">Kg</span><span class="s">",6} {"</span><span class="n">Price</span><span class="s">",8} {"</span><span class="n">Score</span><span class="s">",8}"</span><span class="p">);</span>
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">run</span><span class="p">.</span><span class="n">Bundle</span><span class="p">.</span><span class="n">Dispatch</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="n">CultureInfo</span><span class="p">.</span><span class="n">InvariantCulture</span><span class="p">,</span>
+<span class="w">                </span><span class="s">$"  {line.Rank,-5} {line.Id,-6} {line.Customer,-10} {line.DistanceKm,6:0.##} {line.WeightKg,6:0.##} {line.Price,8:0} {line.Score,8:0.##}"</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Report 2 - Customer workload (native effort points)"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {"</span><span class="n">Customer</span><span class="s">",-10} {"</span><span class="n">Orders</span><span class="s">",6} {"</span><span class="n">Km</span><span class="s">",7} {"</span><span class="n">Points</span><span class="s">",7} {"</span><span class="n">Heaviest</span><span class="w"> </span><span class="n">kg</span><span class="s">",12}"</span><span class="p">);</span>
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">run</span><span class="p">.</span><span class="n">Bundle</span><span class="p">.</span><span class="n">Workload</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="n">CultureInfo</span><span class="p">.</span><span class="n">InvariantCulture</span><span class="p">,</span>
+<span class="w">                </span><span class="s">$"  {line.Customer,-10} {line.Orders,6} {line.TotalKm,7:0.##} {line.TotalPoints,7} {line.HeaviestKg,12:0.##}"</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Quote summary (pipeline): {run.Bundle.Summary.Quotes.Length} quotes, total {run.Bundle.Summary.TotalPrice:0} KZT, not eligible: {run.Bundle.Summary.SkippedCount}"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Exported to {run.OutputPath}"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="k">internal</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">record</span><span class="w"> </span><span class="nf">PolicyChoice</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="p">,</span><span class="w"> </span><span class="n">Func</span><span class="o">&lt;</span><span class="n">DeliveryRequest</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Policy</span><span class="p">);</span>
+
+<span class="k">internal</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">record</span><span class="w"> </span><span class="nf">AssignmentPolicyChoice</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="p">,</span><span class="w"> </span><span class="n">Func</span><span class="o">&lt;</span><span class="n">System</span><span class="p">.</span><span class="n">Collections</span><span class="p">.</span><span class="n">Immutable</span><span class="p">.</span><span class="n">ImmutableArray</span><span class="o">&lt;</span><span class="n">CourierLoad</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">Option</span><span class="o">&lt;</span><span class="n">CourierLoad</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">Policy</span><span class="p">);</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>RunReports</code> (4-workflow): <code>ReportingWorkflow.Run</code> + екі есеп және қорытынды консольге; соңында жеке <code>PolicyChoice</code> және <code>AssignmentPolicyChoice</code> record-тары (аты + функция).</div><div class="t" data-l="ru"><code>RunReports</code> (workflow 4): <code>ReportingWorkflow.Run</code> + два отчёта и итог в консоль; в конце — приватные <code>record PolicyChoice</code> и <code>AssignmentPolicyChoice</code> (имя + функция).</div><div class="t" data-l="en"><code>RunReports</code> (workflow 4): <code>ReportingWorkflow.Run</code> + the two reports and the summary to the console; at the end the private <code>record PolicyChoice</code> and <code>AssignmentPolicyChoice</code> (name + function).</div></div></section><div class="nav2"><a href="deliveryscore_c.html"><small>← <span class="t" data-l="kk">Алдыңғы</span><span class="t" data-l="ru">Назад</span><span class="t" data-l="en">Previous</span></small>deliveryscore.c</a><span></span></div></div></main></div><script src="../assets/app.js"></script></body></html>

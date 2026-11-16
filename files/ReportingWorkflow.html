@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ReportingWorkflow.cs · ITFP Final — Courier Delivery Quotes</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var l=localStorage.getItem('lang');if(l)document.documentElement.lang=l;var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head><body><div class="layout"><aside><a class="brand" href="../index.html">ITFP Final · Defense<small>Courier Delivery Quotes and Dispatch</small></a><a href="../index.html"><span class="t" data-l="kk">Басты бет</span><span class="t" data-l="ru">Главная</span><span class="t" data-l="en">Home</span></a><a href="../tech.html"><span class="t" data-l="kk">Технологиялар мен командалар</span><span class="t" data-l="ru">Технологии и команды</span><span class="t" data-l="en">Technologies &amp; commands</span></a><a href="../defense.html"><span class="t" data-l="kk">Қорғаудағы сұрақтар</span><span class="t" data-l="ru">Вопросы на защите</span><span class="t" data-l="en">Defense Q&amp;A</span></a><a href="../tests.html"><span class="t" data-l="kk">Тесттер</span><span class="t" data-l="ru">Тесты</span><span class="t" data-l="en">Tests</span></a><h4><span class="t" data-l="kk">Жоба файлдары</span><span class="t" data-l="ru">Файлы проекта</span><span class="t" data-l="en">Project files</span></h4><label style="display:block;padding:2px 8px;font-size:13px"><input type="checkbox" id="mine"> <span class="t" data-l="kk">Тек менің файлдарым</span><span class="t" data-l="ru">Только мои файлы</span><span class="t" data-l="en">Only my files</span></label><h4><span class="t" data-l="kk">Негіз: Result / Option</span><span class="t" data-l="ru">Основа: Result / Option</span><span class="t" data-l="en">Foundation: Result / Option</span></h4><a href="Result.html" data-owner="A">Result.cs</a><a href="Option.html" data-owner="A">Option.cs</a><a href="Error.html" data-owner="A">Error.cs</a><a href="ResultExtensions.html" data-owner="A">ResultExtensions.cs</a><a href="Extensions.html" data-owner="A">Extensions.cs</a><h4><span class="t" data-l="kk">Модельдер және валидация</span><span class="t" data-l="ru">Модели и валидация</span><span class="t" data-l="en">Models &amp; validation</span></h4><a href="Models.html" data-owner="S">Models.cs</a><a href="DeliveryRequest.html" data-owner="A">DeliveryRequest.cs</a><a href="RequestValidation.html" data-owner="A">RequestValidation.cs</a><a href="RequestParser.html" data-owner="A">RequestParser.cs</a><a href="Courier.html" data-owner="A">Courier.cs</a><a href="DiscountTable.html" data-owner="A">DiscountTable.cs</a><h4><span class="t" data-l="kk">Күйлер және қауіпсіз реттілік</span><span class="t" data-l="ru">Состояния и безопасный порядок</span><span class="t" data-l="en">States &amp; safe sequence</span></h4><a href="OrderState.html" data-owner="N">OrderState.cs</a><a href="TransitionResult.html" data-owner="N">TransitionResult.cs</a><a href="OrderWorkflow.html" data-owner="N">OrderWorkflow.cs</a><a href="OrderBook.html" data-owner="R">OrderBook.cs<span class="me" title="Ravil"></span></a><a href="OrderProcessor.html" data-owner="R">OrderProcessor.cs<span class="me" title="Ravil"></span></a><a href="OrderService.html" data-owner="R">OrderService.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Пайплайн және саясаттар</span><span class="t" data-l="ru">Пайплайн и политики</span><span class="t" data-l="en">Pipeline &amp; policies</span></h4><a href="PipelineStages.Common.html" data-owner="S">PipelineStages.Common.cs</a><a href="PipelineStages.Stage1Select.html" data-owner="N">PipelineStages.Stage1Select.cs</a><a href="PipelineStages.Stage2Price.html" data-owner="N">PipelineStages.Stage2Price.cs</a><a href="PipelineStages.Stage3Summary.html" data-owner="R">PipelineStages.Stage3Summary.cs<span class="me" title="Ravil"></span></a><a href="DeliveryPipeline.html" data-owner="R">DeliveryPipeline.cs<span class="me" title="Ravil"></span></a><a href="PricingPolicies.html" data-owner="N">PricingPolicies.cs</a><a href="Scoring.html" data-owner="A">Scoring.cs</a><h4><span class="t" data-l="kk">Есептер және жалқау есептеу</span><span class="t" data-l="ru">Отчёты и ленивость</span><span class="t" data-l="en">Reports &amp; laziness</span></h4><a href="Reports.html" data-owner="N">Reports.cs</a><a href="QuoteStream.html" data-owner="N">QuoteStream.cs</a><a href="LineStreaming.html" data-owner="N">LineStreaming.cs</a><a href="QuoteWorkflow.html" data-owner="A">QuoteWorkflow.cs</a><a href="ReportingWorkflow.html" class="cur" data-owner="R">ReportingWorkflow.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Курьерлерді тағайындау</span><span class="t" data-l="ru">Назначение курьеров</span><span class="t" data-l="en">Courier assignment</span></h4><a href="Assignment.html" data-owner="N">Assignment.cs</a><a href="AssignmentWorkflow.html" data-owner="R">AssignmentWorkflow.cs<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Файл шекаралары</span><span class="t" data-l="ru">Файлы (границы)</span><span class="t" data-l="en">File boundaries</span></h4><a href="DataLoader.html" data-owner="N">DataLoader.cs</a><a href="ReportExporter.html" data-owner="N">ReportExporter.cs</a><h4><span class="t" data-l="kk">Native C кітапханасы</span><span class="t" data-l="ru">Нативная C-библиотека</span><span class="t" data-l="en">Native C library</span></h4><a href="NativeMethods.html" data-owner="R">NativeMethods.cs<span class="me" title="Ravil"></span></a><a href="NativeEffortCalculator.html" data-owner="R">NativeEffortCalculator.cs<span class="me" title="Ravil"></span></a><a href="deliveryscore_h.html" data-owner="R">deliveryscore.h<span class="me" title="Ravil"></span></a><a href="deliveryscore_c.html" data-owner="R">deliveryscore.c<span class="me" title="Ravil"></span></a><h4><span class="t" data-l="kk">Консольдік қосымша</span><span class="t" data-l="ru">Консольное приложение</span><span class="t" data-l="en">Console app</span></h4><a href="Program.html" data-owner="R">Program.cs<span class="me" title="Ravil"></span></a></aside><main>
+<div class="top"><button class="btn menu" id="menu" aria-label="menu">☰</button><span class="grow"></span><button class="btn" id="theme" title="theme">◐</button><div class="seg" role="group" aria-label="language"><button data-setlang="kk" aria-pressed="false">KK</button><button data-setlang="ru" aria-pressed="false">RU</button><button data-setlang="en" aria-pressed="false">EN</button></div></div>
+<div class="wrap"><h1 class="mono" style="font-size:26px">ReportingWorkflow.cs</h1><p><span class="pill mono">src/DeliveryQuotes.Core/ReportingWorkflow.cs</span><span class="pill">51 <span class="t" data-l="kk">жол</span><span class="t" data-l="ru">строк</span><span class="t" data-l="en">lines</span></span><span class="pill me"><span class="t" data-l="kk">Авторы</span><span class="t" data-l="ru">Автор</span><span class="t" data-l="en">Owner</span>: Ravil Maratov ★ <span class="t" data-l="kk">сенің файлың</span><span class="t" data-l="ru">твой файл</span><span class="t" data-l="en">your file</span></span><span class="pill"><span class="t" data-l="kk">Есептер және жалқау есептеу</span><span class="t" data-l="ru">Отчёты и ленивость</span><span class="t" data-l="en">Reports &amp; laziness</span></span></p><h2><span class="t" data-l="kk">Файл не үшін керек</span><span class="t" data-l="ru">Зачем нужен файл</span><span class="t" data-l="en">What this file is for</span></h2><div class="card"><div class="t" data-l="kk">№4 workflow: файл → екі есеп + пайплайн + native кітапхана шақырулары → JSON экспорт. Таза бөлікті шекаралармен жалғайды.</div><div class="t" data-l="ru">Workflow №4: файл → два отчёта + пайплайн + вызовы native-библиотеки → экспорт JSON. Склеивает чистую часть с границами.</div><div class="t" data-l="en">Workflow #4: file → two reports + pipeline + native-library calls → JSON export. Glues the pure part to the boundaries.</div></div><div class="tip"><b><span class="t" data-l="kk">Қорғауда не айту керек</span><span class="t" data-l="ru">Что сказать на защите</span><span class="t" data-l="en">What to say at the defense</span>.</b> <span class="t" data-l="kk">Шекара осында көрінеді: <code>Build</code> таза, файлсыз тестіленеді; <code>Run</code> <code>DataLoader</code> мен <code>ReportExporter</code>-ді қосады.</span><span class="t" data-l="ru">Тут видно границу: <code>Build</code> чистая и тестируется без файлов, а <code>Run</code> подключает <code>DataLoader</code> и <code>ReportExporter</code>.</span><span class="t" data-l="en">The boundary is visible here: <code>Build</code> is pure and testable without files; <code>Run</code> plugs in <code>DataLoader</code> and <code>ReportExporter</code>.</span></div><h2><span class="t" data-l="kk">Толық код</span><span class="t" data-l="ru">Полный код</span><span class="t" data-l="en">Full code</span></h2><div class="codebox full"><div class="cb-head"><span class="mono">src/DeliveryQuotes.Core/ReportingWorkflow.cs</span><button class="btn" data-toggle aria-expanded="false"><span class="t" data-l="kk">Ашу / жасыру</span><span class="t" data-l="ru">Развернуть / свернуть</span><span class="t" data-l="en">Expand / collapse</span></button></div><div class="scroll"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Immutable</span><span class="p">;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">DeliveryQuotes.Core</span><span class="p">;</span>
+
+<span class="c1">/// &lt;summary&gt;Outcome of a complete run: the reports and the file they were exported to.&lt;/summary&gt;</span>
+<span class="k">public</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">record</span><span class="w"> </span><span class="nf">ReportRun</span><span class="p">(</span><span class="n">ReportBundle</span><span class="w"> </span><span class="n">Bundle</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">OutputPath</span><span class="p">);</span>
+
+<span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// The integration layer: it composes the boundaries (file loader, native adapter, exporter) with the pure parts</span>
+<span class="c1">/// (Assignment 5 pipeline, the two reports). Nothing is exported unless every earlier step succeeded.</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ReportingWorkflow</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;Builds both reports and the Assignment 5 summary. No console, no file access; the native calls go through &lt;paramref name="effort"/&gt;.&lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">ReportBundle</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Build</span><span class="p">(</span>
+<span class="w">        </span><span class="n">ImmutableArray</span><span class="o">&lt;</span><span class="n">DeliveryRequest</span><span class="o">&gt;</span><span class="w"> </span><span class="n">requests</span><span class="p">,</span>
+<span class="w">        </span><span class="n">EligibilityRules</span><span class="w"> </span><span class="n">rules</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Func</span><span class="o">&lt;</span><span class="n">DeliveryRequest</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">policy</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Func</span><span class="o">&lt;</span><span class="n">DeliveryRequest</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">score</span><span class="p">,</span>
+<span class="w">        </span><span class="n">IEffortCalculator</span><span class="w"> </span><span class="n">effort</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">requests</span><span class="p">.</span><span class="n">IsDefault</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Failure</span><span class="o">&lt;</span><span class="n">ReportBundle</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">InvalidInput</span><span class="p">,</span><span class="w"> </span><span class="s">"The list of requests is missing."</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">rules</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">policy</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">score</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">effort</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DeliveryPipeline</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">requests</span><span class="p">,</span><span class="w"> </span><span class="n">rules</span><span class="p">,</span><span class="w"> </span><span class="n">policy</span><span class="p">);</span><span class="w">                   </span><span class="c1">// Assignment 5 pipeline</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">dispatch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Reports</span><span class="p">.</span><span class="n">DispatchList</span><span class="p">(</span><span class="n">requests</span><span class="p">,</span><span class="w"> </span><span class="n">rules</span><span class="p">,</span><span class="w"> </span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">score</span><span class="p">);</span><span class="w">            </span><span class="c1">// report 1</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">requests</span>
+<span class="w">            </span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">rules</span><span class="p">.</span><span class="n">Allows</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">CollectResults</span><span class="p">(</span><span class="n">request</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">effort</span><span class="p">.</span><span class="n">Calculate</span><span class="p">(</span><span class="n">request</span><span class="p">).</span><span class="n">Map</span><span class="p">(</span><span class="n">points</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EffortItem</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">points</span><span class="p">)))</span><span class="w">   </span><span class="c1">// native calls, all or nothing</span>
+<span class="w">            </span><span class="p">.</span><span class="n">Map</span><span class="p">(</span><span class="n">items</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ReportBundle</span><span class="p">(</span><span class="n">summary</span><span class="p">,</span><span class="w"> </span><span class="n">dispatch</span><span class="p">,</span><span class="w"> </span><span class="n">Reports</span><span class="p">.</span><span class="n">CustomerWorkload</span><span class="p">(</span><span class="n">items</span><span class="p">)));</span><span class="w">                  </span><span class="c1">// report 2</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;File to reports to file: load (boundary), build (pure + native adapter), export (boundary).&lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">ReportRun</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Run</span><span class="p">(</span>
+<span class="w">        </span><span class="kt">string?</span><span class="w"> </span><span class="n">ordersPath</span><span class="p">,</span>
+<span class="w">        </span><span class="kt">string?</span><span class="w"> </span><span class="n">outputPath</span><span class="p">,</span>
+<span class="w">        </span><span class="n">EligibilityRules</span><span class="w"> </span><span class="n">rules</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Func</span><span class="o">&lt;</span><span class="n">DeliveryRequest</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">policy</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Func</span><span class="o">&lt;</span><span class="n">DeliveryRequest</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">score</span><span class="p">,</span>
+<span class="w">        </span><span class="n">IEffortCalculator</span><span class="w"> </span><span class="n">effort</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">DataLoader</span><span class="p">.</span><span class="n">LoadRequests</span><span class="p">(</span><span class="n">ordersPath</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">requests</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Build</span><span class="p">(</span><span class="n">requests</span><span class="p">,</span><span class="w"> </span><span class="n">rules</span><span class="p">,</span><span class="w"> </span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">score</span><span class="p">,</span><span class="w"> </span><span class="n">effort</span><span class="p">))</span>
+<span class="w">            </span><span class="p">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">bundle</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ReportExporter</span><span class="p">.</span><span class="n">Export</span><span class="p">(</span><span class="n">outputPath</span><span class="p">,</span><span class="w"> </span><span class="n">bundle</span><span class="p">).</span><span class="n">Map</span><span class="p">(</span><span class="n">path</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ReportRun</span><span class="p">(</span><span class="n">bundle</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">)));</span>
+<span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div></div><h2><span class="t" data-l="kk">Блоктар және жолдар бойынша талдау</span><span class="t" data-l="ru">Разбор по блокам и строкам</span><span class="t" data-l="en">Block-by-block breakdown</span></h2><section class="blk" id="L12"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 12–38</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ReportingWorkflow</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;Builds both reports and the Assignment 5 summary. No console, no file access; the native calls go through &lt;paramref name="effort"/&gt;.&lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">ReportBundle</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Build</span><span class="p">(</span>
+<span class="w">        </span><span class="n">ImmutableArray</span><span class="o">&lt;</span><span class="n">DeliveryRequest</span><span class="o">&gt;</span><span class="w"> </span><span class="n">requests</span><span class="p">,</span>
+<span class="w">        </span><span class="n">EligibilityRules</span><span class="w"> </span><span class="n">rules</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Func</span><span class="o">&lt;</span><span class="n">DeliveryRequest</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">policy</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Func</span><span class="o">&lt;</span><span class="n">DeliveryRequest</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">score</span><span class="p">,</span>
+<span class="w">        </span><span class="n">IEffortCalculator</span><span class="w"> </span><span class="n">effort</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">requests</span><span class="p">.</span><span class="n">IsDefault</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">Failure</span><span class="o">&lt;</span><span class="n">ReportBundle</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ErrorCode</span><span class="p">.</span><span class="n">InvalidInput</span><span class="p">,</span><span class="w"> </span><span class="s">"The list of requests is missing."</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">rules</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">policy</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">score</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ArgumentNullException</span><span class="p">.</span><span class="n">ThrowIfNull</span><span class="p">(</span><span class="n">effort</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DeliveryPipeline</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">requests</span><span class="p">,</span><span class="w"> </span><span class="n">rules</span><span class="p">,</span><span class="w"> </span><span class="n">policy</span><span class="p">);</span><span class="w">                   </span><span class="c1">// Assignment 5 pipeline</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">dispatch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Reports</span><span class="p">.</span><span class="n">DispatchList</span><span class="p">(</span><span class="n">requests</span><span class="p">,</span><span class="w"> </span><span class="n">rules</span><span class="p">,</span><span class="w"> </span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">score</span><span class="p">);</span><span class="w">            </span><span class="c1">// report 1</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">requests</span>
+<span class="w">            </span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">rules</span><span class="p">.</span><span class="n">Allows</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">CollectResults</span><span class="p">(</span><span class="n">request</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">effort</span><span class="p">.</span><span class="n">Calculate</span><span class="p">(</span><span class="n">request</span><span class="p">).</span><span class="n">Map</span><span class="p">(</span><span class="n">points</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EffortItem</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">points</span><span class="p">)))</span><span class="w">   </span><span class="c1">// native calls, all or nothing</span>
+<span class="w">            </span><span class="p">.</span><span class="n">Map</span><span class="p">(</span><span class="n">items</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ReportBundle</span><span class="p">(</span><span class="n">summary</span><span class="p">,</span><span class="w"> </span><span class="n">dispatch</span><span class="p">,</span><span class="w"> </span><span class="n">Reports</span><span class="p">.</span><span class="n">CustomerWorkload</span><span class="p">(</span><span class="n">items</span><span class="p">)));</span><span class="w">                  </span><span class="c1">// report 2</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>Build</code> (таза): <code>DeliveryPipeline.Run</code> + <code>Reports.DispatchList</code>; кейін <code>Where(Allows).CollectResults(...)</code> — әр тапсырысқа native шақыру, «не бәрі, не ештеңе» → <code>Map</code> <code>CustomerWorkload</code>-пен <code>ReportBundle</code> жинайды.</div><div class="t" data-l="ru"><code>Build</code> (чистая): <code>DeliveryPipeline.Run</code> + <code>Reports.DispatchList</code>; затем <code>Where(Allows).CollectResults(request =&gt; effort.Calculate(request).Map(points =&gt; new EffortItem(...)))</code> — вызов native для каждой заявки по принципу «всё или ничего» → <code>Map</code> собирает <code>ReportBundle</code> с <code>CustomerWorkload</code>.</div><div class="t" data-l="en"><code>Build</code> (pure): <code>DeliveryPipeline.Run</code> + <code>Reports.DispatchList</code>; then <code>Where(Allows).CollectResults(request =&gt; effort.Calculate(request).Map(points =&gt; new EffortItem(...)))</code> — a native call per order, all-or-nothing → <code>Map</code> assembles <code>ReportBundle</code> with <code>CustomerWorkload</code>.</div></div></section><section class="blk" id="L39"><h3><span class="t" data-l="kk">Жолдар</span><span class="t" data-l="ru">Строки</span><span class="t" data-l="en">Lines</span> 39–51</h3><div class="codebox"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span></pre></div></td><td class="code"><div><pre><span></span><span class="w">    </span><span class="c1">/// &lt;summary&gt;File to reports to file: load (boundary), build (pure + native adapter), export (boundary).&lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">ReportRun</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Run</span><span class="p">(</span>
+<span class="w">        </span><span class="kt">string?</span><span class="w"> </span><span class="n">ordersPath</span><span class="p">,</span>
+<span class="w">        </span><span class="kt">string?</span><span class="w"> </span><span class="n">outputPath</span><span class="p">,</span>
+<span class="w">        </span><span class="n">EligibilityRules</span><span class="w"> </span><span class="n">rules</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Func</span><span class="o">&lt;</span><span class="n">DeliveryRequest</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">policy</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Func</span><span class="o">&lt;</span><span class="n">DeliveryRequest</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">score</span><span class="p">,</span>
+<span class="w">        </span><span class="n">IEffortCalculator</span><span class="w"> </span><span class="n">effort</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">DataLoader</span><span class="p">.</span><span class="n">LoadRequests</span><span class="p">(</span><span class="n">ordersPath</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">requests</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Build</span><span class="p">(</span><span class="n">requests</span><span class="p">,</span><span class="w"> </span><span class="n">rules</span><span class="p">,</span><span class="w"> </span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">score</span><span class="p">,</span><span class="w"> </span><span class="n">effort</span><span class="p">))</span>
+<span class="w">            </span><span class="p">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">bundle</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ReportExporter</span><span class="p">.</span><span class="n">Export</span><span class="p">(</span><span class="n">outputPath</span><span class="p">,</span><span class="w"> </span><span class="n">bundle</span><span class="p">).</span><span class="n">Map</span><span class="p">(</span><span class="n">path</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ReportRun</span><span class="p">(</span><span class="n">bundle</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">)));</span>
+<span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div><div class="why"><div class="t" data-l="kk"><code>Run</code>: <code>LoadRequests → Bind(Build) → Bind(Export → Map(ReportRun))</code>. Бірінші қате (файл, формат, native, жазу) тізбекті тоқтатады.</div><div class="t" data-l="ru"><code>Run</code>: <code>LoadRequests → Bind(Build) → Bind(Export → Map(ReportRun))</code>. Первая же ошибка (файл, формат, native, запись) останавливает цепочку.</div><div class="t" data-l="en"><code>Run</code>: <code>LoadRequests → Bind(Build) → Bind(Export → Map(ReportRun))</code>. The first error (file, format, native, write) stops the chain.</div></div></section><div class="nav2"><a href="QuoteWorkflow.html"><small>← <span class="t" data-l="kk">Алдыңғы</span><span class="t" data-l="ru">Назад</span><span class="t" data-l="en">Previous</span></small>QuoteWorkflow.cs</a><a href="Assignment.html" style="text-align:right"><small><span class="t" data-l="kk">Келесі</span><span class="t" data-l="ru">Дальше</span><span class="t" data-l="en">Next</span> →</small>Assignment.cs</a></div></div></main></div><script src="../assets/app.js"></script></body></html>
